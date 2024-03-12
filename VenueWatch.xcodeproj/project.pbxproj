@@ -9,21 +9,63 @@
 /* Begin PBXBuildFile section */
 		0AF8CA912BA034D90069DF7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CA902BA034D90069DF7E /* AppDelegate.swift */; };
 		0AF8CA932BA034D90069DF7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CA922BA034D90069DF7E /* SceneDelegate.swift */; };
-		0AF8CA952BA034D90069DF7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CA942BA034D90069DF7E /* ViewController.swift */; };
-		0AF8CA982BA034D90069DF7E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CA972BA034D90069DF7E /* Base */; };
 		0AF8CA9A2BA034DB0069DF7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CA992BA034DB0069DF7E /* Assets.xcassets */; };
 		0AF8CA9D2BA034DB0069DF7E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CA9C2BA034DB0069DF7E /* Base */; };
+		0AF8CAA72BA0360B0069DF7E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAA62BA0360B0069DF7E /* TabBarController.swift */; };
+		0AF8CAA92BA036450069DF7E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAA82BA036450069DF7E /* NavigationController.swift */; };
+		0AF8CAAE2BA03A5A0069DF7E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAAD2BA03A590069DF7E /* R.generated.swift */; };
+		0AF8CABF2BA03B6C0069DF7E /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAB02BA03B6C0069DF7E /* Rubik-Black.ttf */; };
+		0AF8CAC02BA03B6C0069DF7E /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAB12BA03B6C0069DF7E /* Rubik-BlackItalic.ttf */; };
+		0AF8CAC12BA03B6C0069DF7E /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAB22BA03B6C0069DF7E /* Rubik-Bold.ttf */; };
+		0AF8CAC22BA03B6C0069DF7E /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAB32BA03B6C0069DF7E /* Rubik-BoldItalic.ttf */; };
+		0AF8CAC52BA03B6C0069DF7E /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAB62BA03B6C0069DF7E /* Rubik-Italic.ttf */; };
+		0AF8CAC62BA03B6C0069DF7E /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAB72BA03B6C0069DF7E /* Rubik-Light.ttf */; };
+		0AF8CAC72BA03B6C0069DF7E /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAB82BA03B6C0069DF7E /* Rubik-LightItalic.ttf */; };
+		0AF8CAC82BA03B6C0069DF7E /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAB92BA03B6C0069DF7E /* Rubik-Medium.ttf */; };
+		0AF8CAC92BA03B6C0069DF7E /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CABA2BA03B6C0069DF7E /* Rubik-MediumItalic.ttf */; };
+		0AF8CACA2BA03B6C0069DF7E /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CABB2BA03B6C0069DF7E /* Rubik-Regular.ttf */; };
+		0AF8CAD12BA043210069DF7E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAD02BA043210069DF7E /* BaseViewController.swift */; };
+		0AF8CAD42BA048CB0069DF7E /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAD32BA048CB0069DF7E /* Color.xcassets */; };
+		0AF8CAD62BA048F50069DF7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAD52BA048F50069DF7E /* Images.xcassets */; };
+		0AF8CADA2BA04AA00069DF7E /* UIView + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAD92BA04AA00069DF7E /* UIView + ext.swift */; };
+		0AF8CAE02BA04FCB0069DF7E /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CADF2BA04FCB0069DF7E /* NotesViewController.swift */; };
+		0AF8CAE22BA04FE50069DF7E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAE12BA04FE50069DF7E /* MapViewController.swift */; };
+		0AF8CAE42BA04FFB0069DF7E /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAE32BA04FFB0069DF7E /* FriendsViewController.swift */; };
+		0AF8CAE62BA0500E0069DF7E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAE52BA0500E0069DF7E /* ProfileViewController.swift */; };
+		BAE2CB56760B73B5C3DCEE4C /* Pods_VenueWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B5CDF00B2A6800AEC7CAAB /* Pods_VenueWatch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0AF8CA8D2BA034D90069DF7E /* VenueWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF8CA902BA034D90069DF7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF8CA922BA034D90069DF7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0AF8CA942BA034D90069DF7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0AF8CA972BA034D90069DF7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AF8CA992BA034DB0069DF7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AF8CA9C2BA034DB0069DF7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AF8CA9E2BA034DB0069DF7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AF8CAA62BA0360B0069DF7E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0AF8CAA82BA036450069DF7E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		0AF8CAAD2BA03A590069DF7E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		0AF8CAB02BA03B6C0069DF7E /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
+		0AF8CAB12BA03B6C0069DF7E /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
+		0AF8CAB22BA03B6C0069DF7E /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		0AF8CAB32BA03B6C0069DF7E /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
+		0AF8CAB62BA03B6C0069DF7E /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
+		0AF8CAB72BA03B6C0069DF7E /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
+		0AF8CAB82BA03B6C0069DF7E /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
+		0AF8CAB92BA03B6C0069DF7E /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		0AF8CABA2BA03B6C0069DF7E /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
+		0AF8CABB2BA03B6C0069DF7E /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		0AF8CAD02BA043210069DF7E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0AF8CAD32BA048CB0069DF7E /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		0AF8CAD52BA048F50069DF7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0AF8CAD92BA04AA00069DF7E /* UIView + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + ext.swift"; sourceTree = "<group>"; };
+		0AF8CADF2BA04FCB0069DF7E /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		0AF8CAE12BA04FE50069DF7E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0AF8CAE32BA04FFB0069DF7E /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		0AF8CAE52BA0500E0069DF7E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CDF9F584F1F0555990701D75 /* Pods-VenueWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueWatch.debug.xcconfig"; path = "Target Support Files/Pods-VenueWatch/Pods-VenueWatch.debug.xcconfig"; sourceTree = "<group>"; };
+		E4B5CDF00B2A6800AEC7CAAB /* Pods_VenueWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VenueWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF2554CF030F49B64286B429 /* Pods-VenueWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueWatch.release.xcconfig"; path = "Target Support Files/Pods-VenueWatch/Pods-VenueWatch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE2CB56760B73B5C3DCEE4C /* Pods_VenueWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +85,8 @@
 			children = (
 				0AF8CA8F2BA034D90069DF7E /* VenueWatch */,
 				0AF8CA8E2BA034D90069DF7E /* Products */,
+				74141B4337A48614BC0A62D2 /* Pods */,
+				38E752756D3346323436BDAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +101,179 @@
 		0AF8CA8F2BA034D90069DF7E /* VenueWatch */ = {
 			isa = PBXGroup;
 			children = (
+				0AF8CAD72BA04A8A0069DF7E /* Helpers */,
+				0AF8CAAA2BA039C90069DF7E /* Resources */,
+				0AF8CAA42BA035E40069DF7E /* Application */,
+				0AF8CACE2BA042DF0069DF7E /* Controllers */,
+				0AF8CACD2BA03D800069DF7E /* SupportingFiles */,
+			);
+			path = VenueWatch;
+			sourceTree = "<group>";
+		};
+		0AF8CAA42BA035E40069DF7E /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				0AF8CA902BA034D90069DF7E /* AppDelegate.swift */,
 				0AF8CA922BA034D90069DF7E /* SceneDelegate.swift */,
-				0AF8CA942BA034D90069DF7E /* ViewController.swift */,
-				0AF8CA962BA034D90069DF7E /* Main.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		0AF8CAA52BA035EF0069DF7E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAA62BA0360B0069DF7E /* TabBarController.swift */,
+				0AF8CAA82BA036450069DF7E /* NavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		0AF8CAAA2BA039C90069DF7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAD22BA048BB0069DF7E /* AssetCatalogs */,
+				0AF8CAAF2BA03A790069DF7E /* Fonts */,
+				0AF8CAAB2BA039E10069DF7E /* Generated */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0AF8CAAB2BA039E10069DF7E /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAAD2BA03A590069DF7E /* R.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		0AF8CAAF2BA03A790069DF7E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CABE2BA03B6C0069DF7E /* Rubik */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0AF8CABE2BA03B6C0069DF7E /* Rubik */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAB02BA03B6C0069DF7E /* Rubik-Black.ttf */,
+				0AF8CAB12BA03B6C0069DF7E /* Rubik-BlackItalic.ttf */,
+				0AF8CAB22BA03B6C0069DF7E /* Rubik-Bold.ttf */,
+				0AF8CAB32BA03B6C0069DF7E /* Rubik-BoldItalic.ttf */,
+				0AF8CAB62BA03B6C0069DF7E /* Rubik-Italic.ttf */,
+				0AF8CAB72BA03B6C0069DF7E /* Rubik-Light.ttf */,
+				0AF8CAB82BA03B6C0069DF7E /* Rubik-LightItalic.ttf */,
+				0AF8CAB92BA03B6C0069DF7E /* Rubik-Medium.ttf */,
+				0AF8CABA2BA03B6C0069DF7E /* Rubik-MediumItalic.ttf */,
+				0AF8CABB2BA03B6C0069DF7E /* Rubik-Regular.ttf */,
+			);
+			path = Rubik;
+			sourceTree = "<group>";
+		};
+		0AF8CACD2BA03D800069DF7E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				0AF8CA992BA034DB0069DF7E /* Assets.xcassets */,
 				0AF8CA9B2BA034DB0069DF7E /* LaunchScreen.storyboard */,
 				0AF8CA9E2BA034DB0069DF7E /* Info.plist */,
 			);
-			path = VenueWatch;
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		0AF8CACE2BA042DF0069DF7E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAA52BA035EF0069DF7E /* Navigation */,
+				0AF8CADE2BA04F920069DF7E /* Notes */,
+				0AF8CADD2BA04F8E0069DF7E /* Map */,
+				0AF8CADC2BA04F840069DF7E /* Friends */,
+				0AF8CADB2BA04F7B0069DF7E /* Profile */,
+				0AF8CACF2BA043040069DF7E /* Bases */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0AF8CACF2BA043040069DF7E /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAD02BA043210069DF7E /* BaseViewController.swift */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
+		0AF8CAD22BA048BB0069DF7E /* AssetCatalogs */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAD32BA048CB0069DF7E /* Color.xcassets */,
+				0AF8CAD52BA048F50069DF7E /* Images.xcassets */,
+			);
+			path = AssetCatalogs;
+			sourceTree = "<group>";
+		};
+		0AF8CAD72BA04A8A0069DF7E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAD82BA04A920069DF7E /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0AF8CAD82BA04A920069DF7E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAD92BA04AA00069DF7E /* UIView + ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0AF8CADB2BA04F7B0069DF7E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAE52BA0500E0069DF7E /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0AF8CADC2BA04F840069DF7E /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAE32BA04FFB0069DF7E /* FriendsViewController.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		0AF8CADD2BA04F8E0069DF7E /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAE12BA04FE50069DF7E /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0AF8CADE2BA04F920069DF7E /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CADF2BA04FCB0069DF7E /* NotesViewController.swift */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		38E752756D3346323436BDAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4B5CDF00B2A6800AEC7CAAB /* Pods_VenueWatch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74141B4337A48614BC0A62D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CDF9F584F1F0555990701D75 /* Pods-VenueWatch.debug.xcconfig */,
+				FF2554CF030F49B64286B429 /* Pods-VenueWatch.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +283,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AF8CAA12BA034DB0069DF7E /* Build configuration list for PBXNativeTarget "VenueWatch" */;
 			buildPhases = (
+				776B0483B282628E8C4D0A73 /* [CP] Check Pods Manifest.lock */,
 				0AF8CA892BA034D90069DF7E /* Sources */,
 				0AF8CA8A2BA034D90069DF7E /* Frameworks */,
+				0AF8CAAC2BA039FE0069DF7E /* R.swift.generate */,
 				0AF8CA8B2BA034D90069DF7E /* Resources */,
+				727B9333405B61B955F9D325 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,36 +337,107 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AF8CABF2BA03B6C0069DF7E /* Rubik-Black.ttf in Resources */,
+				0AF8CACA2BA03B6C0069DF7E /* Rubik-Regular.ttf in Resources */,
+				0AF8CAD42BA048CB0069DF7E /* Color.xcassets in Resources */,
+				0AF8CAC22BA03B6C0069DF7E /* Rubik-BoldItalic.ttf in Resources */,
+				0AF8CAC82BA03B6C0069DF7E /* Rubik-Medium.ttf in Resources */,
+				0AF8CAC72BA03B6C0069DF7E /* Rubik-LightItalic.ttf in Resources */,
 				0AF8CA9A2BA034DB0069DF7E /* Assets.xcassets in Resources */,
+				0AF8CAC02BA03B6C0069DF7E /* Rubik-BlackItalic.ttf in Resources */,
+				0AF8CAC52BA03B6C0069DF7E /* Rubik-Italic.ttf in Resources */,
+				0AF8CAD62BA048F50069DF7E /* Images.xcassets in Resources */,
 				0AF8CA9D2BA034DB0069DF7E /* Base in Resources */,
-				0AF8CA982BA034D90069DF7E /* Base in Resources */,
+				0AF8CAC92BA03B6C0069DF7E /* Rubik-MediumItalic.ttf in Resources */,
+				0AF8CAC62BA03B6C0069DF7E /* Rubik-Light.ttf in Resources */,
+				0AF8CAC12BA03B6C0069DF7E /* Rubik-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0AF8CAAC2BA039FE0069DF7E /* R.swift.generate */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = R.swift.generate;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/VenueWatch/Resources/Generated/R.generated.swift\"\n";
+		};
+		727B9333405B61B955F9D325 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VenueWatch/Pods-VenueWatch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VenueWatch/Pods-VenueWatch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VenueWatch/Pods-VenueWatch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		776B0483B282628E8C4D0A73 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VenueWatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AF8CA892BA034D90069DF7E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AF8CA952BA034D90069DF7E /* ViewController.swift in Sources */,
+				0AF8CAA72BA0360B0069DF7E /* TabBarController.swift in Sources */,
+				0AF8CADA2BA04AA00069DF7E /* UIView + ext.swift in Sources */,
+				0AF8CAE22BA04FE50069DF7E /* MapViewController.swift in Sources */,
+				0AF8CAA92BA036450069DF7E /* NavigationController.swift in Sources */,
 				0AF8CA912BA034D90069DF7E /* AppDelegate.swift in Sources */,
+				0AF8CAE62BA0500E0069DF7E /* ProfileViewController.swift in Sources */,
+				0AF8CAE42BA04FFB0069DF7E /* FriendsViewController.swift in Sources */,
+				0AF8CAE02BA04FCB0069DF7E /* NotesViewController.swift in Sources */,
 				0AF8CA932BA034D90069DF7E /* SceneDelegate.swift in Sources */,
+				0AF8CAD12BA043210069DF7E /* BaseViewController.swift in Sources */,
+				0AF8CAAE2BA03A5A0069DF7E /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0AF8CA962BA034D90069DF7E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0AF8CA972BA034D90069DF7E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0AF8CA9B2BA034DB0069DF7E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -203,7 +486,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -218,7 +501,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -266,7 +549,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -275,7 +558,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -287,6 +570,7 @@
 		};
 		0AF8CAA22BA034DB0069DF7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDF9F584F1F0555990701D75 /* Pods-VenueWatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,10 +578,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 653PNCT9WW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VenueWatch/Info.plist;
+				INFOPLIST_FILE = VenueWatch/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -315,6 +598,7 @@
 		};
 		0AF8CAA32BA034DB0069DF7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF2554CF030F49B64286B429 /* Pods-VenueWatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,10 +606,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 653PNCT9WW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VenueWatch/Info.plist;
+				INFOPLIST_FILE = VenueWatch/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
