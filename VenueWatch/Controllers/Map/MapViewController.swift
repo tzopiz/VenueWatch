@@ -20,7 +20,7 @@ extension MapViewController {
     }
     override func configureViews() {
         super.configureViews()
-        navigationItem.title = "Map"
+        navigationItem.title = App.string.map()
     }
 }
 

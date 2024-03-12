@@ -8,6 +8,10 @@
 import UIKit
 
 public class BaseViewController: UIViewController {
+    enum NavBarPosition {
+        case left
+        case right
+    }
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -38,4 +42,34 @@ extension BaseViewController {
         view.backgroundColor = R.color.background()
         navigationController?.navigationBar.addBottomBorder(with: R.color.border(), height: 1)
     }
+}
+
+extension BaseViewController {
+    func addNavBarButton(at position: NavBarPosition,
+                         with title: String? = nil,
+                         image: UIImage? = nil) {
+        let button = UIButton(type: .system)
+        if let title = title { button.setTitle(title, for: .normal) }
+        if let image = image { button.setImage(image, for: .normal) }
+        button.titleLabel?.font = R.font.rubikRegular(size: 17)!
+        
+        switch position {
+        case .left:
+            button.addTarget(
+                self,
+                action: #selector(navBarLeftButtonHandler),
+                for: .touchUpInside
+            )
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        case .right:
+            button.addTarget(
+                self,
+                action: #selector(navBarRightButtonHandler),
+                for: .touchUpInside
+            )
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        }
+    }
+    @IBAction func navBarLeftButtonHandler() { }
+    @IBAction func navBarRightButtonHandler() { }
 }

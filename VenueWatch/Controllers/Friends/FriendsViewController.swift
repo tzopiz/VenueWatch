@@ -20,6 +20,6 @@ extension FriendsViewController {
     }
     override func configureViews() {
         super.configureViews()
-        navigationItem.title = "Friends"
+        navigationItem.title = App.string.friends()
     }
 }

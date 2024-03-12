@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class ProfileViewController: BaseViewController { }
 
 // MARK: - Configure
@@ -20,6 +21,14 @@ extension ProfileViewController {
     }
     override func configureViews() {
         super.configureViews()
-        navigationItem.title = "Profile"
+        navigationItem.title = App.string.profile()
+        addNavBarButton(
+            at: .right,
+            with: App.string.signIn()
+        )
+    }
+    override func navBarRightButtonHandler() {
+        let viewController = SignInViewController()
+        self.navigationController?.present(viewController, animated: true)
     }
 }

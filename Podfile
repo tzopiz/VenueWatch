@@ -4,6 +4,6 @@ use_frameworks!
 target 'VenueWatch' do
   
   pod 'SnapKit'
-  pod 'R.swift'
+  pod 'R.swift', '~> 7.0'
 
 end

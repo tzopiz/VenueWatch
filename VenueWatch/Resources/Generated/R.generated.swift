@@ -5,19 +5,27 @@
 
 import Foundation
 import RswiftResources
-import UIKit
 
 private class BundleFinder {}
 let R = _R(bundle: Bundle(for: BundleFinder.self))
 
 struct _R {
   let bundle: Foundation.Bundle
+  var string: string { .init(bundle: bundle, preferredLanguages: nil, locale: nil) }
   var color: color { .init(bundle: bundle) }
   var info: info { .init(bundle: bundle) }
   var font: font { .init(bundle: bundle) }
   var file: file { .init(bundle: bundle) }
-  var storyboard: storyboard { .init(bundle: bundle) }
 
+  func string(bundle: Foundation.Bundle) -> string {
+    .init(bundle: bundle, preferredLanguages: nil, locale: nil)
+  }
+  func string(locale: Foundation.Locale) -> string {
+    .init(bundle: bundle, preferredLanguages: nil, locale: locale)
+  }
+  func string(preferredLanguages: [String], locale: Locale? = nil) -> string {
+    .init(bundle: bundle, preferredLanguages: preferredLanguages, locale: locale)
+  }
   func color(bundle: Foundation.Bundle) -> color {
     .init(bundle: bundle)
   }
@@ -30,16 +38,72 @@ struct _R {
   func file(bundle: Foundation.Bundle) -> file {
     .init(bundle: bundle)
   }
-  func storyboard(bundle: Foundation.Bundle) -> storyboard {
-    .init(bundle: bundle)
-  }
   func validate() throws {
     try self.font.validate()
-    try self.storyboard.validate()
   }
 
   struct project {
     let developmentRegion = "en"
+  }
+
+  /// This `_R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    let bundle: Foundation.Bundle
+    let preferredLanguages: [String]?
+    let locale: Locale?
+    var localization: localization { .init(source: .init(bundle: bundle, tableName: "Localization", preferredLanguages: preferredLanguages, locale: locale)) }
+
+    func localization(preferredLanguages: [String]) -> localization {
+      .init(source: .init(bundle: bundle, tableName: "Localization", preferredLanguages: preferredLanguages, locale: locale))
+    }
+
+
+    /// This `_R.string.localization` struct is generated, and contains static references to 6 localization keys.
+    struct localization {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Friends
+      ///
+      /// Key: friends
+      ///
+      /// Locales: en, ru
+      var friends: RswiftResources.StringResource { .init(key: "friends", tableName: "Localization", source: source, developmentValue: "Friends", comment: nil) }
+
+      /// en translation: Map
+      ///
+      /// Key: map
+      ///
+      /// Locales: en, ru
+      var map: RswiftResources.StringResource { .init(key: "map", tableName: "Localization", source: source, developmentValue: "Map", comment: nil) }
+
+      /// en translation: Notes
+      ///
+      /// Key: notes
+      ///
+      /// Locales: en, ru
+      var notes: RswiftResources.StringResource { .init(key: "notes", tableName: "Localization", source: source, developmentValue: "Notes", comment: nil) }
+
+      /// en translation: Profile
+      ///
+      /// Key: profile
+      ///
+      /// Locales: en, ru
+      var profile: RswiftResources.StringResource { .init(key: "profile", tableName: "Localization", source: source, developmentValue: "Profile", comment: nil) }
+
+      /// en translation: Sign In
+      ///
+      /// Key: signIn
+      ///
+      /// Locales: en, ru
+      var signIn: RswiftResources.StringResource { .init(key: "signIn", tableName: "Localization", source: source, developmentValue: "Sign In", comment: nil) }
+
+      /// en translation: Sign Out
+      ///
+      /// Key: signOut
+      ///
+      /// Locales: en, ru
+      var signOut: RswiftResources.StringResource { .init(key: "signOut", tableName: "Localization", source: source, developmentValue: "Sign Out", comment: nil) }
+    }
   }
 
   /// This `_R.color` struct is generated, and contains static references to 3 colors.
@@ -190,31 +254,5 @@ struct _R {
 
     /// Resource file `Rubik-Regular.ttf`.
     var rubikRegularTtf: RswiftResources.FileResource { .init(name: "Rubik-Regular", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
-  }
-
-  /// This `_R.storyboard` struct is generated, and contains static references to 1 storyboards.
-  struct storyboard {
-    let bundle: Foundation.Bundle
-    var launchScreen: launchScreen { .init(bundle: bundle) }
-
-    func launchScreen(bundle: Foundation.Bundle) -> launchScreen {
-      .init(bundle: bundle)
-    }
-    func validate() throws {
-      try self.launchScreen.validate()
-    }
-
-
-    /// Storyboard `LaunchScreen`.
-    struct launchScreen: RswiftResources.StoryboardReference, RswiftResources.InitialControllerContainer {
-      typealias InitialController = UIKit.UIViewController
-
-      let bundle: Foundation.Bundle
-
-      let name = "LaunchScreen"
-      func validate() throws {
-
-      }
-    }
   }
 }

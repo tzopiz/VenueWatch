@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  VenueWatch
+
+  Created by Дмитрий Корчагин on 3/12/24.
+  
+*/
+
+"signIn" = "Sign In";
+"signOut" = "Sign Out";
+"profile" = "Profile";
+"map" = "Map";
+"notes" = "Notes";
+"friends" = "Friends";
+
