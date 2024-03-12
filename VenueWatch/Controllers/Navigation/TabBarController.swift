@@ -25,25 +25,20 @@ final class TabBarController: UITabBarController {
         super.init(coder: coder)
     }
 
-    func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
+    private func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
 
     private func configureAppearance() {
         tabBar.tintColor = R.color.accentColor()
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = UIImage()
         tabBar.backgroundColor = .systemBackground
+        tabBar.addTopBorder(with: R.color.border(), height: 2/3)
         
         let images = [UIImage(systemName: "note.text"),
                       UIImage(systemName: "map"),
                       UIImage(systemName: "person.2.wave.2.fill"),
                       UIImage(systemName: "person.crop.rectangle.stack")]
-        let titles = ["Notes",
-                      "Map",
-                      "Friends",
-                      "Profile"]
-        
-        tabBar.addTopBorder(with: R.color.border(), height: 2/3)
-
+        let titles = ["Notes", "Map", "Friends", "Profile"]
         let controllers: [NavigationController] = Tabs.allCases.map { tab in
             let controller = NavigationController(rootViewController: getController(for: tab))
             controller.tabBarItem = UITabBarItem(title: titles[tab.rawValue],

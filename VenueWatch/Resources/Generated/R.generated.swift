@@ -148,9 +148,18 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 10 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 13 resource files.
   struct file {
     let bundle: Foundation.Bundle
+
+    /// Resource file `.gitignore`.
+    var gitignore: RswiftResources.FileResource { .init(name: ".gitignore", pathExtension: "", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `LICENSE`.
+    var licensE: RswiftResources.FileResource { .init(name: "LICENSE", pathExtension: "", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `README.md`.
+    var readmeMd: RswiftResources.FileResource { .init(name: "README", pathExtension: "md", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `Rubik-Black.ttf`.
     var rubikBlackTtf: RswiftResources.FileResource { .init(name: "Rubik-Black", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
