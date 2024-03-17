@@ -10,7 +10,6 @@ import UIKit
 final class MapViewController: BaseViewController { }
 
 // MARK: - Configure
-
 extension MapViewController {
     override func setupViews() {
         super.setupViews()

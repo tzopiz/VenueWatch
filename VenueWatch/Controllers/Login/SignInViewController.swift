@@ -8,7 +8,7 @@
 import UIKit
 import AuthenticationServices
 
-final class SignInViewController: BaseViewController {
+final class LoginViewController: BaseViewController {
     private lazy var button = ASAuthorizationAppleIDButton(
         authorizationButtonType: .signIn,
         authorizationButtonStyle: .black
@@ -17,8 +17,7 @@ final class SignInViewController: BaseViewController {
 }
 
 // MARK: - Configure
-
-extension SignInViewController {
+extension LoginViewController {
     override func setupViews() {
         super.setupViews()
         view.addSubview(button)
@@ -34,6 +33,11 @@ extension SignInViewController {
         super.configureViews()
         button.addTarget(self, action: #selector(onAuthTapped), for: .touchUpInside)
     }
+}
+
+
+// MARK: - Actions
+extension LoginViewController {
     @IBAction private func onAuthTapped() {
         service.login { result in
             switch result {

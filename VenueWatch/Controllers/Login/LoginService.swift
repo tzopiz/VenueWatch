@@ -8,16 +8,15 @@
 import Foundation
 import AuthenticationServices
 
-struct AuthResult {
-    let fullName: [String]
-    let token: String
-}
-
 protocol LoginService {
-    func login(completion: @escaping (Result<AuthResult, Error>) -> Void)
+    func login(completion: @escaping (Result<AppleLoginService.AuthResult, Error>) -> Void)
 }
 
 final class AppleLoginService: NSObject, LoginService {
+    struct AuthResult {
+        let fullName: [String]
+        let token: String
+    }
     
     private var handler: ((Result<AuthResult, any Error>) -> Void)?
     
@@ -34,13 +33,13 @@ final class AppleLoginService: NSObject, LoginService {
     }
 }
 
+// MARK: - ASAuthorizationControllerDelegate
 extension AppleLoginService: ASAuthorizationControllerDelegate {
     func authorizationController(
         controller: ASAuthorizationController,
         didCompleteWithError error: any Error
-    ) {
-        self.handler?(.failure(error))
-    }
+    ) { self.handler?(.failure(error)) }
+    
     func authorizationController(
         controller: ASAuthorizationController,
         didCompleteWithAuthorization authorization: ASAuthorization
@@ -58,8 +57,9 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
     }
 }
 
+// MARK: - ASAuthorizationControllerPresentationContextProviding
 extension AppleLoginService: ASAuthorizationControllerPresentationContextProviding {
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        UIApplication.shared.keyWindow!
-    }
+    func presentationAnchor(
+        for controller: ASAuthorizationController
+    ) -> ASPresentationAnchor { UIApplication.shared.keyWindow! }
 }

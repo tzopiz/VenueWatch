@@ -7,11 +7,9 @@
 
 import UIKit
 
-
 final class ProfileViewController: BaseViewController { }
 
 // MARK: - Configure
-
 extension ProfileViewController {
     override func setupViews() {
         super.setupViews()
@@ -28,7 +26,7 @@ extension ProfileViewController {
         )
     }
     override func navBarRightButtonHandler() {
-        let viewController = SignInViewController()
+        let viewController = LoginViewController()
         self.navigationController?.present(viewController, animated: true)
     }
 }

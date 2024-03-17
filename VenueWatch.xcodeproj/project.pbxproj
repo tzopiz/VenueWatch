@@ -52,6 +52,7 @@
 		0A3663082BA0C2C3004FAE1D /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		0A36630A2BA0C6C1004FAE1D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0A36630C2BA0CA11004FAE1D /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		0A36630E2BA1B023004FAE1D /* VenueWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VenueWatch.entitlements; sourceTree = "<group>"; };
 		0AF8CA8D2BA034D90069DF7E /* VenueWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF8CA902BA034D90069DF7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF8CA922BA034D90069DF7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +109,22 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		0AEA0F592BA7171D004B3BC6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0AF8CAD02BA043210069DF7E /* BaseViewController.swift */,
+				0AF8CAEF2BA09DD10069DF7E /* CollectionViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0AEA0F5A2BA71724004B3BC6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0AF8CA842BA034D90069DF7E = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +149,7 @@
 		0AF8CA8F2BA034D90069DF7E /* VenueWatch */ = {
 			isa = PBXGroup;
 			children = (
+				0A36630E2BA1B023004FAE1D /* VenueWatch.entitlements */,
 				0AF8CAD72BA04A8A0069DF7E /* Helpers */,
 				0AF8CAAA2BA039C90069DF7E /* Resources */,
 				0AF8CAA42BA035E40069DF7E /* Application */,
@@ -217,7 +235,7 @@
 		0AF8CACE2BA042DF0069DF7E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0AF8CAF32BA0AC6B0069DF7E /* SignInOut */,
+				0AF8CAF32BA0AC6B0069DF7E /* Login */,
 				0AF8CAA52BA035EF0069DF7E /* Navigation */,
 				0AF8CADE2BA04F920069DF7E /* Notes */,
 				0AF8CADD2BA04F8E0069DF7E /* Map */,
@@ -231,8 +249,8 @@
 		0AF8CACF2BA043040069DF7E /* Bases */ = {
 			isa = PBXGroup;
 			children = (
-				0AF8CAD02BA043210069DF7E /* BaseViewController.swift */,
-				0AF8CAEF2BA09DD10069DF7E /* CollectionViewController.swift */,
+				0AEA0F5A2BA71724004B3BC6 /* Views */,
+				0AEA0F592BA7171D004B3BC6 /* Controllers */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -296,13 +314,13 @@
 			path = Notes;
 			sourceTree = "<group>";
 		};
-		0AF8CAF32BA0AC6B0069DF7E /* SignInOut */ = {
+		0AF8CAF32BA0AC6B0069DF7E /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				0AF8CAF42BA0AC840069DF7E /* SignInViewController.swift */,
 				0A36630A2BA0C6C1004FAE1D /* LoginService.swift */,
 			);
-			path = SignInOut;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		0AF8CAF62BA0ADA00069DF7E /* Localizables */ = {
@@ -648,6 +666,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = VenueWatch/VenueWatch.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 653PNCT9WW;
@@ -664,6 +684,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = zipozt.VenueWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -676,6 +697,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = VenueWatch/VenueWatch.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 653PNCT9WW;
@@ -692,6 +715,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = zipozt.VenueWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -9,9 +9,7 @@ import UIKit
 
 final class NotesViewController: CollectionViewController { }
 
-
 // MARK: - Configure
-
 extension NotesViewController {
     override func setupViews() {
         super.setupViews()

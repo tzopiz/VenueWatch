@@ -7,12 +7,12 @@
 
 import UIKit
 
-public class BaseViewController: UIViewController {
+class BaseViewController: UIViewController {
     enum NavBarPosition {
         case left
         case right
     }
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         layoutViews()
@@ -21,7 +21,6 @@ public class BaseViewController: UIViewController {
 }
 
 // MARK: - Configure
-
 @objc
 extension BaseViewController {
     /// Добавляет подвиды на контроллер.
