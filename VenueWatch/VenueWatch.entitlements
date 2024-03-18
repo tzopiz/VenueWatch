@@ -3,8 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>com.apple.developer.applesignin</key>
-	<array/>
-	<key>com.apple.developer.authentication-services.autofill-credential-provider</key>
-	<true/>
+	<array>
+		<string>Default</string>
+	</array>
+	<key>aps-environment</key>
+	<string>development</string>
 </dict>
 </plist>

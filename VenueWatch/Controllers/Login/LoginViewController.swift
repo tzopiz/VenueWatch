@@ -13,16 +13,6 @@ final class LoginViewController: BaseViewController {
         authorizationButtonType: .signIn,
         authorizationButtonStyle: .black
     )
-    private lazy var signUpButton = ASAuthorizationAppleIDButton(
-        authorizationButtonType: .signUp,
-        authorizationButtonStyle: .black
-    )
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        return stackView
-    }()
     private let service = AppleLoginService()
 }
 
@@ -30,23 +20,20 @@ final class LoginViewController: BaseViewController {
 extension LoginViewController {
     override func setupViews() {
         super.setupViews()
-        view.addSubview(stackView)
-        
-        stackView.addArrangedSubview(signInButton)
-        stackView.addArrangedSubview(signUpButton)
+        view.addSubview(signInButton)
     }
     override func layoutViews() {
         super.layoutViews()
-        stackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(32)
-            make.bottom.equalToSuperview().inset(64)
-            make.height.equalTo(132)
+        signInButton.snp.makeConstraints { make in
+            make.leading.bottom.trailing.equalToSuperview().inset(32)
+            make.height.equalTo(64)
         }
     }
     override func configureViews() {
         super.configureViews()
         signInButton.addTarget(self, action: #selector(onSignInTapped), for: .touchUpInside)
-        signUpButton.addTarget(self, action: #selector(onSignUpTapped), for: .touchUpInside)
+        signInButton.isEnabled = false
+        signInButton.alpha = 0.7
     }
 }
 
@@ -61,8 +48,5 @@ extension LoginViewController {
                 print(error.localizedDescription)
             }
         }
-    }
-    @IBAction private func onSignUpTapped() {
-        print(#function)
     }
 }
