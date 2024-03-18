@@ -9,7 +9,7 @@ import Foundation
 
 extension UserDefaults {
     var preferredLanguage: String {
-        get { UserDefaults.standard.string(forKey: "preferredLanguage") ?? "eng" }
+        get { UserDefaults.standard.string(forKey: "preferredLanguage") ?? "ru" }
         set { UserDefaults.standard.set(newValue, forKey: "preferredLanguage") }
     }
 }

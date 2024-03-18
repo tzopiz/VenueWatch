@@ -22,7 +22,6 @@ class CollectionViewController: BaseViewController {
 }
 
 // MARK: - Configure
-
 extension CollectionViewController {
     override func setupViews() {
         super.setupViews()
@@ -47,7 +46,6 @@ extension CollectionViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-
 extension CollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int)
@@ -58,11 +56,9 @@ extension CollectionViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDataSource
-
 extension CollectionViewController: UICollectionViewDelegate { }
 
 //MARK: - UICollectionViewDelegateFlowLayout
-
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -75,7 +71,6 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UICollectionViewUpdatable
-
 protocol UICollectionViewUpdatable: AnyObject {
     func refreshData()
 }

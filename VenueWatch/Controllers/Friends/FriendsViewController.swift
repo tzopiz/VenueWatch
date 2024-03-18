@@ -10,7 +10,6 @@ import UIKit
 final class FriendsViewController: BaseViewController { }
 
 // MARK: - Configure
-
 extension FriendsViewController {
     override func setupViews() {
         super.setupViews()
