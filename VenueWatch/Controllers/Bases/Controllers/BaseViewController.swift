@@ -46,7 +46,8 @@ extension BaseViewController {
 extension BaseViewController {
     func addNavBarButton(at position: NavBarPosition,
                          with title: String? = nil,
-                         image: UIImage? = nil) {
+                         image: UIImage? = nil,
+                         selector: Selector) {
         let button = UIButton(type: .system)
         if let title = title { button.setTitle(title, for: .normal) }
         if let image = image { button.setImage(image, for: .normal) }
@@ -54,21 +55,17 @@ extension BaseViewController {
         
         switch position {
         case .left:
-            button.addTarget(
-                self,
-                action: #selector(navBarLeftButtonHandler),
-                for: .touchUpInside
-            )
-            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+            button.addTarget(self, action: selector, for: .touchUpInside)
+            let barButton = UIBarButtonItem(customView: button)
+            if let _ = navigationItem.leftBarButtonItems {
+                navigationItem.leftBarButtonItems?.append(barButton)
+            } else { navigationItem.leftBarButtonItem = barButton }
         case .right:
-            button.addTarget(
-                self,
-                action: #selector(navBarRightButtonHandler),
-                for: .touchUpInside
-            )
-            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+            button.addTarget(self, action: selector, for: .touchUpInside)
+            let barButton = UIBarButtonItem(customView: button)
+            if let _ = navigationItem.rightBarButtonItems {
+                navigationItem.rightBarButtonItems?.append(barButton)
+            } else { navigationItem.rightBarButtonItem = barButton }
         }
     }
-    @IBAction func navBarLeftButtonHandler() { }
-    @IBAction func navBarRightButtonHandler() { }
 }

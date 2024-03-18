@@ -11,6 +11,9 @@ let R = _R(bundle: Bundle(for: BundleFinder.self))
 
 struct _R {
   let bundle: Foundation.Bundle
+
+  let entitlements = entitlements()
+
   var string: string { .init(bundle: bundle, preferredLanguages: nil, locale: nil) }
   var color: color { .init(bundle: bundle) }
   var info: info { .init(bundle: bundle) }
@@ -58,7 +61,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localization` struct is generated, and contains static references to 6 localization keys.
+    /// This `_R.string.localization` struct is generated, and contains static references to 8 localization keys.
     struct localization {
       let source: RswiftResources.StringResource.Source
 
@@ -68,6 +71,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var friends: RswiftResources.StringResource { .init(key: "friends", tableName: "Localization", source: source, developmentValue: "Friends", comment: nil) }
+
+      /// en translation: Log In
+      ///
+      /// Key: logIn
+      ///
+      /// Locales: en, ru
+      var logIn: RswiftResources.StringResource { .init(key: "logIn", tableName: "Localization", source: source, developmentValue: "Log In", comment: nil) }
 
       /// en translation: Map
       ///
@@ -103,6 +113,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var signOut: RswiftResources.StringResource { .init(key: "signOut", tableName: "Localization", source: source, developmentValue: "Sign Out", comment: nil) }
+
+      /// en translation: Sign Up
+      ///
+      /// Key: signUp
+      ///
+      /// Locales: en, ru
+      var signUp: RswiftResources.StringResource { .init(key: "signUp", tableName: "Localization", source: source, developmentValue: "Sign Up", comment: nil) }
     }
   }
 
@@ -168,6 +185,14 @@ struct _R {
     }
   }
 
+  /// This `_R.entitlements` struct is generated, and contains static references to 1 properties.
+  struct entitlements {
+    let comAppleDeveloperApplesignin = comAppleDeveloperApplesignin()
+    let comAppleDeveloperAuthenticationServicesAutofillCredentialProvider: Bool = true
+    struct comAppleDeveloperApplesignin {
+    }
+  }
+
   /// This `_R.font` struct is generated, and contains static references to 10 fonts.
   struct font: Sequence {
     let bundle: Foundation.Bundle
@@ -212,12 +237,15 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 13 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 14 resource files.
   struct file {
     let bundle: Foundation.Bundle
 
     /// Resource file `.gitignore`.
     var gitignore: RswiftResources.FileResource { .init(name: ".gitignore", pathExtension: "", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `CODE_OF_CONDUCT.md`.
+    var code_OF_CONDUCTMd: RswiftResources.FileResource { .init(name: "CODE_OF_CONDUCT", pathExtension: "md", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `LICENSE`.
     var licensE: RswiftResources.FileResource { .init(name: "LICENSE", pathExtension: "", bundle: bundle, locale: LocaleReference.none) }

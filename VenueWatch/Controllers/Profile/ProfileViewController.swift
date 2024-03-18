@@ -22,10 +22,16 @@ extension ProfileViewController {
         navigationItem.title = App.string.profile()
         addNavBarButton(
             at: .right,
-            with: App.string.signIn()
+            with: App.string.logIn(),
+            selector: #selector(logInButtonTapped)
         )
     }
-    override func navBarRightButtonHandler() {
+}
+
+// MARK: - Actions
+
+extension ProfileViewController {
+    @IBAction private func logInButtonTapped() {
         let viewController = LoginViewController()
         self.navigationController?.present(viewController, animated: true)
     }

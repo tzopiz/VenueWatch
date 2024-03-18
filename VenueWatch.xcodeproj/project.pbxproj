@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0754B42BA848FA000DD966 /* CODE_OF_CONDUCT.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A0754B32BA848FA000DD966 /* CODE_OF_CONDUCT.md */; };
 		0A3662FF2BA0BA88004FAE1D /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A3662FD2BA0BA88004FAE1D /* Localization.strings */; };
 		0A3663072BA0BED9004FAE1D /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3663062BA0BED9004FAE1D /* UserDefaults.swift */; };
 		0A3663092BA0C2C3004FAE1D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3663082BA0C2C3004FAE1D /* App.swift */; };
@@ -40,11 +41,12 @@
 		0AF8CAEC2BA07DC90069DF7E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAEB2BA07DC90069DF7E /* .gitignore */; };
 		0AF8CAEE2BA07DE80069DF7E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAED2BA07DE80069DF7E /* README.md */; };
 		0AF8CAF02BA09DD10069DF7E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAEF2BA09DD10069DF7E /* CollectionViewController.swift */; };
-		0AF8CAF52BA0AC840069DF7E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAF42BA0AC840069DF7E /* SignInViewController.swift */; };
+		0AF8CAF52BA0AC840069DF7E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAF42BA0AC840069DF7E /* LoginViewController.swift */; };
 		BAE2CB56760B73B5C3DCEE4C /* Pods_VenueWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B5CDF00B2A6800AEC7CAAB /* Pods_VenueWatch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0754B32BA848FA000DD966 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		0A3662FC2BA0B50D004FAE1D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A3662FE2BA0BA88004FAE1D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
 		0A3663032BA0BD6C004FAE1D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localization.strings; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		0AF8CAEB2BA07DC90069DF7E /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0AF8CAED2BA07DE80069DF7E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0AF8CAEF2BA09DD10069DF7E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		0AF8CAF42BA0AC840069DF7E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		0AF8CAF42BA0AC840069DF7E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CDF9F584F1F0555990701D75 /* Pods-VenueWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueWatch.debug.xcconfig"; path = "Target Support Files/Pods-VenueWatch/Pods-VenueWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		E4B5CDF00B2A6800AEC7CAAB /* Pods_VenueWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VenueWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2554CF030F49B64286B429 /* Pods-VenueWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueWatch.release.xcconfig"; path = "Target Support Files/Pods-VenueWatch/Pods-VenueWatch.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		0AF8CA842BA034D90069DF7E = {
 			isa = PBXGroup;
 			children = (
+				0A0754B32BA848FA000DD966 /* CODE_OF_CONDUCT.md */,
 				0AF8CAE92BA07D8F0069DF7E /* LICENSE */,
 				0AF8CAED2BA07DE80069DF7E /* README.md */,
 				0AF8CAEB2BA07DC90069DF7E /* .gitignore */,
@@ -317,7 +320,7 @@
 		0AF8CAF32BA0AC6B0069DF7E /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				0AF8CAF42BA0AC840069DF7E /* SignInViewController.swift */,
+				0AF8CAF42BA0AC840069DF7E /* LoginViewController.swift */,
 				0A36630A2BA0C6C1004FAE1D /* LoginService.swift */,
 			);
 			path = Login;
@@ -420,6 +423,7 @@
 				0AF8CA9A2BA034DB0069DF7E /* Assets.xcassets in Resources */,
 				0AF8CAC02BA03B6C0069DF7E /* Rubik-BlackItalic.ttf in Resources */,
 				0AF8CAC52BA03B6C0069DF7E /* Rubik-Italic.ttf in Resources */,
+				0A0754B42BA848FA000DD966 /* CODE_OF_CONDUCT.md in Resources */,
 				0AF8CAD62BA048F50069DF7E /* Images.xcassets in Resources */,
 				0AF8CAEE2BA07DE80069DF7E /* README.md in Resources */,
 				0AF8CAEA2BA07D8F0069DF7E /* LICENSE in Resources */,
@@ -502,7 +506,7 @@
 				0A3663092BA0C2C3004FAE1D /* App.swift in Sources */,
 				0AF8CAE22BA04FE50069DF7E /* MapViewController.swift in Sources */,
 				0AF8CAA92BA036450069DF7E /* NavigationController.swift in Sources */,
-				0AF8CAF52BA0AC840069DF7E /* SignInViewController.swift in Sources */,
+				0AF8CAF52BA0AC840069DF7E /* LoginViewController.swift in Sources */,
 				0A36630B2BA0C6C1004FAE1D /* LoginService.swift in Sources */,
 				0AF8CA912BA034D90069DF7E /* AppDelegate.swift in Sources */,
 				0AF8CAE62BA0500E0069DF7E /* ProfileViewController.swift in Sources */,

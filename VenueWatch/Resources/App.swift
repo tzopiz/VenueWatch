@@ -6,8 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
 enum App {
+    enum DeviceTheme {
+        case light, dark
+    }
+    static func getCurrentDeviceTheme() -> DeviceTheme {
+        let userInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle
+        switch userInterfaceStyle {
+        case .light:
+            return .light
+        default:
+            return .dark
+        }
+    }
     static let string = R.string.localization(
         preferredLanguages: [UserDefaults.standard.preferredLanguage]
     )
