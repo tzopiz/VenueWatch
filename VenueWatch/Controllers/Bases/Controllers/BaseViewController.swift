@@ -7,12 +7,12 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+public class BaseViewController: UIViewController {
     enum NavBarPosition {
         case left
         case right
     }
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         layoutViews()
@@ -38,16 +38,18 @@ extension BaseViewController {
     /// таких как установка фона, цветов, шрифтов и других свойств визуальных элементов.
     /// Вы также можете применять стили, добавлять тени, закруглять углы и т.д.
     func configureViews() {
-        view.backgroundColor = R.color.background()
+        view.backgroundColor = App.color.background()
         navigationController?.navigationBar.addBottomBorder(with: R.color.border(), height: 1)
     }
 }
 
 extension BaseViewController {
-    func addNavBarButton(at position: NavBarPosition,
-                         with title: String? = nil,
-                         image: UIImage? = nil,
-                         selector: Selector) {
+    func addNavBarButton(
+        at position: NavBarPosition,
+        with title: String? = nil,
+        image: UIImage? = nil,
+        selector: Selector
+    ) {
         let button = UIButton(type: .system)
         if let title = title { button.setTitle(title, for: .normal) }
         if let image = image { button.setImage(image, for: .normal) }

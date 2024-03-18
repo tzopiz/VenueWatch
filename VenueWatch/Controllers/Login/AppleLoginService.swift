@@ -61,5 +61,5 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
 extension AppleLoginService: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(
         for controller: ASAuthorizationController
-    ) -> ASPresentationAnchor { UIApplication.shared.getCurrentWindow() }
+    ) -> ASPresentationAnchor { UIApplication.shared.keyWindow! }
 }

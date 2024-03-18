@@ -19,6 +19,8 @@
 		0A3663092BA0C2C3004FAE1D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3663082BA0C2C3004FAE1D /* App.swift */; };
 		0A36630B2BA0C6C1004FAE1D /* AppleLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36630A2BA0C6C1004FAE1D /* AppleLoginService.swift */; };
 		0A36630D2BA0CA11004FAE1D /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36630C2BA0CA11004FAE1D /* UIApplication.swift */; };
+		0A3938AB2BA8DF1600150F7F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3938AA2BA8DF1600150F7F /* BaseView.swift */; };
+		0A3938B02BA8E21E00150F7F /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3938AF2BA8E21E00150F7F /* BaseLabel.swift */; };
 		0A398E342BA88FD200AA231C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0A398E332BA88FD200AA231C /* FirebaseAnalytics */; };
 		0A398E362BA88FD200AA231C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0A398E352BA88FD200AA231C /* FirebaseAuth */; };
 		0A398E382BA88FD200AA231C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0A398E372BA88FD200AA231C /* FirebaseCrashlytics */; };
@@ -75,6 +77,8 @@
 		0A36630A2BA0C6C1004FAE1D /* AppleLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginService.swift; sourceTree = "<group>"; };
 		0A36630C2BA0CA11004FAE1D /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		0A36630E2BA1B023004FAE1D /* VenueWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VenueWatch.entitlements; sourceTree = "<group>"; };
+		0A3938AA2BA8DF1600150F7F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		0A3938AF2BA8E21E00150F7F /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		0A398E412BA8A0F300AA231C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		0A398E442BA8A10800AA231C /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		0A398E4A2BA8A86800AA231C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 		0AEA0F5A2BA71724004B3BC6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A3938AA2BA8DF1600150F7F /* BaseView.swift */,
+				0A3938AF2BA8E21E00150F7F /* BaseLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -523,6 +529,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AF8CAF02BA09DD10069DF7E /* CollectionViewController.swift in Sources */,
+				0A3938B02BA8E21E00150F7F /* BaseLabel.swift in Sources */,
+				0A3938AB2BA8DF1600150F7F /* BaseView.swift in Sources */,
 				0AF8CAA72BA0360B0069DF7E /* TabBarController.swift in Sources */,
 				0AF8CADA2BA04AA00069DF7E /* UIView + ext.swift in Sources */,
 				0A398E572BA8BCD300AA231C /* Alert.swift in Sources */,

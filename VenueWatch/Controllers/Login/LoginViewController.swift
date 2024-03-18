@@ -32,8 +32,8 @@ extension LoginViewController {
     override func configureViews() {
         super.configureViews()
         signInButton.addTarget(self, action: #selector(onSignInTapped), for: .touchUpInside)
-        signInButton.isEnabled = false
-        signInButton.alpha = 0.7
+        signInButton.isEnabled = true
+        signInButton.alpha = 0.5
     }
 }
 
@@ -45,7 +45,7 @@ extension LoginViewController {
             case .success(let result):
                 print(result.fullName)
             case .failure(let error):
-                print(error.localizedDescription)
+                Utilities.Alert.showFetchingUserError(on: self, with: error)
             }
         }
     }
