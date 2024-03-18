@@ -8,15 +8,15 @@
 import Foundation
 import AuthenticationServices
 
+struct AuthResult {
+    let fullName: [String]
+    let token: String
+}
 protocol LoginService {
-    func login(completion: @escaping (Result<AppleLoginService.AuthResult, Error>) -> Void)
+    func login(completion: @escaping (Result<AuthResult, Error>) -> Void)
 }
 
 final class AppleLoginService: NSObject, LoginService {
-    struct AuthResult {
-        let fullName: [String]
-        let token: String
-    }
     
     private var handler: ((Result<AuthResult, any Error>) -> Void)?
     

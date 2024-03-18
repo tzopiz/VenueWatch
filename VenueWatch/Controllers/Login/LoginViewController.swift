@@ -13,7 +13,7 @@ final class LoginViewController: BaseViewController {
         authorizationButtonType: .signIn,
         authorizationButtonStyle: .black
     )
-    private let service = AppleLoginService()
+    private let appleLoginService = AppleLoginService()
 }
 
 // MARK: - Configure
@@ -40,7 +40,7 @@ extension LoginViewController {
 // MARK: - Actions
 extension LoginViewController {
     @IBAction private func onSignInTapped() {
-        service.login { result in
+        appleLoginService.login { result in
             switch result {
             case .success(let result):
                 print(result.fullName)

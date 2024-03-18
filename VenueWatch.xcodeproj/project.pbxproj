@@ -11,7 +11,7 @@
 		0A3662FF2BA0BA88004FAE1D /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A3662FD2BA0BA88004FAE1D /* Localization.strings */; };
 		0A3663072BA0BED9004FAE1D /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3663062BA0BED9004FAE1D /* UserDefaults.swift */; };
 		0A3663092BA0C2C3004FAE1D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3663082BA0C2C3004FAE1D /* App.swift */; };
-		0A36630B2BA0C6C1004FAE1D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36630A2BA0C6C1004FAE1D /* LoginService.swift */; };
+		0A36630B2BA0C6C1004FAE1D /* AppleLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36630A2BA0C6C1004FAE1D /* AppleLoginService.swift */; };
 		0A36630D2BA0CA11004FAE1D /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36630C2BA0CA11004FAE1D /* UIApplication.swift */; };
 		0AF8CA912BA034D90069DF7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CA902BA034D90069DF7E /* AppDelegate.swift */; };
 		0AF8CA932BA034D90069DF7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CA922BA034D90069DF7E /* SceneDelegate.swift */; };
@@ -52,7 +52,7 @@
 		0A3663032BA0BD6C004FAE1D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localization.strings; sourceTree = "<group>"; };
 		0A3663062BA0BED9004FAE1D /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		0A3663082BA0C2C3004FAE1D /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		0A36630A2BA0C6C1004FAE1D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		0A36630A2BA0C6C1004FAE1D /* AppleLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginService.swift; sourceTree = "<group>"; };
 		0A36630C2BA0CA11004FAE1D /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		0A36630E2BA1B023004FAE1D /* VenueWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VenueWatch.entitlements; sourceTree = "<group>"; };
 		0AF8CA8D2BA034D90069DF7E /* VenueWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,7 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				0AF8CAF42BA0AC840069DF7E /* LoginViewController.swift */,
-				0A36630A2BA0C6C1004FAE1D /* LoginService.swift */,
+				0A36630A2BA0C6C1004FAE1D /* AppleLoginService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -507,7 +507,7 @@
 				0AF8CAE22BA04FE50069DF7E /* MapViewController.swift in Sources */,
 				0AF8CAA92BA036450069DF7E /* NavigationController.swift in Sources */,
 				0AF8CAF52BA0AC840069DF7E /* LoginViewController.swift in Sources */,
-				0A36630B2BA0C6C1004FAE1D /* LoginService.swift in Sources */,
+				0A36630B2BA0C6C1004FAE1D /* AppleLoginService.swift in Sources */,
 				0AF8CA912BA034D90069DF7E /* AppDelegate.swift in Sources */,
 				0AF8CAE62BA0500E0069DF7E /* ProfileViewController.swift in Sources */,
 				0AF8CAE42BA04FFB0069DF7E /* FriendsViewController.swift in Sources */,
