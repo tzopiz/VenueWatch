@@ -15,10 +15,22 @@
 "map" = "Map";
 "notes" = "Notes";
 "friends" = "Friends";
+
 "invalidArg1" = "Invalid 1 %@.";
 "username" = "Username";
 "password" = "Password";
 "email" = "Email Address";
 "enterAValidArg1" = "Please enter a valid 1 %@.";
 "dismiss" = "Dismiss";
+
 "welcome" = "You are welcome";
+
+"createAccount" = "Create your account";
+"signIntoAccount" = "Sign in to your account";
+
+"toggleButtonTitleSignUp" = "Already have an account? Sign In.";
+"toggleButtonTitleSignIn" = "New User? Create Account.";
+
+"secondaryButtonTitleSignIn" = "Forgot Password?";
+"secondaryButtonTitleSignUp" = "By creating an account, you agree to our Terms & Conditions and you acknowledge that you have read our Privacy Policy.";
+

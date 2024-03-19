@@ -8,23 +8,28 @@
 import UIKit
 import SnapKit
 
-final class AuthHeaderView: BaseView {
+final class AuthHeaderView: BaseView, Toggled {
+    var titles: (signIn: String, signUp: String)?
     
     private let logoImageView = UIImageView(image: UIImage(systemName: "mappin.and.ellipse"))
-    private let label = BaseLabel(
-        text: App.string.signUp(),
+    private let label = ToggleLabel(
         textColor: App.color.label,
         fontSize: 32,
         fontType: .bold,
-        textAlignment: .center
+        textAlignment: .center,
+        titles: (App.string.signIn(), App.string.signUp())
     )
-    private let secondaryLabel = BaseLabel(
-        text: App.string.welcome(),
+    private let secondaryLabel = ToggleLabel(
         textColor: App.color.secondaryLabel,
         fontSize: 18,
-        textAlignment: .center
+        textAlignment: .center,
+        titles: (App.string.signIntoAccount(), App.string.createAccount())
     )
     private let stackView = BaseStackView(axis: .vertical)
+    func toggle(with type: LoginViewController.LoginType) {
+        label.toggle(with: type)
+        secondaryLabel.toggle(with: type)
+    }
 }
 
 // MARK: - Configure

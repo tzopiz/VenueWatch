@@ -20,7 +20,7 @@ public class BaseLabel: UILabel {
     enum FontType {
         case italic, light, regular, bold
     }
-    init(text: String? = nil,
+    internal init(text: String? = nil,
          textColor: UIColor? = App.color.label,
          fontSize: CGFloat = 15,
          fontType: FontType = .regular,

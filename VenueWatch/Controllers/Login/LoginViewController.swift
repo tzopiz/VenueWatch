@@ -6,15 +6,31 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 final class LoginViewController: BaseViewController {
+    enum LoginType {
+        case signIn
+        case signUp
+    }
+    private var currentLoginType: LoginType = .signUp
     private let appleButtonsView = AppleButtonsView()
     private let appleLoginService = AppleLoginService()
     
-    private let mainStackView = BaseStackView(axis: .vertical, spacing: 32)
+    private let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
     private let authHeaderView = AuthHeaderView()
     private let credentialInputView = CredentialInputView()
-    private let authButton = UIButton(type: .system)
+    private let buttonsStackView = BaseStackView(axis: .vertical)
+    
+    private let toggleButton = ToggleButton(
+        titles: (App.string.toggleButtonTitleSignIn(), App.string.toggleButtonTitleSignUp())
+    )
+    private let authButton = ToggleButton(
+        titles: (App.string.signIn(), App.string.signUp())
+    )
+    private let secondaryButton = ToggleButton(
+        titles: (App.string.secondaryButtonTitleSignIn(), App.string.secondaryButtonTitleSignUp())
+    )
 }
 
 // MARK: - Configure
@@ -25,24 +41,28 @@ extension LoginViewController {
         
         mainStackView.addArrangedSubviews(
             authHeaderView, credentialInputView,
-            authButton, appleButtonsView
+            buttonsStackView, appleButtonsView
         )
+        buttonsStackView.addArrangedSubviews(authButton, secondaryButton, toggleButton)
     }
     override func layoutViews() {
         super.layoutViews()
         mainStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview().inset(25)
             make.top.equalToSuperview().inset(32)
             make.centerX.equalToSuperview()
         }
-        authButton.snp.makeConstraints { $0.height.equalTo(60) }
         credentialInputView.snp.makeConstraints { $0.height.equalTo(182) }
+        authButton.snp.makeConstraints { $0.height.equalTo(50) }
+        secondaryButton.snp.makeConstraints { $0.height.equalTo(40) }
+        toggleButton.snp.makeConstraints { $0.height.equalTo(40) }
     }
     override func configureViews() {
         super.configureViews()
         appleButtonsView.addSelectors(
-            signInSelector: #selector(onSignInAppleButtonTapped),
-            signUpSelector: #selector(onSignUpAppleButtonTapped)
+            target: self,
+            signInSelector: #selector(signInAppleButtonTapped),
+            signUpSelector: #selector(signUpAppleButtonTapped)
         )
         
         authButton.backgroundColor = App.color.accentColor
@@ -51,28 +71,38 @@ extension LoginViewController {
         authButton.layer.cornerRadius = 10
         authButton.layer.borderWidth = 1
         authButton.layer.borderColor = App.color.accentColor.cgColor
-        authButton.setTitle(App.string.signUp(), for: .normal)
-        
         authButton.addTarget(self, action: #selector(authButtonTapped), for: .touchUpInside)
+        
+        toggleButton.titleLabel?.font = App.font.rubikBold(size: 16)
+        toggleButton.addTarget(self, action: #selector(toggleButtonTapped), for: .touchUpInside)
+        
+        secondaryButton.addTarget(self, action: #selector(secondaryButtonButtonTapped), for: .touchUpInside)
+        secondaryButton.titleLabel?.font = App.font.rubikRegular(size: 11)
+        secondaryButton.tintColor = App.color.label
+
     }
 }
 
 // MARK: - Actions
 extension LoginViewController {
-    @IBAction private func onSignInAppleButtonTapped() {
+    @IBAction private func signInAppleButtonTapped() {
         appleLoginService.login { result in
             switch result {
             case .success(let result):
                 print(result.fullName)
             case .failure(let error):
-                Utilities.Alert.showFetchingUserError(on: self, with: error)
+                print(error.localizedDescription)
             }
         }
     }
-    @IBAction private func onSignUpAppleButtonTapped() {
-        print(#function)
-    }
-    @IBAction private func authButtonTapped() {
-        
+    @IBAction private func signUpAppleButtonTapped() { print(#function) }
+    @IBAction private func authButtonTapped() { print(#function) }
+    @IBAction private func secondaryButtonButtonTapped() { print(#function) }
+    @IBAction private func toggleButtonTapped() {
+        authHeaderView.toggle(with: currentLoginType)
+        // TODO: to one view
+        authButton.toggle(with: currentLoginType)
+        toggleButton.toggle(with: currentLoginType)
+        secondaryButton.toggle(with: currentLoginType)
     }
 }

@@ -41,6 +41,9 @@
 		0AF294112BA9CEA60075C11A /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF294102BA9CEA60075C11A /* BaseTextField.swift */; };
 		0AF294142BA9D5680075C11A /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF294132BA9D5680075C11A /* AuthTextField.swift */; };
 		0AF294182BA9E3110075C11A /* SECURITY.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AF294172BA9E3110075C11A /* SECURITY.md */; };
+		0AF2941F2BAA2E7C0075C11A /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2941E2BAA2E7C0075C11A /* ToggleButton.swift */; };
+		0AF294272BAA43F70075C11A /* ToggleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF294262BAA43F70075C11A /* ToggleLabel.swift */; };
+		0AF294292BAA44300075C11A /* Toggled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF294282BAA44300075C11A /* Toggled.swift */; };
 		0AF8CA912BA034D90069DF7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CA902BA034D90069DF7E /* AppDelegate.swift */; };
 		0AF8CA932BA034D90069DF7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CA922BA034D90069DF7E /* SceneDelegate.swift */; };
 		0AF8CA9A2BA034DB0069DF7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CA992BA034DB0069DF7E /* Assets.xcassets */; };
@@ -99,6 +102,9 @@
 		0AF294102BA9CEA60075C11A /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		0AF294132BA9D5680075C11A /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		0AF294172BA9E3110075C11A /* SECURITY.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = SECURITY.md; sourceTree = "<group>"; };
+		0AF2941E2BAA2E7C0075C11A /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		0AF294262BAA43F70075C11A /* ToggleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleLabel.swift; sourceTree = "<group>"; };
+		0AF294282BAA44300075C11A /* Toggled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toggled.swift; sourceTree = "<group>"; };
 		0AF8CA8D2BA034D90069DF7E /* VenueWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF8CA902BA034D90069DF7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF8CA922BA034D90069DF7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				0A3938B32BA8FA6800150F7F /* AuthHeaderView.swift */,
-				0AC4CBA52BA987D700438E41 /* AppleButtonsView.swift */,
 				0AF2940D2BA9C47C0075C11A /* CredentialInputView.swift */,
 				0AF294132BA9D5680075C11A /* AuthTextField.swift */,
 			);
@@ -212,6 +217,7 @@
 		0AC4CBA32BA987C500438E41 /* Apple */ = {
 			isa = PBXGroup;
 			children = (
+				0AC4CBA52BA987D700438E41 /* AppleButtonsView.swift */,
 				0A36630A2BA0C6C1004FAE1D /* AppleLoginService.swift */,
 			);
 			path = Apple;
@@ -233,8 +239,19 @@
 				0A3938AF2BA8E21E00150F7F /* BaseLabel.swift */,
 				0AC4CB9F2BA975B100438E41 /* BaseStackView.swift */,
 				0AF294102BA9CEA60075C11A /* BaseTextField.swift */,
+				0AF294242BAA43EB0075C11A /* Toggled */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0AF294242BAA43EB0075C11A /* Toggled */ = {
+			isa = PBXGroup;
+			children = (
+				0AF294282BAA44300075C11A /* Toggled.swift */,
+				0AF2941E2BAA2E7C0075C11A /* ToggleButton.swift */,
+				0AF294262BAA43F70075C11A /* ToggleLabel.swift */,
+			);
+			path = Toggled;
 			sourceTree = "<group>";
 		};
 		0AF8CA842BA034D90069DF7E = {
@@ -576,13 +593,16 @@
 				0AF8CAE22BA04FE50069DF7E /* MapViewController.swift in Sources */,
 				0AF8CAA92BA036450069DF7E /* NavigationController.swift in Sources */,
 				0AF8CAF52BA0AC840069DF7E /* LoginViewController.swift in Sources */,
+				0AF294272BAA43F70075C11A /* ToggleLabel.swift in Sources */,
 				0A3938B42BA8FA6800150F7F /* AuthHeaderView.swift in Sources */,
 				0A36630B2BA0C6C1004FAE1D /* AppleLoginService.swift in Sources */,
 				0AF8CA912BA034D90069DF7E /* AppDelegate.swift in Sources */,
+				0AF294292BAA44300075C11A /* Toggled.swift in Sources */,
 				0AF8CAE62BA0500E0069DF7E /* ProfileViewController.swift in Sources */,
 				0AF294112BA9CEA60075C11A /* BaseTextField.swift in Sources */,
 				0AF8CAE42BA04FFB0069DF7E /* FriendsViewController.swift in Sources */,
 				0A398E4B2BA8A86800AA231C /* Service.swift in Sources */,
+				0AF2941F2BAA2E7C0075C11A /* ToggleButton.swift in Sources */,
 				0AF294142BA9D5680075C11A /* AuthTextField.swift in Sources */,
 				0A0754DC2BA8784A000DD966 /* Validator.swift in Sources */,
 				0A36630D2BA0CA11004FAE1D /* UIApplication.swift in Sources */,
@@ -764,8 +784,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -796,8 +816,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

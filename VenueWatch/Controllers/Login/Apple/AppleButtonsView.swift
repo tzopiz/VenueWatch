@@ -17,9 +17,9 @@ final class AppleButtonsView: BaseView {
         authorizationButtonType: .signUp,
         authorizationButtonStyle: .black
     )
-    func addSelectors(signInSelector: Selector, signUpSelector: Selector) {
-        signUpAppleButton.addTarget(self, action: signUpSelector, for: .touchUpInside)
-        signInAppleButton.addTarget(self, action: signInSelector, for: .touchUpInside)
+    func addSelectors(target: Any?, signInSelector: Selector, signUpSelector: Selector) {
+        signUpAppleButton.addTarget(target, action: signUpSelector, for: .touchUpInside)
+        signInAppleButton.addTarget(target, action: signInSelector, for: .touchUpInside)
     }
 }
 
@@ -46,11 +46,8 @@ extension AppleButtonsView {
     override func configureViews() {
         super.configureViews()
         
-        signInAppleButton.isEnabled = false
-        signInAppleButton.alpha = 0.5
-        
-        signUpAppleButton.isEnabled = false
         signUpAppleButton.alpha = 0.5
+        signUpAppleButton.isEnabled = false
     }
 }
 
