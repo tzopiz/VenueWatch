@@ -21,11 +21,4 @@ extension UIApplication {
         // Finally, keep only the key window
             .first(where: \.isKeyWindow)
     }
-    func getCurrentWindow() -> UIWindow {
-        // Используем сцену, чтобы получить текущее активное окно
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            return windowScene.windows.first ?? UIWindow()
-        }
-        return UIWindow()
-    }
 }

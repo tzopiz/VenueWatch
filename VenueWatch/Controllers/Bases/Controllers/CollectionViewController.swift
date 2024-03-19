@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CollectionViewController: BaseViewController {
+public class CollectionViewController: BaseViewController {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
@@ -25,7 +25,7 @@ class CollectionViewController: BaseViewController {
 extension CollectionViewController {
     override func setupViews() {
         super.setupViews()
-        view.addSubview(collectionView)
+        addSubviews(collectionView)
     }
     override func layoutViews() {
         super.layoutViews()
@@ -33,12 +33,12 @@ extension CollectionViewController {
     }
     override func configureViews() {
         super.configureViews()
+        view.backgroundColor = App.color.background()
         collectionView.delegate = self
         collectionView.dataSource = self
-        view.backgroundColor = R.color.background()
         let refreshControl = UIRefreshControl()
         collectionView.refreshControl = refreshControl
-        let refreshAction = UIAction { action in
+        let refreshAction = UIAction { _ in
             self.refreshData()
         }
         collectionView.refreshControl?.addAction(refreshAction, for: .valueChanged)
@@ -47,12 +47,14 @@ extension CollectionViewController {
 
 // MARK: - UICollectionViewDataSource
 extension CollectionViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int)
-    -> Int { 0 }
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath)
-    -> UICollectionViewCell { UICollectionViewCell() }
+    public func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int { 0 }
+    public func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell { UICollectionViewCell() }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -60,14 +62,16 @@ extension CollectionViewController: UICollectionViewDelegate { }
 
 //MARK: - UICollectionViewDelegateFlowLayout
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int)
-    -> CGFloat { 8 }
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        referenceSizeForHeaderInSection section: Int)
-    -> CGSize { CGSize(width: collectionView.frame.width, height: 32) }
+    public func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat { 8 }
+    public func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int
+    ) -> CGSize { CGSize(width: collectionView.frame.width, height: 32) }
 }
 
 // MARK: - UICollectionViewUpdatable

@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import CloudKit
 
 enum App {
     enum DeviceTheme {
@@ -16,10 +15,8 @@ enum App {
     static func getCurrentDeviceTheme() -> DeviceTheme {
         let userInterfaceStyle = UIScreen.main.traitCollection.userInterfaceStyle
         switch userInterfaceStyle {
-        case .light:
-            return .light
-        default:
-            return .dark
+        case .light: return .light
+        default: return .dark
         }
     }
     static let string = R.string.localization(
@@ -27,5 +24,6 @@ enum App {
     )
     static let font = R.font
     static let color = R.color
+    static let image = R.image
 }
 
