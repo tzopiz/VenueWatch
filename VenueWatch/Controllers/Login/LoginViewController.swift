@@ -11,9 +11,10 @@ final class LoginViewController: BaseViewController {
     private let appleButtonsView = AppleButtonsView()
     private let appleLoginService = AppleLoginService()
     
-    private let mainStackView = BaseStackView(axis: .vertical)
+    private let mainStackView = BaseStackView(axis: .vertical, spacing: 32)
     private let authHeaderView = AuthHeaderView()
-    private let buttonsView = BaseView()
+    private let credentialInputView = CredentialInputView()
+    private let authButton = UIButton(type: .system)
 }
 
 // MARK: - Configure
@@ -22,14 +23,20 @@ extension LoginViewController {
         super.setupViews()
         addSubviews(mainStackView)
         
-        mainStackView.addArrangedSubviews(authHeaderView, buttonsView, appleButtonsView)
+        mainStackView.addArrangedSubviews(
+            authHeaderView, credentialInputView,
+            authButton, appleButtonsView
+        )
     }
     override func layoutViews() {
         super.layoutViews()
         mainStackView.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(64)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.equalToSuperview().inset(32)
+            make.centerX.equalToSuperview()
         }
+        authButton.snp.makeConstraints { $0.height.equalTo(60) }
+        credentialInputView.snp.makeConstraints { $0.height.equalTo(182) }
     }
     override func configureViews() {
         super.configureViews()
@@ -37,6 +44,16 @@ extension LoginViewController {
             signInSelector: #selector(onSignInAppleButtonTapped),
             signUpSelector: #selector(onSignUpAppleButtonTapped)
         )
+        
+        authButton.backgroundColor = App.color.accentColor
+        authButton.titleLabel?.font = App.font.rubikBold(size: 20)
+        authButton.tintColor = .white
+        authButton.layer.cornerRadius = 10
+        authButton.layer.borderWidth = 1
+        authButton.layer.borderColor = App.color.accentColor.cgColor
+        authButton.setTitle(App.string.signUp(), for: .normal)
+        
+        authButton.addTarget(self, action: #selector(authButtonTapped), for: .touchUpInside)
     }
 }
 
@@ -54,5 +71,8 @@ extension LoginViewController {
     }
     @IBAction private func onSignUpAppleButtonTapped() {
         print(#function)
+    }
+    @IBAction private func authButtonTapped() {
+        
     }
 }

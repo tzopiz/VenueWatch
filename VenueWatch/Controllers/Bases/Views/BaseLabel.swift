@@ -11,7 +11,7 @@ import UIKit
 /// ```swift
 /// // by defaults:
 /// self.numberOfLines = 0
-/// self.textColor = UIColor.label
+/// self.textColor = App.color.label,
 /// self.fontSize = 15
 /// self.textAlignment = .left
 /// self.lineBreakMode = .byWordWrapping
@@ -21,7 +21,7 @@ public class BaseLabel: UILabel {
         case italic, light, regular, bold
     }
     init(text: String? = nil,
-         textColor: UIColor? = UIColor.label,
+         textColor: UIColor? = App.color.label,
          fontSize: CGFloat = 15,
          fontType: FontType = .regular,
          textAlignment: NSTextAlignment = .left,

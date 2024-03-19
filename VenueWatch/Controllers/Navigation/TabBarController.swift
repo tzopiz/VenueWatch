@@ -19,7 +19,7 @@ final class TabBarController: UITabBarController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureAppearance()
-        switchTo(tab: .profile)
+         switchTo(tab: .profile)
     }
     
     required init?(coder: NSCoder) {
@@ -29,10 +29,12 @@ final class TabBarController: UITabBarController {
     private func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
     
     private func configureAppearance() {
-        tabBar.tintColor = UIColor.label
-        tabBar.unselectedItemTintColor = UIColor.secondaryLabel
-        tabBar.backgroundColor = .systemBackground
-        tabBar.addTopBorder(with: App.color.border(), height: 2/3)
+        
+        tabBar.backgroundImage = UIImage()
+        tabBar.tintColor = App.color.label
+        tabBar.unselectedItemTintColor = App.color.secondaryLabel
+        tabBar.backgroundColor = App.color.systemBackground
+        tabBar.addTopBorder(with: App.color.separator, height: 2/3)
         
         let images = [
             UIImage(systemName: "house"),

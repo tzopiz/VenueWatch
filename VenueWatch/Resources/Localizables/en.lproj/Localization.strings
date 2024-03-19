@@ -18,7 +18,7 @@
 "invalidArg1" = "Invalid 1 %@.";
 "username" = "Username";
 "password" = "Password";
-"email" = "Email";
+"email" = "Email Address";
 "enterAValidArg1" = "Please enter a valid 1 %@.";
 "dismiss" = "Dismiss";
 "welcome" = "You are welcome";

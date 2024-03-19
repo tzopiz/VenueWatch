@@ -23,7 +23,14 @@ enum App {
         preferredLanguages: [UserDefaults.standard.preferredLanguage]
     )
     static let font = R.font
-    static let color = R.color
     static let image = R.image
+    enum color {
+        static let separator = UIColor.separator
+        static let systemBackground = UIColor.systemBackground
+        static let secondarySystemBackground = UIColor.secondarySystemBackground 
+        static let label = UIColor.label
+        static let secondaryLabel = UIColor.secondaryLabel
+        static let accentColor = UIColor.systemBlue
+    }
 }
 

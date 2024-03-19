@@ -33,7 +33,7 @@ extension CollectionViewController {
     }
     override func configureViews() {
         super.configureViews()
-        view.backgroundColor = App.color.background()
+        view.backgroundColor = App.color.secondarySystemBackground
         collectionView.delegate = self
         collectionView.dataSource = self
         let refreshControl = UIRefreshControl()

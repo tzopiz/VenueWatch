@@ -38,8 +38,8 @@ extension BaseViewController {
     /// таких как установка фона, цветов, шрифтов и других свойств визуальных элементов.
     /// Вы также можете применять стили, добавлять тени, закруглять углы и т.д.
     func configureViews() {
-        view.backgroundColor = App.color.background()
-        navigationController?.navigationBar.addBottomBorder(with: R.color.border(), height: 1)
+        view.backgroundColor = App.color.secondarySystemBackground
+        navigationController?.navigationBar.addBottomBorder(with: App.color.separator, height: 1)
     }
 }
 
@@ -53,7 +53,7 @@ extension BaseViewController {
         let button = UIButton(type: .system)
         if let title = title { button.setTitle(title, for: .normal) }
         if let image = image { button.setImage(image, for: .normal) }
-        button.titleLabel?.font = R.font.rubikRegular(size: 17)!
+        button.titleLabel?.font = App.font.rubikRegular(size: 17)!
         
         switch position {
         case .left:
