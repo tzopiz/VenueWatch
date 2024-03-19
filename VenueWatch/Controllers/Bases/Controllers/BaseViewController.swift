@@ -70,4 +70,9 @@ extension BaseViewController {
             } else { navigationItem.rightBarButtonItem = barButton }
         }
     }
+    func addSubviews(_ views: UIView...) {
+        for view in views {
+            self.view.addSubview(view)
+        }
+    }
 }

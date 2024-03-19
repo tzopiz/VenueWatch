@@ -6,40 +6,43 @@
 //
 
 import UIKit
-import AuthenticationServices
 
 final class LoginViewController: BaseViewController {
-    private lazy var signInButton = ASAuthorizationAppleIDButton(
-        authorizationButtonType: .signIn,
-        authorizationButtonStyle: .black
-    )
+    private let appleButtonsView = AppleButtonsView()
     private let appleLoginService = AppleLoginService()
+    
+    private let mainStackView = BaseStackView(axis: .vertical)
+    private let authHeaderView = AuthHeaderView()
+    private let buttonsView = BaseView()
 }
 
 // MARK: - Configure
 extension LoginViewController {
     override func setupViews() {
         super.setupViews()
-        view.addSubview(signInButton)
+        addSubviews(mainStackView)
+        
+        mainStackView.addArrangedSubviews(authHeaderView, buttonsView, appleButtonsView)
     }
     override func layoutViews() {
         super.layoutViews()
-        signInButton.snp.makeConstraints { make in
-            make.leading.bottom.trailing.equalToSuperview().inset(32)
-            make.height.equalTo(64)
+        mainStackView.snp.makeConstraints { make in
+            make.leading.trailing.top.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(64)
         }
     }
     override func configureViews() {
         super.configureViews()
-        signInButton.addTarget(self, action: #selector(onSignInTapped), for: .touchUpInside)
-        signInButton.isEnabled = true
-        signInButton.alpha = 0.5
+        appleButtonsView.addSelectors(
+            signInSelector: #selector(onSignInAppleButtonTapped),
+            signUpSelector: #selector(onSignUpAppleButtonTapped)
+        )
     }
 }
 
 // MARK: - Actions
 extension LoginViewController {
-    @IBAction private func onSignInTapped() {
+    @IBAction private func onSignInAppleButtonTapped() {
         appleLoginService.login { result in
             switch result {
             case .success(let result):
@@ -48,5 +51,8 @@ extension LoginViewController {
                 Utilities.Alert.showFetchingUserError(on: self, with: error)
             }
         }
+    }
+    @IBAction private func onSignUpAppleButtonTapped() {
+        print(#function)
     }
 }

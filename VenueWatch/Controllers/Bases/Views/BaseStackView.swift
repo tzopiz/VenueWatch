@@ -1,55 +1,29 @@
 //
-//  BaseLabel.swift
+//  BaseStackView.swift
 //  VenueWatch
 //
-//  Created by Дмитрий Корчагин on 3/18/24.
+//  Created by Дмитрий Корчагин on 3/19/24.
 //
+
+import Foundation
 
 import UIKit
 
-///
-/// ```swift
-/// // by defaults:
-/// self.numberOfLines = 0
-/// self.textColor = UIColor.label
-/// self.fontSize = 15
-/// self.textAlignment = .left
-/// self.lineBreakMode = .byWordWrapping
-/// ```
-public class BaseLabel: UILabel {
-    enum FontType {
-        case italic, light, regular, bold
-    }
-    init(text: String? = nil,
-         textColor: UIColor? = UIColor.label,
-         fontSize: CGFloat = 15,
-         fontType: FontType = .regular,
-         textAlignment: NSTextAlignment = .left,
-         lineBreakMode: NSLineBreakMode = .byWordWrapping) {
+final class BaseStackView: UIStackView {
+    init(axis: NSLayoutConstraint.Axis, spacing: CGFloat = 8) {
         super.init(frame: .zero)
-        self.textAlignment = textAlignment
-        self.lineBreakMode = lineBreakMode
-        self.textColor = textColor
-        switch fontType {
-        case .italic: self.font = App.font.rubikItalic(size: fontSize)
-        case .light: self.font = App.font.rubikLight(size: fontSize)
-        case .regular: self.font = App.font.rubikRegular(size: fontSize)
-        case .bold: self.font = App.font.rubikBold(size: fontSize)
-        }
-        self.text = text
-        self.numberOfLines = 0
-        setupViews()
-        layoutViews()
-        configureViews()
+        self.axis = axis
+        self.spacing = spacing
     }
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
 // MARK: - Configure
 @objc
-extension BaseLabel {
+extension BaseStackView {
     /// Добавляет подвиды на представление.
     /// Добавьте код для добавления подвидов на представление,
     /// таких как их инициализация, настройка свойств и добавление на представление.
@@ -65,4 +39,12 @@ extension BaseLabel {
     /// таких как установка фона, цветов, шрифтов и других свойств визуальных элементов.
     /// Вы также можете применять стили, добавлять тени, закруглять углы и т.д.
     func configureViews() { }
+}
+
+extension BaseStackView {
+    func addArrangedSubviews(_ views: UIView...) {
+        for view in views {
+            self.addArrangedSubview(view)
+        }
+    }
 }

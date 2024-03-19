@@ -25,7 +25,7 @@ public class CollectionViewController: BaseViewController {
 extension CollectionViewController {
     override func setupViews() {
         super.setupViews()
-        view.addSubview(collectionView)
+        addSubviews(collectionView)
     }
     override func layoutViews() {
         super.layoutViews()

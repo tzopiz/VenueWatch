@@ -24,5 +24,6 @@ enum App {
     )
     static let font = R.font
     static let color = R.color
+    static let image = R.image
 }
 
