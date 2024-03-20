@@ -32,7 +32,7 @@
 		0A398E452BA8A10800AA231C /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A398E442BA8A10800AA231C /* UserRequest.swift */; };
 		0A398E4B2BA8A86800AA231C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A398E4A2BA8A86800AA231C /* Service.swift */; };
 		0A398E4D2BA8A88800AA231C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A398E4C2BA8A88800AA231C /* DataService.swift */; };
-		0A398E4F2BA8B17B00AA231C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A398E4E2BA8B17B00AA231C /* EndPoint.swift */; };
+		0A398E4F2BA8B17B00AA231C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A398E4E2BA8B17B00AA231C /* APIRequest.swift */; };
 		0A398E542BA8BCA200AA231C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A398E532BA8BCA200AA231C /* Utilities.swift */; };
 		0A398E572BA8BCD300AA231C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A398E562BA8BCD300AA231C /* Alert.swift */; };
 		0A3C3FAA2BAAD88400CDCFDF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FA92BAAD88400CDCFDF /* LoginViewController.swift */; };
@@ -40,6 +40,8 @@
 		0A3C3FB52BAAE84700CDCFDF /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FB42BAAE84700CDCFDF /* BaseButton.swift */; };
 		0A3C3FBE2BAB175B00CDCFDF /* TermsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FBD2BAB175B00CDCFDF /* TermsTextView.swift */; };
 		0A3C3FC12BAB1AE500CDCFDF /* WebViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FC02BAB1AE500CDCFDF /* WebViewerController.swift */; };
+		0A3C40162BAB94C000CDCFDF /* VenueWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C40152BAB94C000CDCFDF /* VenueWatchTests.swift */; };
+		0A3C401F2BAB957600CDCFDF /* ValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */; };
 		0AC4CBA02BA975B100438E41 /* BaseStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4CB9F2BA975B100438E41 /* BaseStackView.swift */; };
 		0AC4CBA62BA987D700438E41 /* AppleButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4CBA52BA987D700438E41 /* AppleButtonsView.swift */; };
 		0AF2940E2BA9C47C0075C11A /* CredentialInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2940D2BA9C47C0075C11A /* CredentialInputView.swift */; };
@@ -75,6 +77,16 @@
 		0AF8CAF02BA09DD10069DF7E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAEF2BA09DD10069DF7E /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0A3C40172BAB94C000CDCFDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AF8CA852BA034D90069DF7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AF8CA8C2BA034D90069DF7E;
+			remoteInfo = VenueWatch;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0A0754B32BA848FA000DD966 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		0A0754D82BA874CA000DD966 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -95,7 +107,7 @@
 		0A398E442BA8A10800AA231C /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		0A398E4A2BA8A86800AA231C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		0A398E4C2BA8A88800AA231C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		0A398E4E2BA8B17B00AA231C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		0A398E4E2BA8B17B00AA231C /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		0A398E532BA8BCA200AA231C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		0A398E562BA8BCD300AA231C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0A3C3FA92BAAD88400CDCFDF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +115,9 @@
 		0A3C3FB42BAAE84700CDCFDF /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		0A3C3FBD2BAB175B00CDCFDF /* TermsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTextView.swift; sourceTree = "<group>"; };
 		0A3C3FC02BAB1AE500CDCFDF /* WebViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewerController.swift; sourceTree = "<group>"; };
+		0A3C40132BAB94C000CDCFDF /* VenueWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenueWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A3C40152BAB94C000CDCFDF /* VenueWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueWatchTests.swift; sourceTree = "<group>"; };
+		0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTests.swift; sourceTree = "<group>"; };
 		0AC4CB9F2BA975B100438E41 /* BaseStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStackView.swift; sourceTree = "<group>"; };
 		0AC4CBA52BA987D700438E41 /* AppleButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleButtonsView.swift; sourceTree = "<group>"; };
 		0AF2940D2BA9C47C0075C11A /* CredentialInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialInputView.swift; sourceTree = "<group>"; };
@@ -141,6 +156,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0A3C40102BAB94C000CDCFDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AF8CA8A2BA034D90069DF7E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,7 +217,7 @@
 			children = (
 				0A398E412BA8A0F300AA231C /* Response.swift */,
 				0A398E442BA8A10800AA231C /* UserRequest.swift */,
-				0A398E4E2BA8B17B00AA231C /* EndPoint.swift */,
+				0A398E4E2BA8B17B00AA231C /* APIRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,6 +240,15 @@
 				0A398E562BA8BCD300AA231C /* Alert.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0A3C40142BAB94C000CDCFDF /* VenueWatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				0A3C40152BAB94C000CDCFDF /* VenueWatchTests.swift */,
+				0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */,
+			);
+			path = VenueWatchTests;
 			sourceTree = "<group>";
 		};
 		0AC4CBA32BA987C500438E41 /* Apple */ = {
@@ -260,6 +291,7 @@
 				0AF8CAED2BA07DE80069DF7E /* README.md */,
 				0AF8CAEB2BA07DC90069DF7E /* .gitignore */,
 				0AF8CA8F2BA034D90069DF7E /* VenueWatch */,
+				0A3C40142BAB94C000CDCFDF /* VenueWatchTests */,
 				0AF8CA8E2BA034D90069DF7E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -268,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				0AF8CA8D2BA034D90069DF7E /* VenueWatch.app */,
+				0A3C40132BAB94C000CDCFDF /* VenueWatchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -454,6 +487,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0A3C40122BAB94C000CDCFDF /* VenueWatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A3C40192BAB94C000CDCFDF /* Build configuration list for PBXNativeTarget "VenueWatchTests" */;
+			buildPhases = (
+				0A3C400F2BAB94C000CDCFDF /* Sources */,
+				0A3C40102BAB94C000CDCFDF /* Frameworks */,
+				0A3C40112BAB94C000CDCFDF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0A3C40182BAB94C000CDCFDF /* PBXTargetDependency */,
+			);
+			name = VenueWatchTests;
+			productName = VenueWatchTests;
+			productReference = 0A3C40132BAB94C000CDCFDF /* VenueWatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0AF8CA8C2BA034D90069DF7E /* VenueWatch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AF8CAA12BA034DB0069DF7E /* Build configuration list for PBXNativeTarget "VenueWatch" */;
@@ -494,6 +545,10 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					0A3C40122BAB94C000CDCFDF = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 0AF8CA8C2BA034D90069DF7E;
+					};
 					0AF8CA8C2BA034D90069DF7E = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -518,11 +573,19 @@
 			projectRoot = "";
 			targets = (
 				0AF8CA8C2BA034D90069DF7E /* VenueWatch */,
+				0A3C40122BAB94C000CDCFDF /* VenueWatchTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0A3C40112BAB94C000CDCFDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AF8CA8B2BA034D90069DF7E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -573,6 +636,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A3C400F2BAB94C000CDCFDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3C401F2BAB957600CDCFDF /* ValidatorTests.swift in Sources */,
+				0A3C40162BAB94C000CDCFDF /* VenueWatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AF8CA892BA034D90069DF7E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -611,7 +683,7 @@
 				0AF8CAE02BA04FCB0069DF7E /* NotesViewController.swift in Sources */,
 				0AF8CA932BA034D90069DF7E /* SceneDelegate.swift in Sources */,
 				0AF8CAD12BA043210069DF7E /* BaseViewController.swift in Sources */,
-				0A398E4F2BA8B17B00AA231C /* EndPoint.swift in Sources */,
+				0A398E4F2BA8B17B00AA231C /* APIRequest.swift in Sources */,
 				0A398E452BA8A10800AA231C /* UserRequest.swift in Sources */,
 				0A3663072BA0BED9004FAE1D /* UserDefaults.swift in Sources */,
 				0AC4CBA02BA975B100438E41 /* BaseStackView.swift in Sources */,
@@ -624,6 +696,11 @@
 		0A0754E92BA886C3000DD966 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 0A0754E82BA886C3000DD966 /* RswiftGenerateInternalResources */;
+		};
+		0A3C40182BAB94C000CDCFDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AF8CA8C2BA034D90069DF7E /* VenueWatch */;
+			targetProxy = 0A3C40172BAB94C000CDCFDF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -648,6 +725,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0A3C401A2BAB94C000CDCFDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 653PNCT9WW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zipozt.VenueWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VenueWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VenueWatch";
+			};
+			name = Debug;
+		};
+		0A3C401B2BAB94C000CDCFDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 653PNCT9WW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zipozt.VenueWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VenueWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VenueWatch";
+			};
+			name = Release;
+		};
 		0AF8CA9F2BA034DB0069DF7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -836,6 +953,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A3C40192BAB94C000CDCFDF /* Build configuration list for PBXNativeTarget "VenueWatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A3C401A2BAB94C000CDCFDF /* Debug */,
+				0A3C401B2BAB94C000CDCFDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0AF8CA882BA034D90069DF7E /* Build configuration list for PBXProject "VenueWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

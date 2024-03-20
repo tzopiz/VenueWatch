@@ -14,7 +14,8 @@ extension Utilities.Alert {
     }
     static func showAlert(
         _ vc: UIViewController,
-        title: String, message: String?
+        title: String, 
+        message: String? = nil
     ) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

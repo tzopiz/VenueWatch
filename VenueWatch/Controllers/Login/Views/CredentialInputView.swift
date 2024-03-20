@@ -30,6 +30,22 @@ final class CredentialInputView: BaseView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    var credential: UserRequest {
+        if let usernameTextField = usernameTextField {
+            let request = UserRequest.SignUp(
+                username: usernameTextField.text ?? "",
+                email: emailTextField.text ?? "",
+                password: passwordTextField.text ?? ""
+            )
+            return .signUp(request)
+        } else {
+            let request = UserRequest.SignIn(
+                email: emailTextField.text ?? "",
+                password: passwordTextField.text ?? ""
+            )
+            return .signIn(request)
+        }
+    }
 }
 
 // MARK: - Configure

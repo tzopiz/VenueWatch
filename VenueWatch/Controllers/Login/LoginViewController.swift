@@ -24,9 +24,10 @@ final class LoginViewController: BaseViewController {
     private let footerButtonsView: FooterButtonsView
     
     private let appleButtonsView = AppleButtonsView()
-    private let appleLoginService = AppleLoginService()
-    
     private let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
+    
+    private lazy var appleLoginService = AppleLoginService()
+    private lazy var authService = AuthService()
     
     init(currentLoginType: LoginType) {
         self.currentLoginType = currentLoginType
@@ -93,8 +94,41 @@ extension LoginViewController {
         }
     }
     @IBAction private func signUpAppleButtonTapped() { print(#function) }
-    
-    @IBAction private func authButtonTapped() { print(#function) }
+    @IBAction private func authButtonTapped() {
+        let credential = credentialInputView.credential.body
+        
+        guard Utilities.Validator.isValid(credential.password, .password()),
+              Utilities.Validator.isValid(credential.email, .email())
+        else {
+            Utilities.Alert.showAlert(
+                self,
+                title: "email: \(credential.email)\n pass: \(credential.password)"
+            )
+            return
+        }
+        var userRequest: URLRequest?
+        if let credential = credential as? UserRequest.SignUp,
+           Utilities.Validator.isValid(credential.username, .username()),
+           let request = APIRequest.createAccount(userRequest: credential).request {
+            userRequest = request
+        }
+        if let credential = credential as? UserRequest.SignIn,
+           let request = APIRequest.signIn(userRequest: credential).request {
+            userRequest = request
+        }
+        guard let userRequest = userRequest else {
+            Utilities.Alert.showAlert(self, title: "117")
+            return
+        }
+        Task {
+            do {
+                let result = try await authService.fetch(request: userRequest)
+                print(result)
+            } catch {
+                Utilities.Alert.showSignInErrorAlert(on: self, with: error.localizedDescription)
+            }
+        }
+    }
     @IBAction private func secondaryButtonButtonTapped() { print(#function) }
     @IBAction private func toggleButtonTapped() {
         switch currentLoginType {
