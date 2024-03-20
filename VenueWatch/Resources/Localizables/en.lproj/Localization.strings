@@ -34,3 +34,5 @@
 "secondaryButtonTitleSignIn" = "Forgot Password?";
 "secondaryButtonTitleSignUp" = "By creating an account, you agree to our Terms & Conditions and you acknowledge that you have read our Privacy Policy.";
 
+"termsConditions" = "Terms & Conditions";
+"privacyPolicy" = "Privacy Policy";

@@ -6,29 +6,44 @@
 //
 
 import UIKit
-import SnapKit
 
-final class AuthHeaderView: BaseView, Toggled {
-    var titles: (signIn: String, signUp: String)?
+final class AuthHeaderView: BaseView {
     
-    private let logoImageView = UIImageView(image: UIImage(systemName: "mappin.and.ellipse"))
-    private let label = ToggleLabel(
-        textColor: App.color.label,
-        fontSize: 32,
-        fontType: .bold,
-        textAlignment: .center,
-        titles: (App.string.signIn(), App.string.signUp())
-    )
-    private let secondaryLabel = ToggleLabel(
-        textColor: App.color.secondaryLabel,
-        fontSize: 18,
-        textAlignment: .center,
-        titles: (App.string.signIntoAccount(), App.string.createAccount())
-    )
+    private let label: BaseLabel
+    private let secondaryLabel: BaseLabel
+    
     private let stackView = BaseStackView(axis: .vertical)
-    func toggle(with type: LoginViewController.LoginType) {
-        label.toggle(with: type)
-        secondaryLabel.toggle(with: type)
+    private let logoImageView = UIImageView(image: UIImage(systemName: "mappin.and.ellipse"))
+    
+    init(type: LoginType) {
+        let labelText: String
+        let secondaryLabelText: String
+        switch type {
+        case .signIn:
+            labelText = App.string.signIn()
+            secondaryLabelText = App.string.signIntoAccount()
+        case .signUp:
+            labelText = App.string.signUp()
+            secondaryLabelText = App.string.createAccount()
+        }
+        self.label = BaseLabel(
+            text: labelText,
+            textColor: App.color.label,
+            fontSize: 32,
+            fontType: .bold,
+            textAlignment: .center
+        )
+        self.secondaryLabel = BaseLabel(
+            text: secondaryLabelText,
+            textColor: App.color.secondaryLabel,
+            fontSize: 18,
+            textAlignment: .center
+        )
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

@@ -14,7 +14,7 @@ final class NavigationController: UINavigationController {
         navigationBar.isTranslucent = false
         navigationBar.standardAppearance.titleTextAttributes = [
             .foregroundColor: App.color.secondaryLabel,
-            .font: App.font.rubikRegular(size: 20)!
+            .font: App.font.rubik(style: .regular, size: 20)!
         ]
     }
 }

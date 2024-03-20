@@ -17,25 +17,20 @@ import UIKit
 /// self.lineBreakMode = .byWordWrapping
 /// ```
 public class BaseLabel: UILabel {
-    enum FontType {
-        case italic, light, regular, bold
-    }
-    internal init(text: String? = nil,
-         textColor: UIColor? = App.color.label,
-         fontSize: CGFloat = 15,
-         fontType: FontType = .regular,
-         textAlignment: NSTextAlignment = .left,
-         lineBreakMode: NSLineBreakMode = .byWordWrapping) {
+
+    internal init(
+        text: String? = nil,
+        textColor: UIColor? = App.color.label,
+        fontSize: CGFloat = 15,
+        fontType: App.font.FontStyle = .regular,
+        textAlignment: NSTextAlignment = .left,
+        lineBreakMode: NSLineBreakMode = .byWordWrapping
+    ) {
         super.init(frame: .zero)
         self.textAlignment = textAlignment
         self.lineBreakMode = lineBreakMode
         self.textColor = textColor
-        switch fontType {
-        case .italic: self.font = App.font.rubikItalic(size: fontSize)
-        case .light: self.font = App.font.rubikLight(size: fontSize)
-        case .regular: self.font = App.font.rubikRegular(size: fontSize)
-        case .bold: self.font = App.font.rubikBold(size: fontSize)
-        }
+
         self.text = text
         self.numberOfLines = 0
         setupViews()

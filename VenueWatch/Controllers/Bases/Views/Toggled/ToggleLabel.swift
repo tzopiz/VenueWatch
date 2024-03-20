@@ -14,7 +14,7 @@ final class ToggleLabel: BaseLabel, Toggled {
         text: String? = nil,
         textColor: UIColor? = App.color.label,
         fontSize: CGFloat = 15,
-        fontType: BaseLabel.FontType = .regular,
+        fontType: App.font.FontStyle = .regular,
         textAlignment: NSTextAlignment = .left,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         titles: (signIn: String, signUp: String)?
@@ -33,7 +33,7 @@ final class ToggleLabel: BaseLabel, Toggled {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func toggle(with type: LoginViewController.LoginType) {
+    func toggle(with type: LoginType) {
         switch type {
         case .signIn: text = titles?.signUp
         case .signUp: text = titles?.signUp

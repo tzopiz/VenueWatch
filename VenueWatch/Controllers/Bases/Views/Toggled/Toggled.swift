@@ -7,7 +7,18 @@
 
 import Foundation
 
+enum LoginType {
+    case signIn
+    case signUp
+    mutating func toggle() {
+        switch self {
+        case .signIn: self = .signUp
+        case .signUp: self = .signIn
+        }
+    }
+}
+
 protocol Toggled {
     var titles: (signIn: String, signUp: String)? { get }
-    func toggle(with type: LoginViewController.LoginType)
+    func toggle(with type: LoginType)
 }

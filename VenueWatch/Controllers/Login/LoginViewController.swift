@@ -2,35 +2,35 @@
 //  LoginViewController.swift
 //  VenueWatch
 //
-//  Created by Дмитрий Корчагин on 3/12/24.
+//  Created by Дмитрий Корчагин on 3/20/24.
 //
 
 import UIKit
-import AuthenticationServices
 
 final class LoginViewController: BaseViewController {
-    enum LoginType {
-        case signIn
-        case signUp
-    }
-    private var currentLoginType: LoginType = .signUp
+    private let currentLoginType: LoginType
+    
+    private let authHeaderView: AuthHeaderView
+    private let credentialInputView: CredentialInputView
+    private let footerButtonsView: FooterButtonsView
+    
     private let appleButtonsView = AppleButtonsView()
     private let appleLoginService = AppleLoginService()
     
     private let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
-    private let authHeaderView = AuthHeaderView()
-    private let credentialInputView = CredentialInputView()
-    private let buttonsStackView = BaseStackView(axis: .vertical)
     
-    private let toggleButton = ToggleButton(
-        titles: (App.string.toggleButtonTitleSignIn(), App.string.toggleButtonTitleSignUp())
-    )
-    private let authButton = ToggleButton(
-        titles: (App.string.signIn(), App.string.signUp())
-    )
-    private let secondaryButton = ToggleButton(
-        titles: (App.string.secondaryButtonTitleSignIn(), App.string.secondaryButtonTitleSignUp())
-    )
+    init(currentLoginType: LoginType) {
+        self.currentLoginType = currentLoginType
+        credentialInputView = CredentialInputView(type: currentLoginType)
+        footerButtonsView = FooterButtonsView(type: currentLoginType)
+        authHeaderView = AuthHeaderView(type: currentLoginType)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 // MARK: - Configure
@@ -38,24 +38,21 @@ extension LoginViewController {
     override func setupViews() {
         super.setupViews()
         addSubviews(mainStackView)
-        
         mainStackView.addArrangedSubviews(
-            authHeaderView, credentialInputView,
-            buttonsStackView, appleButtonsView
+            authHeaderView, credentialInputView, footerButtonsView, appleButtonsView
         )
-        buttonsStackView.addArrangedSubviews(authButton, secondaryButton, toggleButton)
     }
     override func layoutViews() {
         super.layoutViews()
+        
+        credentialInputView.snp.makeConstraints { $0.height.equalTo(credentialInputView.height) }
+        footerButtonsView.snp.makeConstraints { $0.height.equalTo(footerButtonsView.height) }
+        
         mainStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(25)
-            make.top.equalToSuperview().inset(32)
+            make.top.equalToSuperview().inset(64)
             make.centerX.equalToSuperview()
         }
-        credentialInputView.snp.makeConstraints { $0.height.equalTo(182) }
-        authButton.snp.makeConstraints { $0.height.equalTo(50) }
-        secondaryButton.snp.makeConstraints { $0.height.equalTo(40) }
-        toggleButton.snp.makeConstraints { $0.height.equalTo(40) }
     }
     override func configureViews() {
         super.configureViews()
@@ -64,22 +61,13 @@ extension LoginViewController {
             signInSelector: #selector(signInAppleButtonTapped),
             signUpSelector: #selector(signUpAppleButtonTapped)
         )
-        
-        authButton.backgroundColor = App.color.accentColor
-        authButton.titleLabel?.font = App.font.rubikBold(size: 20)
-        authButton.tintColor = .white
-        authButton.layer.cornerRadius = 10
-        authButton.layer.borderWidth = 1
-        authButton.layer.borderColor = App.color.accentColor.cgColor
-        authButton.addTarget(self, action: #selector(authButtonTapped), for: .touchUpInside)
-        
-        toggleButton.titleLabel?.font = App.font.rubikBold(size: 16)
-        toggleButton.addTarget(self, action: #selector(toggleButtonTapped), for: .touchUpInside)
-        
-        secondaryButton.addTarget(self, action: #selector(secondaryButtonButtonTapped), for: .touchUpInside)
-        secondaryButton.titleLabel?.font = App.font.rubikRegular(size: 11)
-        secondaryButton.tintColor = App.color.label
-
+        footerButtonsView.addSelectos(
+            target: self,
+            authButtonSelector: #selector(authButtonTapped),
+            secondarySelector: #selector(secondaryButtonButtonTapped),
+            toggleButtonSelector: #selector(toggleButtonTapped)
+        )
+        footerButtonsView.delegate = self
     }
 }
 
@@ -96,13 +84,14 @@ extension LoginViewController {
         }
     }
     @IBAction private func signUpAppleButtonTapped() { print(#function) }
+    
     @IBAction private func authButtonTapped() { print(#function) }
     @IBAction private func secondaryButtonButtonTapped() { print(#function) }
-    @IBAction private func toggleButtonTapped() {
-        authHeaderView.toggle(with: currentLoginType)
-        // TODO: to one view
-        authButton.toggle(with: currentLoginType)
-        toggleButton.toggle(with: currentLoginType)
-        secondaryButton.toggle(with: currentLoginType)
+    @IBAction private func toggleButtonTapped() { print(#function) }
+}
+
+extension LoginViewController {
+    override func present(viewController: UIViewController, animated: Bool) {
+        self.present(viewController, animated: true)
     }
 }

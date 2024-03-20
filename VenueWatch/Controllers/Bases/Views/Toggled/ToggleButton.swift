@@ -8,10 +8,8 @@
 import UIKit
 
 final class ToggleButton: UIButton, Toggled {
-    typealias LoginType =  LoginViewController.LoginType
     var titles: (signIn: String, signUp: String)?
     func toggle(with type: LoginType) {
-        // TODO: animation toggle
         switch type {
         case .signIn: break
         case .signUp: break

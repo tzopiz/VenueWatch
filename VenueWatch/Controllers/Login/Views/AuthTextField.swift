@@ -34,7 +34,7 @@ final class AuthTextField: BaseTextField {
             borderWidth: 1,
             borderColor: App.color.separator.cgColor,
             textColor: App.color.label,
-            font: App.font.rubikRegular(size: 17),
+            font: App.font.rubik(style: .regular, size: 17),
             backgroundColor: App.color.systemBackground
         )
         self.returnKeyType = .done
@@ -44,18 +44,5 @@ final class AuthTextField: BaseTextField {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-// MARK: - Configure
-extension AuthTextField {
-    override func setupViews() {
-        super.setupViews()
-    }
-    override func layoutViews() {
-        super.layoutViews()
-    }
-    override func configureViews() {
-        super.configureViews()
     }
 }

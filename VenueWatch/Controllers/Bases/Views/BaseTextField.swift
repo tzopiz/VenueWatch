@@ -35,7 +35,7 @@ public class BaseTextField: UITextField {
         borderWidth: CGFloat = 0,
         borderColor: CGColor? = UIColor.clear.cgColor,
         textColor: UIColor = .clear,
-        font: UIFont? = App.font.rubikRegular(size: 15),
+        font: UIFont? = App.font.rubik(style: .regular, size: 15),
         backgroundColor: UIColor = .clear
     ) {
         self.placeholder = placeholder

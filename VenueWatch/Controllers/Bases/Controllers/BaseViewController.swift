@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PresentDelegate: AnyObject {
+    func present(viewController: UIViewController, animated: Bool)
+}
+
 public class BaseViewController: UIViewController {
     enum NavBarPosition {
         case left
@@ -53,7 +57,7 @@ extension BaseViewController {
         let button = UIButton(type: .system)
         if let title = title { button.setTitle(title, for: .normal) }
         if let image = image { button.setImage(image, for: .normal) }
-        button.titleLabel?.font = App.font.rubikRegular(size: 17)!
+        button.titleLabel?.font = App.font.rubik(style: .regular, size: 17)!
         
         switch position {
         case .left:
@@ -75,4 +79,11 @@ extension BaseViewController {
             self.view.addSubview(view)
         }
     }
+}
+@objc
+extension BaseViewController: PresentDelegate {
+    func present(viewController: UIViewController, animated: Bool) {
+        print(#function)
+    }
+    
 }
