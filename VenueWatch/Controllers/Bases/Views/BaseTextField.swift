@@ -9,7 +9,7 @@ import UIKit
 
 public class BaseTextField: UITextField {
     private var padding: UIEdgeInsets {
-        UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
     override init(frame: CGRect) {
         super.init(frame: frame)

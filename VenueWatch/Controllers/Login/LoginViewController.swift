@@ -7,8 +7,17 @@
 
 import UIKit
 
+enum LoginType {
+    case signIn, signUp
+    mutating func toggle() {
+        switch self {
+        case .signIn: self = .signUp
+        case .signUp: self = .signIn
+        }
+    }
+}
 final class LoginViewController: BaseViewController {
-    private let currentLoginType: LoginType
+    private var currentLoginType: LoginType
     
     private let authHeaderView: AuthHeaderView
     private let credentialInputView: CredentialInputView
@@ -87,7 +96,17 @@ extension LoginViewController {
     
     @IBAction private func authButtonTapped() { print(#function) }
     @IBAction private func secondaryButtonButtonTapped() { print(#function) }
-    @IBAction private func toggleButtonTapped() { print(#function) }
+    @IBAction private func toggleButtonTapped() {
+        switch currentLoginType {
+        case .signIn:
+            let vc = LoginViewController(currentLoginType: .signUp)
+            UIApplication.shared.keyWindow?.switchRootViewController(vc)
+        case .signUp:
+            let vc = LoginViewController(currentLoginType: .signIn)
+            UIApplication.shared.keyWindow?.switchRootViewController(vc)
+        }
+        currentLoginType.toggle()
+    }
 }
 
 extension LoginViewController {

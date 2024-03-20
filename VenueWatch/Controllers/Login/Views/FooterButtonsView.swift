@@ -22,6 +22,7 @@ final class FooterButtonsView: BaseView {
     private let secondaryButton: ButtonTextView
     private let toggleButton: BaseButton
     private let secondaryButtonHeight: CGFloat
+    private let stackView = BaseStackView(axis: .vertical)
     weak var delegate: PresentDelegate?
     
     let height: CGFloat
@@ -32,7 +33,7 @@ final class FooterButtonsView: BaseView {
         switch type {
         case .signIn:
             height = 130
-            secondaryButtonHeight = 40
+            secondaryButtonHeight = 50
             let button = BaseButton(App.string.secondaryButtonTitleSignIn())
             button.titleLabel?.font = App.font.rubik(style: .regular, size: 12)
             button.tintColor = App.color.label
@@ -40,8 +41,8 @@ final class FooterButtonsView: BaseView {
             toggleButtonTitle = App.string.toggleButtonTitleSignIn()
             secondaryButton = .button(button)
         case .signUp:
-            height = 180
-            secondaryButtonHeight = 65
+            height = 160
+            secondaryButtonHeight = 70
             let textView = TermsTextView(App.string.secondaryButtonTitleSignUp())
             secondaryButton = .textView(textView)
             authButtonTitle = App.string.signUp()
@@ -77,23 +78,24 @@ final class FooterButtonsView: BaseView {
 extension FooterButtonsView {
     override func setupViews() {
         super.setupViews()
-        addSubviews(authButton, secondaryButton.view(), toggleButton)
+        addSubviews(stackView)
+        stackView.addArrangedSubviews(
+            authButton, secondaryButton.view(), toggleButton
+        )
     }
     override func layoutViews() {
         super.layoutViews()
+        stackView.snp.makeConstraints { make in
+            make.center.leading.trailing.equalToSuperview()
+        }
         authButton.snp.makeConstraints { make in
-            make.leading.top.trailing.centerX.equalToSuperview()
             make.height.equalTo(50)
         }
         secondaryButton.view().snp.makeConstraints { make in
-            make.leading.trailing.centerX.equalToSuperview()
-            make.top.equalTo(authButton.snp.bottom).offset(8)
-            make.height.equalTo(secondaryButtonHeight)
+            make.height.lessThanOrEqualTo(secondaryButtonHeight)
         }
         toggleButton.snp.makeConstraints { make in
-            make.leading.trailing.centerX.equalToSuperview()
-            make.top.equalTo(secondaryButton.view().snp.bottom)
-            make.height.equalTo(40)
+            make.height.lessThanOrEqualTo(40)
         }
     }
     override func configureViews() {
@@ -108,7 +110,6 @@ extension FooterButtonsView {
         toggleButton.titleLabel?.font = App.font.rubik(style: .bold, size: 18)
     }
 }
-
 
 extension FooterButtonsView: UITextViewDelegate {
     
@@ -140,4 +141,3 @@ extension FooterButtonsView: UITextViewDelegate {
         textView.delegate = self
     }
 }
-

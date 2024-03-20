@@ -50,5 +50,3 @@ extension AppleButtonsView {
         signUpAppleButton.isEnabled = false
     }
 }
-
-

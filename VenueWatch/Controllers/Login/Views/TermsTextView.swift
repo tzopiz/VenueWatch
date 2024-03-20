@@ -11,21 +11,23 @@ public class TermsTextView: UITextView {
     convenience init(_ str: String) {
         self.init()
         let attributedString = NSMutableAttributedString(string: str)
+        
         let addAttributesRanges = (
             terms: App.string.termsConditions(),
             policy: App.string.privacyPolicy()
         )
+        
         attributedString.addAttribute(
             .link,
             value: "terms://termsAndConditions",
             range: (attributedString.string as NSString).range(of: addAttributesRanges.terms)
         )
-        
         attributedString.addAttribute(
             .link,
             value: "privacy://privacyPolicy",
             range: (attributedString.string as NSString).range(of: addAttributesRanges.policy)
         )
+        
         linkTextAttributes = [.foregroundColor: App.color.accentColor]
         backgroundColor = .clear
         attributedText = attributedString
@@ -37,4 +39,3 @@ public class TermsTextView: UITextView {
         isScrollEnabled = false
     }
 }
-

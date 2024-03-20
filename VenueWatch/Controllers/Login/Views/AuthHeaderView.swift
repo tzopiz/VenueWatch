@@ -11,7 +11,6 @@ final class AuthHeaderView: BaseView {
     
     private let label: BaseLabel
     private let secondaryLabel: BaseLabel
-    
     private let stackView = BaseStackView(axis: .vertical)
     private let logoImageView = UIImageView(image: UIImage(systemName: "mappin.and.ellipse"))
     
