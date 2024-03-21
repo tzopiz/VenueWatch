@@ -9,54 +9,65 @@ import XCTest
 @testable import VenueWatch
 
 final class ValidatorTests: XCTestCase {
-    typealias Validator = Utilities.Validator
     
-    func testValidEmail() throws {
-        XCTAssertTrue(Validator.isValid("example@example.com", .email()))
-        XCTAssertTrue(Validator.isValid("user123@mail.domain", .email()))
-        XCTAssertTrue(Validator.isValid("user.name@example.co.uk", .email()))
-        XCTAssertTrue(Validator.isValid("user+name@example.org", .email()))
-        XCTAssertTrue(Validator.isValid("user123@example.com", .email()))
+    private let baseValidator = Validators.getFor([.base]).first!
+    private let emailValidator = Validators.getFor([.email]).first!
+    private let usernameValidator = Validators.getFor([.username]).first!
+    private let passwordValidator = Validators.getFor([.password]).first!
+    
+    func testValidBaseValidator() {
+        XCTAssertTrue(baseValidator.isValid(value: "1234567890123456789012"))
+        XCTAssertTrue(baseValidator.isValid(value: "Hello"))
+        XCTAssertTrue(baseValidator.isValid(value: "This string is too long This string is too long"))
+    }
+    func testInvalidBaseValidator() {
+        XCTAssertFalse(baseValidator.isValid(value: String(Array<Character>(repeating: "a", count: 65))))
+        XCTAssertFalse(baseValidator.isValid(value: ""))
+        XCTAssertFalse(baseValidator.isValid(value: nil))
     }
     
-    func testInvalidEmail() throws {
-        XCTAssertFalse(Validator.isValid("", .email()))
-        XCTAssertFalse(Validator.isValid("example.com", .email()))
-        XCTAssertFalse(Validator.isValid("invalid_email_format", .email()))
-        XCTAssertFalse(Validator.isValid("not_an_email", .email()))
-        XCTAssertFalse(Validator.isValid("user@example", .email()))
+    func testValidPasswordValidator() {
+        XCTAssertTrue(passwordValidator.isValid(value: "StrongPassword123?"))
+        XCTAssertTrue(passwordValidator.isValid(value: "SecurePwd456@"))
+        XCTAssertTrue(passwordValidator.isValid(value: "MyPass123!"))
+        XCTAssertTrue(passwordValidator.isValid(value: "MyPass123!"))
+        XCTAssertTrue(passwordValidator.isValid(value: "StrongPwd!2022"))
+        XCTAssertTrue(passwordValidator.isValid(value: "SafePassword99%"))
+    }
+    func testInvalidPasswordValidator() {
+        XCTAssertFalse(passwordValidator.isValid(value: nil))
+        XCTAssertFalse(passwordValidator.isValid(value: "weak"))
+        XCTAssertFalse(passwordValidator.isValid(value: "strong_password123."))
+        XCTAssertFalse(passwordValidator.isValid(value: "alk;smdklasmdkla"))
+        XCTAssertFalse(passwordValidator.isValid(value: "qweoiqowepiqopwieopqwieopqwi"))
+        XCTAssertFalse(passwordValidator.isValid(value: "qqqqqqqqqqqqqqqqqqQ"))
+        XCTAssertFalse(passwordValidator.isValid(value: "strongpass1?"))
     }
     
-    func testValidUsername() throws {
-        XCTAssertTrue(Validator.isValid("Username123", .username()))
-        XCTAssertTrue(Validator.isValid("user_name", .username()))
-        XCTAssertTrue(Validator.isValid("user1234", .username()))
-        XCTAssertTrue(Validator.isValid("123user", .username()))
-        XCTAssertTrue(Validator.isValid("user_123", .username()))
+    func testValidEmailValidator() {
+        XCTAssertTrue(emailValidator.isValid(value: "example@example.com"))
+        XCTAssertTrue(emailValidator.isValid(value: "user@email.co.uk"))
+        XCTAssertTrue(emailValidator.isValid(value: "test123@example-domain.com"))
+        XCTAssertTrue(emailValidator.isValid(value: "test@.domain.com"))
+    }
+    func testInvalidEmailValidator() {
+        XCTAssertFalse(emailValidator.isValid(value: nil))
+        XCTAssertFalse(emailValidator.isValid(value: "example@example"))
+        XCTAssertFalse(emailValidator.isValid(value: "user@.com"))
+        XCTAssertFalse(emailValidator.isValid(value: "test@domain"))
     }
     
-    func testInvalidUsername() throws {
-        XCTAssertFalse(Validator.isValid("", .username()))
-        XCTAssertFalse(Validator.isValid("us", .username()))
-        XCTAssertFalse(Validator.isValid("!@#$%", .username()))
-        XCTAssertFalse(Validator.isValid("user name", .username()))
-        XCTAssertFalse(Validator.isValid("user-name", .username()))
+    func testValidUsernameValidator() {
+        XCTAssertTrue(usernameValidator.isValid(value: "user123"))
+        XCTAssertTrue(usernameValidator.isValid(value: "123user"))
+        XCTAssertTrue(usernameValidator.isValid(value: "___123user"))
+        XCTAssertTrue(usernameValidator.isValid(value: "user1234567890_"))
     }
-    
-    func testValidPassword() throws {
-        XCTAssertTrue(Validator.isValid("StrongPassword123!", .password()))
-        XCTAssertTrue(Validator.isValid("SecurePass123$", .password()))
-        XCTAssertTrue(Validator.isValid("ComplexPassword$123", .password()))
-        XCTAssertTrue(Validator.isValid("Pa$$w0rd123", .password()))
-        XCTAssertTrue(Validator.isValid("Passw0rd!", .password()))
-    }
-    
-    func testInvalidPassword() throws {
-        XCTAssertFalse(Validator.isValid("weak", .password()))
-        XCTAssertFalse(Validator.isValid("weakpassword", .password()))
-        XCTAssertFalse(Validator.isValid("", .password()))
-        XCTAssertFalse(Validator.isValid("password123", .password()))
-        XCTAssertFalse(Validator.isValid("password", .password()))
+    func testInvalidUsernameValidator() {
+        XCTAssertFalse(usernameValidator.isValid(value: nil))
+        XCTAssertFalse(usernameValidator.isValid(value: "user@name"))
+        XCTAssertFalse(usernameValidator.isValid(value: "user$%#"))
+        XCTAssertFalse(usernameValidator.isValid(value: "user name"))
+        XCTAssertFalse(usernameValidator.isValid(value: "user.name"))
     }
 }
-
