@@ -29,6 +29,8 @@ final class LoginViewController: BaseViewController {
     private lazy var appleLoginService = AppleLoginService()
     private lazy var authService = AuthService()
     
+    // TODO: add back button to ProfileViewController
+    
     init(currentLoginType: LoginType) {
         self.currentLoginType = currentLoginType
         credentialInputView = CredentialInputView(type: currentLoginType)
@@ -114,12 +116,15 @@ extension LoginViewController {
             do {
                 let result = try await authService.fetch(request: userRequest)
                 print(result)
+                // TODO: authorization
             } catch {
                 Utilities.Alert.showSignInErrorAlert(on: self, with: error.localizedDescription)
             }
         }
     }
-    @IBAction private func secondaryButtonButtonTapped() { print(#function) }
+    @IBAction private func secondaryButtonButtonTapped() {
+        // TODO: recreate password
+    }
     @IBAction private func toggleButtonTapped() {
         switch currentLoginType {
         case .signIn:
