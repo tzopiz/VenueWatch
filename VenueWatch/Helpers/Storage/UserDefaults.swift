@@ -13,3 +13,4 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: "preferredLanguage") }
     }
 }
+
