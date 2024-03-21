@@ -40,7 +40,6 @@
 		0A3C3FB52BAAE84700CDCFDF /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FB42BAAE84700CDCFDF /* BaseButton.swift */; };
 		0A3C3FBE2BAB175B00CDCFDF /* TermsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FBD2BAB175B00CDCFDF /* TermsTextView.swift */; };
 		0A3C3FC12BAB1AE500CDCFDF /* WebViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FC02BAB1AE500CDCFDF /* WebViewerController.swift */; };
-		0A3C40162BAB94C000CDCFDF /* VenueWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C40152BAB94C000CDCFDF /* VenueWatchTests.swift */; };
 		0A3C401F2BAB957600CDCFDF /* ValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */; };
 		0AC4CBA02BA975B100438E41 /* BaseStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4CB9F2BA975B100438E41 /* BaseStackView.swift */; };
 		0AC4CBA62BA987D700438E41 /* AppleButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4CBA52BA987D700438E41 /* AppleButtonsView.swift */; };
@@ -116,7 +115,6 @@
 		0A3C3FBD2BAB175B00CDCFDF /* TermsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTextView.swift; sourceTree = "<group>"; };
 		0A3C3FC02BAB1AE500CDCFDF /* WebViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewerController.swift; sourceTree = "<group>"; };
 		0A3C40132BAB94C000CDCFDF /* VenueWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenueWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A3C40152BAB94C000CDCFDF /* VenueWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueWatchTests.swift; sourceTree = "<group>"; };
 		0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTests.swift; sourceTree = "<group>"; };
 		0AC4CB9F2BA975B100438E41 /* BaseStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStackView.swift; sourceTree = "<group>"; };
 		0AC4CBA52BA987D700438E41 /* AppleButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleButtonsView.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 		0A3C40142BAB94C000CDCFDF /* VenueWatchTests */ = {
 			isa = PBXGroup;
 			children = (
-				0A3C40152BAB94C000CDCFDF /* VenueWatchTests.swift */,
 				0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */,
 			);
 			path = VenueWatchTests;
@@ -399,7 +396,6 @@
 		0AF8CACF2BA043040069DF7E /* Bases */ = {
 			isa = PBXGroup;
 			children = (
-				0A398E522BA8BC6F00AA231C /* Utilities */,
 				0AEA0F5A2BA71724004B3BC6 /* Views */,
 				0AEA0F592BA7171D004B3BC6 /* Controllers */,
 			);
@@ -417,6 +413,7 @@
 		0AF8CAD72BA04A8A0069DF7E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0A398E522BA8BC6F00AA231C /* Utilities */,
 				0A3663052BA0BECF004FAE1D /* Storage */,
 				0AF8CAD82BA04A920069DF7E /* Extensions */,
 			);
@@ -641,7 +638,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3C401F2BAB957600CDCFDF /* ValidatorTests.swift in Sources */,
-				0A3C40162BAB94C000CDCFDF /* VenueWatchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,7 +814,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -876,7 +872,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

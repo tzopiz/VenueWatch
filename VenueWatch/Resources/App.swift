@@ -63,4 +63,3 @@ enum App {
         static let accentColor = UIColor.systemBlue
     }
 }
-

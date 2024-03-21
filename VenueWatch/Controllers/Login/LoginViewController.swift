@@ -99,13 +99,7 @@ extension LoginViewController {
         
         guard Utilities.Validator.isValid(credential.password, .password()),
               Utilities.Validator.isValid(credential.email, .email())
-        else {
-            Utilities.Alert.showAlert(
-                self,
-                title: "email: \(credential.email)\n pass: \(credential.password)"
-            )
-            return
-        }
+        else { return }
         var userRequest: URLRequest?
         if let credential = credential as? UserRequest.SignUp,
            Utilities.Validator.isValid(credential.username, .username()),
@@ -116,10 +110,7 @@ extension LoginViewController {
            let request = APIRequest.signIn(userRequest: credential).request {
             userRequest = request
         }
-        guard let userRequest = userRequest else {
-            Utilities.Alert.showAlert(self, title: "117")
-            return
-        }
+        guard let userRequest = userRequest else { return }
         Task {
             do {
                 let result = try await authService.fetch(request: userRequest)

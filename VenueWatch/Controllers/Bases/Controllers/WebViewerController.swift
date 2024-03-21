@@ -44,4 +44,3 @@ extension WebViewerController {
         self.dismiss(animated: true, completion: nil)
     }
 }
-
