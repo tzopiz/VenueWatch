@@ -22,8 +22,13 @@ extension ProfileViewController {
         navigationItem.title = App.string.profile()
         addNavBarButton(
             at: .right,
-            with: App.string.logIn(),
-            selector: #selector(logInButtonTapped)
+            with: App.string.signIn(),
+            selector: #selector(sigInButtonTapped)
+        )
+        addNavBarButton(
+            at: .right,
+            with: App.string.signUp(),
+            selector: #selector(signUpButtonTapped)
         )
     }
 }
@@ -31,8 +36,12 @@ extension ProfileViewController {
 // MARK: - Actions
 
 extension ProfileViewController {
-    @IBAction private func logInButtonTapped() {
-        let viewController = LoginViewController()
-        self.navigationController?.present(viewController, animated: true)
+    @IBAction private func sigInButtonTapped() {
+        let viewController = LoginViewController(currentLoginType: .signIn)
+        UIApplication.shared.keyWindow!.switchRootViewController(viewController, animated: true)
+    }
+    @IBAction private func signUpButtonTapped() {
+        let viewController = LoginViewController(currentLoginType: .signUp)
+        UIApplication.shared.keyWindow!.switchRootViewController(viewController, animated: true)
     }
 }

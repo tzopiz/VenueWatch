@@ -19,6 +19,7 @@ final class TabBarController: UITabBarController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureAppearance()
+         switchTo(tab: .profile)
     }
     
     required init?(coder: NSCoder) {
@@ -28,17 +29,24 @@ final class TabBarController: UITabBarController {
     private func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
     
     private func configureAppearance() {
-        tabBar.tintColor = App.color.accentColor()
+        
         tabBar.backgroundImage = UIImage()
-        tabBar.shadowImage = UIImage()
-        tabBar.backgroundColor = .systemBackground
-        tabBar.addTopBorder(with: App.color.border(), height: 2/3)
+        tabBar.tintColor = App.color.label
+        tabBar.unselectedItemTintColor = App.color.secondaryLabel
+        tabBar.backgroundColor = App.color.systemBackground
+        tabBar.addTopBorder(with: App.color.separator, height: 2/3)
         
         let images = [
-            UIImage(systemName: "note.text"),
+            UIImage(systemName: "house"),
             UIImage(systemName: "map"),
-            UIImage(systemName: "person.2.wave.2.fill"),
+            UIImage(systemName: "person.2.wave.2"),
             UIImage(systemName: "person.crop.rectangle.stack")
+        ]
+        let selectedImages = [
+            UIImage(systemName: "house.fill"),
+            UIImage(systemName: "map.fill"),
+            UIImage(systemName: "person.2.wave.2.fill"),
+            UIImage(systemName: "person.crop.rectangle.stack.fill")
         ]
         let titles = [
             App.string.notes(),
@@ -50,7 +58,7 @@ final class TabBarController: UITabBarController {
             let controller = NavigationController(rootViewController: getController(for: tab))
             controller.tabBarItem = UITabBarItem(title: titles[tab.rawValue],
                                                  image: images[tab.rawValue],
-                                                 tag: tab.rawValue)
+                                                 selectedImage: selectedImages[tab.rawValue])
             return controller
         }
         setViewControllers(controllers, animated: true)
@@ -64,4 +72,3 @@ final class TabBarController: UITabBarController {
         }
     }
 }
-

@@ -1,6 +1,0 @@
-framework module Pods_VenueWatch {
-  umbrella header "Pods-VenueWatch-umbrella.h"
-
-  export *
-  module * { export * }
-}
