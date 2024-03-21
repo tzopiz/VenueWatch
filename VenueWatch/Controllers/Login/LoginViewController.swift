@@ -86,29 +86,28 @@ extension LoginViewController {
     @IBAction private func signInAppleButtonTapped() {
         appleLoginService.login { result in
             switch result {
-            case .success(let result):
-                print(result.fullName)
-            case .failure(let error):
-                print(error.localizedDescription)
+            case .success(let result): print(result.fullName)
+            case .failure(let error): print(error.localizedDescription)
             }
         }
     }
     @IBAction private func signUpAppleButtonTapped() { print(#function) }
     @IBAction private func authButtonTapped() {
         let credential = credentialInputView.credential.body
-        
-        guard Utilities.Validator.isValid(credential.password, .password()),
-              Utilities.Validator.isValid(credential.email, .email())
-        else { return }
         var userRequest: URLRequest?
         if let credential = credential as? UserRequest.SignUp,
-           Utilities.Validator.isValid(credential.username, .username()),
            let request = APIRequest.createAccount(userRequest: credential).request {
-            userRequest = request
+            switch credential.validate() {
+            case .invalid(let error): print(error.localizedDescription)
+            case .valid(_): userRequest = request
+            }
         }
         if let credential = credential as? UserRequest.SignIn,
            let request = APIRequest.signIn(userRequest: credential).request {
-            userRequest = request
+            switch credential.validate() {
+            case .invalid(let error): print(error.localizedDescription)
+            case .valid(_): userRequest = request
+            }
         }
         guard let userRequest = userRequest else { return }
         Task {
