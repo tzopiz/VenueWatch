@@ -29,24 +29,22 @@ final class TabBarController: UITabBarController {
     private func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
     
     private func configureAppearance() {
-        
-        tabBar.backgroundImage = UIImage()
         tabBar.tintColor = App.color.label
         tabBar.unselectedItemTintColor = App.color.secondaryLabel
         tabBar.backgroundColor = App.color.systemBackground
         tabBar.addTopBorder(with: App.color.separator, height: 2/3)
         
         let images = [
-            UIImage(systemName: "house"),
-            UIImage(systemName: "map"),
-            UIImage(systemName: "person.2.wave.2"),
-            UIImage(systemName: "person.crop.rectangle.stack")
+            App.images.notes,
+            App.images.map,
+            App.images.friends,
+            App.images.profile,
         ]
         let selectedImages = [
-            UIImage(systemName: "house.fill"),
-            UIImage(systemName: "map.fill"),
-            UIImage(systemName: "person.2.wave.2.fill"),
-            UIImage(systemName: "person.crop.rectangle.stack.fill")
+            App.images.notes_fill,
+            App.images.map_fill,
+            App.images.friends_fill,
+            App.images.profile_fill,
         ]
         let titles = [
             App.string.notes(),

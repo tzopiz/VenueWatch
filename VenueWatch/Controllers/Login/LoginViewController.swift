@@ -29,7 +29,9 @@ final class LoginViewController: BaseViewController {
     private lazy var appleLoginService = AppleLoginService()
     private lazy var authService = AuthService()
     
-    // TODO: add back button to ProfileViewController
+    // TODO:
+    // - add back button to ProfileViewController,
+    // - hide keyboard after touching
     
     init(currentLoginType: LoginType) {
         self.currentLoginType = currentLoginType
@@ -79,7 +81,18 @@ extension LoginViewController {
             secondarySelector: #selector(secondaryButtonButtonTapped),
             toggleButtonSelector: #selector(toggleButtonTapped)
         )
+        
         footerButtonsView.delegate = self
+        
+        for subview in view.subviews {
+            if let textField = subview as? AuthTextField {
+                textField.delegate = self
+            }
+        }
+    
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGesture)
     }
 }
 
@@ -100,25 +113,33 @@ extension LoginViewController {
         if let credential = credential as? UserRequest.SignUp,
            let request = APIRequest.createAccount(userRequest: credential).request {
             switch credential.validate() {
-            case .invalid(let error): print(error.localizedDescription)
-            case .valid(_): userRequest = request
+            case .invalid(let errors):
+                print("APIRequest.SignUp.Error:\n")
+                errors.message.forEach { print($0) }
+            case .valid(_):
+                userRequest = request
             }
         }
         if let credential = credential as? UserRequest.SignIn,
            let request = APIRequest.signIn(userRequest: credential).request {
             switch credential.validate() {
-            case .invalid(let error): print(error.localizedDescription)
-            case .valid(_): userRequest = request
+            case .invalid(let errors):
+                print("APIRequest.SignIn.Error:\n")
+                errors.message.forEach { print($0) }
+            case .valid(_):
+                userRequest = request
             }
         }
+        performRequest(userRequest)
+    }
+    private func performRequest(_ userRequest: URLRequest?) {
         guard let userRequest = userRequest else { return }
         Task {
             do {
                 let result = try await authService.fetch(request: userRequest)
                 print(result)
-                // TODO: authorization
             } catch {
-                Utilities.Alert.showSignInErrorAlert(on: self, with: error.localizedDescription)
+                Utilities.Alert.showAlert(self, title: #function, message: error.localizedDescription)
             }
         }
     }
@@ -136,10 +157,22 @@ extension LoginViewController {
         }
         currentLoginType.toggle()
     }
+    @IBAction func hideKeyboard() {
+        credentialInputView.endEditing(true)
+    }
 }
 
+// MARK: - PresentDelegate
 extension LoginViewController {
     override func present(viewController: UIViewController, animated: Bool) {
         self.present(viewController, animated: true)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        credentialInputView.endEditing(true)
+        return true
     }
 }

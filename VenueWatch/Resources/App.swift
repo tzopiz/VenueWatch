@@ -62,4 +62,15 @@ enum App {
         static let secondaryLabel = UIColor.secondaryLabel
         static let accentColor = UIColor.systemBlue
     }
+    enum images {
+        static let notes =  UIImage(systemName: "house")
+        static let map = UIImage(systemName: "map")
+        static let friends = UIImage(systemName: "person.2.wave.2")
+        static let profile = UIImage(systemName: "person.crop.rectangle.stack")
+        
+        static let notes_fill = UIImage(systemName: "house.fill")
+        static let map_fill = UIImage(systemName: "map.fill")
+        static let friends_fill = UIImage(systemName: "person.2.wave.2.fill")
+        static let profile_fill = UIImage(systemName: "person.crop.rectangle.stack.fill")
+    }
 }

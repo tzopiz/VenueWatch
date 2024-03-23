@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 extension Utilities.Alert {
-    enum AlertType {
-        case email, password, username
-    }
+    typealias AlertType = Utilities.Validators.ValidatorType
     static func showAlert(
         _ vc: UIViewController,
         title: String, 

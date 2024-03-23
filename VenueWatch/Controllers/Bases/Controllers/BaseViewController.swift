@@ -80,9 +80,10 @@ extension BaseViewController {
         }
     }
 }
-@objc
+
+// MARK: - PresentDelegate
 extension BaseViewController: PresentDelegate {
-    func present(viewController: UIViewController, animated: Bool) {
+    @objc func present(viewController: UIViewController, animated: Bool) {
         print(#function)
     }
     

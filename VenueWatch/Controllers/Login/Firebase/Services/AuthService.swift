@@ -25,7 +25,7 @@ final class AuthService: Service {
         } catch {
             do {
                 let errorMessage = try decoder.decode(Response.Error.self, from: data)
-                throw ServiceError.server(errorMessage.error)
+                throw ServiceError.server("Response.Error: \(errorMessage.error)")
             } catch {
                 throw ServiceError.decoding("Error parsing server response: \(error)")
             }

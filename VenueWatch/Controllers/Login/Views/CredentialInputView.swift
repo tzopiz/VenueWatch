@@ -26,22 +26,22 @@ final class CredentialInputView: BaseView {
         }
         super.init(frame: .zero)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     var credential: UserRequest {
         if let usernameTextField = usernameTextField {
             let request = UserRequest.SignUp(
-                username: usernameTextField.text ?? "",
-                email: emailTextField.text ?? "",
-                password: passwordTextField.text ?? ""
+                username: usernameTextField.text,
+                email: emailTextField.text,
+                password: passwordTextField.text
             )
             return .signUp(request)
         } else {
             let request = UserRequest.SignIn(
-                email: emailTextField.text ?? "",
-                password: passwordTextField.text ?? ""
+                email: emailTextField.text,
+                password: passwordTextField.text
             )
             return .signIn(request)
         }
@@ -65,22 +65,36 @@ extension CredentialInputView {
                 make.top.equalToSuperview()
                 make.height.equalTo(50)
             }
-            emailTextField.snp.makeConstraints { make in
-                make.leading.trailing.equalToSuperview()
-                make.height.equalTo(50)
-                make.top.equalTo(usernameTextField.snp.bottom).offset(16)
+            emailTextField.snp.makeConstraints {
+                $0.top.equalTo(usernameTextField.snp.bottom).offset(16)
             }
         } else {
-            emailTextField.snp.makeConstraints { make in
-                make.leading.trailing.equalToSuperview()
-                make.height.equalTo(50)
-                make.top.equalToSuperview()
-            }
+            emailTextField.snp.makeConstraints { $0.top.equalToSuperview() }
+        }
+        emailTextField.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(50)
         }
         passwordTextField.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(emailTextField.snp.bottom).offset(16)
             make.height.equalTo(50)
+        }
+    }
+    override func configureViews() {
+        super.configureViews()
+        if let usernameTextField = usernameTextField { usernameTextField.delegate = self }
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+}
+
+extension CredentialInputView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case usernameTextField: emailTextField.becomeFirstResponder()
+        case emailTextField: passwordTextField.becomeFirstResponder()
+        default: self.endEditing(true)
         }
     }
 }
