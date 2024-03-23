@@ -56,8 +56,7 @@ extension AuthHeaderView {
     override func layoutViews() {
         super.layoutViews()
         logoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
-            make.centerX.equalToSuperview()
+            make.top.centerX.equalToSuperview()
             make.width.height.equalTo(128)
         }
         stackView.snp.makeConstraints { make in

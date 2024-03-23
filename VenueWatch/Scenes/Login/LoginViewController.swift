@@ -29,10 +29,6 @@ final class LoginViewController: BaseViewController {
     private lazy var appleLoginService = AppleLoginService()
     private lazy var authService = AuthService()
     
-    // TODO:
-    // - add back button to ProfileViewController,
-    // - hide keyboard after touching
-    
     init(currentLoginType: LoginType) {
         self.currentLoginType = currentLoginType
         credentialInputView = CredentialInputView(type: currentLoginType)
@@ -63,8 +59,7 @@ extension LoginViewController {
         footerButtonsView.snp.makeConstraints { $0.height.equalTo(footerButtonsView.height) }
         
         mainStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(25)
-            make.top.equalToSuperview().inset(64)
+            make.leading.top.trailing.equalToSuperview().inset(16)
             make.centerX.equalToSuperview()
         }
     }
@@ -89,7 +84,7 @@ extension LoginViewController {
                 textField.delegate = self
             }
         }
-    
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
@@ -147,15 +142,9 @@ extension LoginViewController {
         // TODO: recreate password
     }
     @IBAction private func toggleButtonTapped() {
-        switch currentLoginType {
-        case .signIn:
-            let vc = LoginViewController(currentLoginType: .signUp)
-            UIApplication.shared.keyWindow?.switchRootViewController(vc)
-        case .signUp:
-            let vc = LoginViewController(currentLoginType: .signIn)
-            UIApplication.shared.keyWindow?.switchRootViewController(vc)
-        }
+        guard let navigationController = self.navigationController else { return }
         currentLoginType.toggle()
+        navigationController.presentLoginViewController(for: currentLoginType)
     }
     @IBAction func hideKeyboard() {
         credentialInputView.endEditing(true)

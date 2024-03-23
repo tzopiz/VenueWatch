@@ -316,7 +316,7 @@
 				0AF8CAD72BA04A8A0069DF7E /* Helpers */,
 				0AF8CAAA2BA039C90069DF7E /* Resources */,
 				0AF8CAA42BA035E40069DF7E /* Application */,
-				0AF8CACE2BA042DF0069DF7E /* Controllers */,
+				0AF8CACE2BA042DF0069DF7E /* Scenes */,
 				0AF8CACD2BA03D800069DF7E /* SupportingFiles */,
 			);
 			path = VenueWatch;
@@ -385,7 +385,7 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		0AF8CACE2BA042DF0069DF7E /* Controllers */ = {
+		0AF8CACE2BA042DF0069DF7E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				0AF8CAF32BA0AC6B0069DF7E /* Login */,
@@ -396,7 +396,7 @@
 				0AF8CADB2BA04F7B0069DF7E /* Profile */,
 				0AF8CACF2BA043040069DF7E /* Bases */,
 			);
-			path = Controllers;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		0AF8CACF2BA043040069DF7E /* Bases */ = {

@@ -43,7 +43,6 @@ extension BaseViewController {
     /// Вы также можете применять стили, добавлять тени, закруглять углы и т.д.
     func configureViews() {
         view.backgroundColor = App.color.secondarySystemBackground
-        navigationController?.navigationBar.addBottomBorder(with: App.color.separator, height: 1)
     }
 }
 

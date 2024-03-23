@@ -57,6 +57,7 @@ final class TabBarController: UITabBarController {
             controller.tabBarItem = UITabBarItem(title: titles[tab.rawValue],
                                                  image: images[tab.rawValue],
                                                  selectedImage: selectedImages[tab.rawValue])
+            controller.navigationBar.addBottomBorder(with: App.color.separator, height: 1)
             return controller
         }
         setViewControllers(controllers, animated: true)
