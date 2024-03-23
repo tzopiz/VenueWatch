@@ -9,21 +9,17 @@ import UIKit
 import WebKit
 
 class WebViewerController: BaseViewController {
-    
     private let webView = WKWebView()
-    private let urlString: String
+    var url: URL
     
-    init(with urlString: String) {
-        self.urlString = urlString
+    init(url: URL) {
+        self.url = url
         super.init(nibName: nil, bundle: nil)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-// MARK: - Configure
 extension WebViewerController {
     override func setupViews() {
         super.setupViews()
@@ -31,16 +27,12 @@ extension WebViewerController {
     }
     override func layoutViews() {
         super.layoutViews()
+        webView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
     override func configureViews() {
         super.configureViews()
-        addNavBarButton(at: .right, with: "Close", selector: #selector(handler))
-    }
-}
-
-// MARK: - Actions
-extension WebViewerController {
-    @IBAction private func handler() {
-        self.dismiss(animated: true, completion: nil)
+        
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 }

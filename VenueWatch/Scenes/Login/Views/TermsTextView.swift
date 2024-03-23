@@ -16,15 +16,15 @@ public class TermsTextView: UITextView {
             terms: App.string.termsConditions(),
             policy: App.string.privacyPolicy()
         )
-        
+        let language = App.currentLanguage
         attributedString.addAttribute(
             .link,
-            value: "terms://termsAndConditions",
+            value: "https://policies.google.com/terms?hl=\(language)-US",
             range: (attributedString.string as NSString).range(of: addAttributesRanges.terms)
         )
         attributedString.addAttribute(
             .link,
-            value: "privacy://privacyPolicy",
+            value: "https://policies.google.com/privacy?hl=\(language)-US",
             range: (attributedString.string as NSString).range(of: addAttributesRanges.policy)
         )
         
@@ -37,5 +37,6 @@ public class TermsTextView: UITextView {
         isEditable = false
         delaysContentTouches = false
         isScrollEnabled = false
+        dataDetectorTypes = .link
     }
 }

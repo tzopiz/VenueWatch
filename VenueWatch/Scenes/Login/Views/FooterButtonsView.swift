@@ -10,7 +10,7 @@ import UIKit
 final class FooterButtonsView: BaseView {
     enum ButtonTextView {
         case button(UIButton)
-        case textView(UITextView)
+        case textView(TermsTextView)
         func view() -> UIView {
             switch self {
             case .button(let button): return button
@@ -112,32 +112,17 @@ extension FooterButtonsView {
 }
 
 extension FooterButtonsView: UITextViewDelegate {
-    
     func textView(
         _ textView: UITextView,
         shouldInteractWith URL: URL,
         in characterRange: NSRange,
         interaction: UITextItemInteraction
     ) -> Bool {
-        
-        if URL.scheme == "terms" {
-            self.showWebViewerController(with: "https://policies.google.com/terms?hl=en")
-        }
-        if URL.scheme == "privacy" {
-            self.showWebViewerController(with: "https://policies.google.com/privacy?hl=en")
+        if URL.absoluteString.hasPrefix("https") {
+            let webViewerController = WebViewerController(url: URL)
+            delegate?.present(viewController: webViewerController, animated: true)
+            return false
         }
         return true
-    }
-    
-    private func showWebViewerController(with urlString: String) {
-        let webViewerController = WebViewerController(with: urlString)
-        let navigationController = NavigationController(rootViewController: webViewerController)
-        delegate?.present(viewController: navigationController, animated: true)
-    }
-    
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        textView.delegate = nil
-        textView.selectedTextRange = nil
-        textView.delegate = self
     }
 }
