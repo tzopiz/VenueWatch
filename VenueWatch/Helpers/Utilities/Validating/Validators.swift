@@ -7,81 +7,63 @@
 
 import Foundation
 
-struct ValidationError: LocalizedError {
-    var message: String
-    public var errorDescription: String? {
-        message
-    }
-}
-
-protocol Validator {
-    associatedtype ValueType
-    var errorMessage: String { get }
-    func isValid(value: ValueType?) -> Bool
-}
-
-extension Validator {
-    func validate(value: ValueType?) throws {
-        if !isValid(value: value) {
-            throw ValidationError(message: errorMessage)
-        }
-    }
-}
-
-struct RegexValidator: Validator, Hashable {
-    public var errorMessage: String
-    private var regex: String
-    public init(regex: String, errorMessage: String) {
-        self.regex = regex
-        self.errorMessage = errorMessage
-    }
-    public func isValid(value: String?) -> Bool {
-        guard let v = value else { return false }
-        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
-        return predicate.evaluate(with: v)
-    }
-}
-
-enum Validators {
+extension Utilities.Validators {
     enum ValidatorType {
-        case email
-        case username
-        case password
-        case base
+        case email(value: String = App.string.email())
+        case username(value: String = App.string.username())
+        case password(value: String = App.string.password())
+    }
+    static func isValid(_ str: String?, type: ValidatorType) -> ValidationResult<String, String> {
+        switch type {
+        case .email: return isValidEmail(str)
+        case .password: return isValidPassword(str)
+        case .username: return isValidUsername(str)
+        }
     }
     private static let emailValidator = RegexValidator(
         regex: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
         errorMessage: "Invalid email"
     )
     private static let passwordValidator = RegexValidator(
-        regex: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
+        regex: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&_()-])[A-Za-z\\d@$!%*?&_()-]{8,}$",
         errorMessage: "Invalid password"
     )
     private static let usernameValidator = RegexValidator(
         regex: "^\\w{4,}$",
         errorMessage: "Invalid username"
     )
-    private static let baseValidator = RegexValidator(
-        regex: #"^.{2,64}$"#,
-        errorMessage: "String is not valid"
-    )
-    static func getFor(_ validators: Array<ValidatorType>) -> Set<RegexValidator> {
-        var selectedValidators = Set<RegexValidator>()
-        for validator in validators {
-            switch validator {
-            case .email: selectedValidators.insert(emailValidator)
-            case .username: selectedValidators.insert(usernameValidator)
-            case .password: selectedValidators.insert(passwordValidator)
-            case .base: selectedValidators.insert(baseValidator)
-            }
-        }
-        return selectedValidators
+    private static func isValidPassword(_ password: String?) -> ValidationResult<String, String> {
+        guard let password = password, password.contains(where: { $0.isUppercase })
+        else { return .invalid(App.string.noUppercaseLetter()) }
+        guard password.contains(where: { $0.isLowercase })
+        else { return .invalid(App.string.noLowercaseLetter()) }
+        guard password.contains(where: { $0.isNumber })
+        else { return .invalid(App.string.noDigit()) }
+        let specialCharacters = CharacterSet(charactersIn: "!?@#$%^&*()-_")
+        guard password.rangeOfCharacter(from: specialCharacters) != nil
+        else { return .invalid(App.string.noSpecialCharacter()) }
+        guard password.count >= 8 && password.count <= 64
+        else { return .invalid(App.string.insufficientLength()) }
+        return .valid(password)
     }
-    static func isValid(_ str: String, _ validators: Set<RegexValidator>) -> Bool {
-        for validator in validators where !validator.isValid(value: str) {
-            return false
-        }
-        return true
+    private static func isValidEmail(_ email: String?) -> ValidationResult<String, String> {
+        guard let email = email, !email.isEmpty
+        else { return .invalid("Email cannot be empty") }
+        guard email.range(
+            of: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+            options: .regularExpression
+        ) != nil
+        else { return .invalid("Invalid email format") }
+        return .valid(email)
+    }
+    private static func isValidUsername(_ username: String?) -> ValidationResult<String, String> {
+        guard let username = username, !username.isEmpty
+        else { return .invalid("Username cannot be empty") }
+        guard username.range(
+            of: #"^\w{4,}$"#,
+            options: .regularExpression
+        ) != nil
+        else { return .invalid("Invalid username format") }
+        return .valid(username)
     }
 }
-

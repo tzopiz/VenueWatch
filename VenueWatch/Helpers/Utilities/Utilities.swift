@@ -9,5 +9,5 @@ import Foundation
 
 enum Utilities {
     enum Alert { }
-    enum Validator { }
+    enum Validators { }
 }

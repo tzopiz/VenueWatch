@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 enum App {
-    
     // MARK: - Theme
     enum DeviceTheme {
         case light, dark
@@ -21,7 +20,6 @@ enum App {
         default: return .dark
         }
     }
-    
     // MARK: - Localizations
     static var currentLanguage: String {
         return UserDefaults.standard.preferredLanguage
@@ -29,14 +27,12 @@ enum App {
     static let string = R.string.localization(
         preferredLanguages: [App.currentLanguage]
     )
-    
-    // MARK: - Fonts
-    enum font {
-        enum FontStyle {
-            case black, blackItalic, bold, lightItalic, medium
-            case boldItalic, italic, light, mediumItalic, regular
-        }
-        static func rubik(style fontStyle: FontStyle, size fontSize: CGFloat) -> UIFont? {
+    enum FontStyle {
+        case black, blackItalic, bold, lightItalic, medium
+        case boldItalic, italic, light, mediumItalic, regular
+    }
+    enum Font {
+        static func rubik(style fontStyle: App.FontStyle, size fontSize: CGFloat) -> UIFont? {
             switch fontStyle {
             case .italic:       return R.font.rubikItalic(size: fontSize)
             case .light:        return R.font.rubikLight(size: fontSize)
@@ -51,15 +47,23 @@ enum App {
             }
         }
     }
-    
-    // MARK: - Colors
-    enum color {
+    enum Color {
         static let uicolor = UIColor()
         static let separator = UIColor.separator
         static let systemBackground = UIColor.systemBackground
-        static let secondarySystemBackground = UIColor.secondarySystemBackground 
+        static let secondarySystemBackground = UIColor.secondarySystemBackground
         static let label = UIColor.label
         static let secondaryLabel = UIColor.secondaryLabel
         static let accentColor = UIColor.systemBlue
+    }
+    enum Images {
+        static let notes =  UIImage(systemName: "house")
+        static let map = UIImage(systemName: "map")
+        static let friends = UIImage(systemName: "person.2.wave.2")
+        static let profile = UIImage(systemName: "person.crop.rectangle.stack")
+        static let notesFill = UIImage(systemName: "house.fill")
+        static let mapFill = UIImage(systemName: "map.fill")
+        static let friendsFill = UIImage(systemName: "person.2.wave.2.fill")
+        static let profileFill = UIImage(systemName: "person.crop.rectangle.stack.fill")
     }
 }

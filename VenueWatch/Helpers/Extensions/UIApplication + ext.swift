@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIApplication {
-    
     var keyWindow: UIWindow? {
         // Get connected scenes
         return self.connectedScenes

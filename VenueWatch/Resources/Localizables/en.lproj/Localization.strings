@@ -36,3 +36,12 @@
 
 "termsConditions" = "Terms & Conditions";
 "privacyPolicy" = "Privacy Policy";
+
+"noLowercaseLetter" = "Password must contain at least one lowercase letter";
+"noUppercaseLetter" = "Password must contain at least one uppercase letter";
+"noDigit" = "Password must contain at least one digit";
+"noSpecialCharacter" = "Password must contain at least one special character from: !?@#$%^&*()-_";
+"insufficientLength" = "Password length must be between 8 and 64 characters";
+
+"attention" = "Attention";
+"functionIsBeingDeveloped" = "This feature is being developed and will be available soon";
