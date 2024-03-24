@@ -13,6 +13,7 @@ extension Utilities.Validators {
         case username(value: String = App.string.username())
         case password(value: String = App.string.password())
     }
+    
     static func isValid(_ str: String?, type: ValidatorType) -> ValidationResult<String, String> {
         switch type {
         case .email: return isValidEmail(str)
@@ -20,6 +21,7 @@ extension Utilities.Validators {
         case .username: return isValidUsername(str)
         }
     }
+    
     private static let emailValidator = RegexValidator(
         regex: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
         errorMessage: "Invalid email"
@@ -32,6 +34,7 @@ extension Utilities.Validators {
         regex: "^\\w{4,}$",
         errorMessage: "Invalid username"
     )
+    
     private static func isValidPassword(_ password: String?) -> ValidationResult<String, String> {
         guard let password = password, password.contains(where: { $0.isUppercase })
         else { return .invalid(App.string.noUppercaseLetter()) }
@@ -46,6 +49,7 @@ extension Utilities.Validators {
         else { return .invalid(App.string.insufficientLength()) }
         return .valid(password)
     }
+    
     private static func isValidEmail(_ email: String?) -> ValidationResult<String, String> {
         guard let email = email, !email.isEmpty
         else { return .invalid("Email cannot be empty") }
@@ -56,6 +60,7 @@ extension Utilities.Validators {
         else { return .invalid("Invalid email format") }
         return .valid(email)
     }
+    
     private static func isValidUsername(_ username: String?) -> ValidationResult<String, String> {
         guard let username = username, !username.isEmpty
         else { return .invalid("Username cannot be empty") }

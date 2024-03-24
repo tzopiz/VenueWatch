@@ -29,22 +29,13 @@ final class TabBarController: UITabBarController {
         tabBar.backgroundColor = App.Color.systemBackground
         tabBar.addTopBorder(with: App.Color.separator, height: 2/3)
         let images = [
-            App.Images.notes,
-            App.Images.map,
-            App.Images.friends,
-            App.Images.profile
+            App.Image.notes, App.Image.map, App.Image.friends, App.Image.profile
         ]
         let selectedImages = [
-            App.Images.notesFill,
-            App.Images.mapFill,
-            App.Images.friendsFill,
-            App.Images.profileFill
+            App.Image.notesFill, App.Image.mapFill, App.Image.friendsFill, App.Image.profileFill
         ]
         let titles = [
-            App.string.notes(),
-            App.string.map(),
-            App.string.friends(),
-            App.string.profile()
+            App.string.notes(), App.string.map(), App.string.friends(), App.string.profile()
         ]
         let controllers: [NavigationController] = Tabs.allCases.map { tab in
             let controller = NavigationController(rootViewController: getController(for: tab))

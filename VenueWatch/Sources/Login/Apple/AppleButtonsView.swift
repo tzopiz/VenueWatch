@@ -24,7 +24,6 @@ final class AppleButtonsView: BaseView {
 }
 
 // MARK: - Configure
-
 extension AppleButtonsView {
     override func setupViews() {
         super.setupViews()

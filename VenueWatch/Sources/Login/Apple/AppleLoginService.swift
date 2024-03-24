@@ -14,7 +14,7 @@ protocol AppleLoginServiceDelegate: AnyObject {
 
 final class AppleLoginService: NSObject, AppleLoginServiceDelegate {
     struct AuthResult {
-        let fullName: [String]
+        let fullName: Array<String>
         let token: String
     }
     private var handler: ((Result<AuthResult, any Error>) -> Void)?

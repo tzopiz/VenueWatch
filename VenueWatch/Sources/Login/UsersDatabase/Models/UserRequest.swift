@@ -29,8 +29,8 @@ enum UserRequest {
         let username: String?
         let email: String?
         let password: String?
-        func validate() -> ValidationResult<SignUp, ValidationError<[String]>> {
-            var errors = ValidationError<[String]>(message: [String]())
+        func validate() -> ValidationResult<SignUp, ValidationError<Array<String>>> {
+            var errors = ValidationError<Array<String>>(message: Array<String>())
             let validators: [(String?, Validators.ValidatorType)] = [
                 (email, .email()),
                 (password, .password()),
@@ -49,8 +49,8 @@ enum UserRequest {
     struct SignIn: Codable, UserRequestProtocol, Validatable {
         let email: String?
         let password: String?
-        func validate() -> ValidationResult<SignIn, ValidationError<[String]>> {
-            var errors = ValidationError<[String]>(message: [String]())
+        func validate() -> ValidationResult<SignIn, ValidationError<Array<String>>> {
+            var errors = ValidationError<Array<String>>(message: Array<String>())
             let validators: [(String?, Validators.ValidatorType)] = [
                 (email, .email()),
                 (password, .password())

@@ -18,6 +18,7 @@ final class FooterButtonsView: BaseView {
             }
         }
     }
+    
     private let authButton: BaseButton
     private let secondaryButton: ButtonTextView
     private let toggleButton: BaseButton
@@ -25,6 +26,7 @@ final class FooterButtonsView: BaseView {
     private let stackView = BaseStackView(axis: .vertical)
     weak var delegate: PresentDelegate?
     let height: CGFloat
+    
     init(type: LoginType) {
         let authButtonTitle: String,
             toggleButtonTitle: String
@@ -53,6 +55,7 @@ final class FooterButtonsView: BaseView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     func addSelectos(
         target: Any?,
         authButtonSelector: Selector,

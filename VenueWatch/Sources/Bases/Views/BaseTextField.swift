@@ -54,6 +54,7 @@ public class BaseTextField: UITextField {
     }
 }
 
+// MARK: - Configure
 @objc
 extension BaseTextField {
     /// Добавляет подвиды на представление.

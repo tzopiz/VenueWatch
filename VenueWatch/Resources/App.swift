@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 enum App {
+    
     // MARK: - Theme
     enum DeviceTheme {
         case light, dark
@@ -20,6 +21,7 @@ enum App {
         default: return .dark
         }
     }
+    
     // MARK: - Localizations
     static var currentLanguage: String {
         return UserDefaults.standard.preferredLanguage
@@ -27,6 +29,8 @@ enum App {
     static let string = R.string.localization(
         preferredLanguages: [App.currentLanguage]
     )
+    
+    // MARK: - Fonts
     enum FontStyle {
         case black, blackItalic, bold, lightItalic, medium
         case boldItalic, italic, light, mediumItalic, regular
@@ -47,6 +51,8 @@ enum App {
             }
         }
     }
+    
+    // MARK: - Colors
     enum Color {
         static let uicolor = UIColor()
         static let separator = UIColor.separator
@@ -56,7 +62,8 @@ enum App {
         static let secondaryLabel = UIColor.secondaryLabel
         static let accentColor = UIColor.systemBlue
     }
-    enum Images {
+    // MARK: - Images
+    enum Image {
         static let notes =  UIImage(systemName: "house")
         static let map = UIImage(systemName: "map")
         static let friends = UIImage(systemName: "person.2.wave.2")

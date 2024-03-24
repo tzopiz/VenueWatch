@@ -17,7 +17,6 @@ import UIKit
 /// self.lineBreakMode = .byWordWrapping
 /// ```
 public class BaseLabel: UILabel {
-
     internal init(
         text: String? = nil,
         textColor: UIColor? = App.Color.label,

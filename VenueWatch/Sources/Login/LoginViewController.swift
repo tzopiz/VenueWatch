@@ -17,6 +17,7 @@ enum LoginType {
     }
 }
 final class LoginViewController: BaseViewController {
+    
     private var currentLoginType: LoginType
     private let authHeaderView: AuthHeaderView
     private let credentialInputView: CredentialInputView
@@ -25,6 +26,7 @@ final class LoginViewController: BaseViewController {
     private let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
     private let appleLoginService = AppleLoginService()
     private let authService = AuthService()
+    
     init(currentLoginType: LoginType) {
         self.currentLoginType = currentLoginType
         credentialInputView = CredentialInputView(type: currentLoginType)
