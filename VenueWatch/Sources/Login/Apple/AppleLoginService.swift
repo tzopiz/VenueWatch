@@ -63,3 +63,17 @@ extension AppleLoginService: ASAuthorizationControllerPresentationContextProvidi
         for controller: ASAuthorizationController
     ) -> ASPresentationAnchor { UIApplication.shared.keyWindow! }
 }
+
+/*
+ <!-- Add Apple SignIn properties to VenueWatch.entitlemenets -->
+ <!-- For developer only
+ <dict>
+     <key>com.apple.developer.applesignin</key>
+     <array>
+         <string>Default</string>
+     </array>
+     <key>aps-environment</key>
+     <string>development</string>
+ </dict>
+ -->
+ */

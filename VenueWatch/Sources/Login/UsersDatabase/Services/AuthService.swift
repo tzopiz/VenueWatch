@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 final class AuthService: Service {
     typealias ServiceError = APIRequest.ServiceError

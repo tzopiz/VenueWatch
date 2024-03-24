@@ -12,7 +12,7 @@ extension Utilities.Alert {
     typealias AlertType = Utilities.Validators.ValidatorType
     static func showAlert(
         _ vc: UIViewController,
-        title: String, 
+        title: String,
         message: String? = nil
     ) {
         DispatchQueue.main.async {
@@ -20,6 +20,15 @@ extension Utilities.Alert {
             alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
             vc.present(alert, animated: true)
         }
+    }
+    
+    // MARK: - Show the function is in development
+    public static func functionIsBeingDeveloped(on vc: UIViewController) {
+        self.showAlert(
+            vc,
+            title: App.string.attention(),
+            message: App.string.functionIsBeingDeveloped()
+        )
     }
     
     // MARK: - Show Validation Alerts

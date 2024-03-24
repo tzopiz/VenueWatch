@@ -101,7 +101,7 @@ extension LoginViewController {
             }
         }
     }
-    @IBAction private func signUpAppleButtonTapped() { print(#function) }
+    @IBAction private func signUpAppleButtonTapped() { }
     @IBAction private func authButtonTapped() {
         let credential = credentialInputView.credential.body
         var userRequest: URLRequest?
@@ -109,8 +109,10 @@ extension LoginViewController {
            let request = APIRequest.createAccount(userRequest: credential).request {
             switch credential.validate() {
             case .invalid(let errors):
-                print("APIRequest.SignUp.Error:\n")
-                errors.message.forEach { print($0) }
+                Utilities.Alert.showAlert(
+                    self,
+                    title: App.string.signUp(),
+                    message: errors.message.joined(separator: "\n"))
             case .valid(_):
                 userRequest = request
             }
@@ -119,8 +121,10 @@ extension LoginViewController {
            let request = APIRequest.signIn(userRequest: credential).request {
             switch credential.validate() {
             case .invalid(let errors):
-                print("APIRequest.SignIn.Error:\n")
-                errors.message.forEach { print($0) }
+                Utilities.Alert.showAlert(
+                    self,
+                    title: App.string.signIn(),
+                    message: errors.message.joined(separator: "\n"))
             case .valid(_):
                 userRequest = request
             }
@@ -134,12 +138,13 @@ extension LoginViewController {
                 let result = try await authService.fetch(request: userRequest)
                 print(result)
             } catch {
-                Utilities.Alert.showAlert(self, title: #function, message: error.localizedDescription)
+                print(#function, error.localizedDescription)
+                Utilities.Alert.functionIsBeingDeveloped(on: self)
             }
         }
     }
     @IBAction private func secondaryButtonButtonTapped() {
-        // TODO: recreate password
+        Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
     @IBAction private func toggleButtonTapped() {
         guard let navigationController = self.navigationController else { return }
