@@ -32,16 +32,15 @@ final class AuthTextField: BaseTextField {
             placeholder: placeholder,
             cornerRadius: 10,
             borderWidth: 1,
-            borderColor: App.color.separator.cgColor,
-            textColor: App.color.label,
-            font: App.font.rubik(style: .regular, size: 17),
-            backgroundColor: App.color.systemBackground
+            borderColor: App.Color.separator.cgColor,
+            textColor: App.Color.label,
+            font: App.Font.rubik(style: .regular, size: 17),
+            backgroundColor: App.Color.systemBackground
         )
         self.returnKeyType = .done
         self.autocorrectionType = .no
         self.autocapitalizationType = .none
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

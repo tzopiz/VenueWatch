@@ -8,7 +8,7 @@
 import Foundation
 import AuthenticationServices
 
-protocol AppleLoginServiceDelegate {
+protocol AppleLoginServiceDelegate: AnyObject {
     func login(completion: @escaping (Result<AppleLoginService.AuthResult, Error>) -> Void)
 }
 
@@ -17,15 +17,12 @@ final class AppleLoginService: NSObject, AppleLoginServiceDelegate {
         let fullName: [String]
         let token: String
     }
-    
     private var handler: ((Result<AuthResult, any Error>) -> Void)?
-    
     func login(completion: @escaping (Result<AuthResult, any Error>) -> Void) {
         self.handler = completion
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
-        
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
@@ -39,7 +36,6 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
         controller: ASAuthorizationController,
         didCompleteWithError error: any Error
     ) { self.handler?(.failure(error)) }
-    
     func authorizationController(
         controller: ASAuthorizationController,
         didCompleteWithAuthorization authorization: ASAuthorization

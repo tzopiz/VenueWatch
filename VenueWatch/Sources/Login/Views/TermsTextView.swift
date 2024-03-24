@@ -11,7 +11,6 @@ public class TermsTextView: UITextView {
     convenience init(_ str: String) {
         self.init()
         let attributedString = NSMutableAttributedString(string: str)
-        
         let addAttributesRanges = (
             terms: App.string.termsConditions(),
             policy: App.string.privacyPolicy()
@@ -27,12 +26,11 @@ public class TermsTextView: UITextView {
             value: "https://policies.google.com/privacy?hl=\(language)-US",
             range: (attributedString.string as NSString).range(of: addAttributesRanges.policy)
         )
-        
-        linkTextAttributes = [.foregroundColor: App.color.accentColor]
+        linkTextAttributes = [.foregroundColor: App.Color.accentColor]
         backgroundColor = .clear
         attributedText = attributedString
         textAlignment = .center
-        textColor = App.color.label
+        textColor = App.Color.label
         isSelectable = true
         isEditable = false
         delaysContentTouches = false

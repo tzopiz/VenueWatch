@@ -11,7 +11,6 @@ import WebKit
 class WebViewerController: BaseViewController {
     private let webView = WKWebView()
     var url: URL
-    
     init(url: URL) {
         self.url = url
         super.init(nibName: nil, bundle: nil)
@@ -31,7 +30,6 @@ extension WebViewerController {
     }
     override func configureViews() {
         super.configureViews()
-        
         let request = URLRequest(url: url)
         webView.load(request)
     }

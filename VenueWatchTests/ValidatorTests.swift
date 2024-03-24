@@ -12,7 +12,7 @@ final class ValidatorTests: XCTestCase {
     typealias ValidatorType = Utilities.Validators.ValidatorType
     typealias Validators = Utilities.Validators
 
-    private var validPasswords: Array<String?> {
+    private var validPasswords: [String?] {
         ["StrongPassword123?",
          "SecurePwd456@",
          "MyPass123!",
@@ -20,7 +20,7 @@ final class ValidatorTests: XCTestCase {
          "SafePassword99%",
          "Pycbum-5kaqcu-vycbiw"]
     }
-    private var invalidPasswords: Array<String?> {
+    private var invalidPasswords: [String?] {
         [nil,
          "weak",
          "strong_password123.",
@@ -29,13 +29,13 @@ final class ValidatorTests: XCTestCase {
          "qqqqqqqqqqqqqqqqqqQ",
          "strongpass1?"]
     }
-    private var validEmails: Array<String?> {
+    private var validEmails: [String?] {
         ["example@example.com",
          "user@email.co.uk",
          "test123@example-domain.com",
          "test@.domain.com"]
     }
-    private var invalidEmails: Array<String?> {
+    private var invalidEmails: [String?] {
         [nil,
          "example@example",
          "user@.com",
@@ -43,13 +43,13 @@ final class ValidatorTests: XCTestCase {
          "@gmail.com",
          "tzopiz@gmail.com@"]
     }
-    private var validUsernames: Array<String?> {
+    private var validUsernames: [String?] {
         ["user123",
          "123user",
          "___123user",
          "user1234567890_"]
     }
-    private var invalidUsernames: Array<String?> {
+    private var invalidUsernames: [String?] {
         [nil,
          "user@name",
          "user$%#",
@@ -65,7 +65,7 @@ final class ValidatorTests: XCTestCase {
                 XCTFail(
                     failMessage(forValid: validPassword, withError: error, type: type)
                 )
-            case .valid(_): break
+            case .valid: break
             }
         }
     }
@@ -77,11 +77,10 @@ final class ValidatorTests: XCTestCase {
                 XCTFail(
                     failMessage(forInvalid: str, type: type)
                 )
-            case .invalid(_): break
+            case .invalid: break
             }
         }
     }
-    
     func testValidEmailValidator() {
         let type: ValidatorType = .email()
         for validEmail in validEmails {
@@ -90,7 +89,7 @@ final class ValidatorTests: XCTestCase {
                 XCTFail(
                     failMessage(forValid: validEmail, withError: error, type: type)
                 )
-            case .valid(_): break
+            case .valid: break
             }
         }
     }
@@ -102,11 +101,10 @@ final class ValidatorTests: XCTestCase {
                 XCTFail(
                     failMessage(forInvalid: str, type: type)
                 )
-            case .invalid(_): break
+            case .invalid: break
             }
         }
     }
-    
     func testValidUsernameValidator() {
         let type: ValidatorType = .username()
         for validUsername in validUsernames {
@@ -115,7 +113,7 @@ final class ValidatorTests: XCTestCase {
                 XCTFail(
                     failMessage(forValid: validUsername, withError: error, type: type)
                 )
-            case .valid(_): break
+            case .valid: break
             }
         }
     }
@@ -127,7 +125,7 @@ final class ValidatorTests: XCTestCase {
                 XCTFail(
                     failMessage(forInvalid: str, type: type)
                 )
-            case .invalid(_): break
+            case .invalid: break
             }
         }
     }

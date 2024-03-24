@@ -20,9 +20,9 @@ public class BaseLabel: UILabel {
 
     internal init(
         text: String? = nil,
-        textColor: UIColor? = App.color.label,
+        textColor: UIColor? = App.Color.label,
         fontSize: CGFloat = 15,
-        fontType: App.font.FontStyle = .regular,
+        fontType: App.FontStyle = .regular,
         textAlignment: NSTextAlignment = .left,
         lineBreakMode: NSLineBreakMode = .byWordWrapping
     ) {
@@ -49,12 +49,10 @@ extension BaseLabel {
     /// Добавьте код для добавления подвидов на представление,
     /// таких как их инициализация, настройка свойств и добавление на представление.
     func setupViews() { }
-    
     /// Устанавливает ограничения для подвидов внутри представления.
     /// Добавьте код для установки ограничений для подвидов,
     /// таких как установка автолейаут-ограничений, задание отступов и т.д.
     func layoutViews() { }
-    
     /// Настраивает внешний вид представления.
     /// Добавьте код для настройки внешнего вида представления,
     /// таких как установка фона, цветов, шрифтов и других свойств визуальных элементов.

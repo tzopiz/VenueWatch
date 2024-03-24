@@ -24,9 +24,7 @@ final class FooterButtonsView: BaseView {
     private let secondaryButtonHeight: CGFloat
     private let stackView = BaseStackView(axis: .vertical)
     weak var delegate: PresentDelegate?
-    
     let height: CGFloat
-    
     init(type: LoginType) {
         let authButtonTitle: String,
             toggleButtonTitle: String
@@ -35,8 +33,8 @@ final class FooterButtonsView: BaseView {
             height = 130
             secondaryButtonHeight = 50
             let button = BaseButton(App.string.secondaryButtonTitleSignIn())
-            button.titleLabel?.font = App.font.rubik(style: .regular, size: 12)
-            button.tintColor = App.color.label
+            button.titleLabel?.font = App.Font.rubik(style: .regular, size: 12)
+            button.tintColor = App.Color.label
             authButtonTitle = App.string.signIn()
             toggleButtonTitle = App.string.toggleButtonTitleSignIn()
             secondaryButton = .button(button)
@@ -52,11 +50,9 @@ final class FooterButtonsView: BaseView {
         toggleButton = BaseButton(toggleButtonTitle)
         super.init(frame: .zero)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     func addSelectos(
         target: Any?,
         authButtonSelector: Selector,
@@ -100,14 +96,13 @@ extension FooterButtonsView {
     }
     override func configureViews() {
         super.configureViews()
-        authButton.backgroundColor = App.color.accentColor
-        authButton.titleLabel?.font = App.font.rubik(style: .bold, size: 21)
+        authButton.backgroundColor = App.Color.accentColor
+        authButton.titleLabel?.font = App.Font.rubik(style: .bold, size: 21)
         authButton.tintColor = .white
         authButton.layer.cornerRadius = 10
         authButton.layer.borderWidth = 1
-        authButton.layer.borderColor = App.color.accentColor.cgColor
-        
-        toggleButton.titleLabel?.font = App.font.rubik(style: .bold, size: 18)
+        authButton.layer.borderColor = App.Color.accentColor.cgColor
+        toggleButton.titleLabel?.font = App.Font.rubik(style: .bold, size: 18)
     }
 }
 

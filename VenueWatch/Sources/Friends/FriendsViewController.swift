@@ -11,12 +11,6 @@ final class FriendsViewController: BaseViewController { }
 
 // MARK: - Configure
 extension FriendsViewController {
-    override func setupViews() {
-        super.setupViews()
-    }
-    override func layoutViews() {
-        super.layoutViews()
-    }
     override func configureViews() {
         super.configureViews()
         navigationItem.title = App.string.friends()

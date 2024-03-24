@@ -8,12 +8,10 @@
 import UIKit
 
 final class AuthHeaderView: BaseView {
-    
     private let label: BaseLabel
     private let secondaryLabel: BaseLabel
     private let stackView = BaseStackView(axis: .vertical)
     private let logoImageView = UIImageView(image: UIImage(systemName: "mappin.and.ellipse"))
-    
     init(type: LoginType) {
         let labelText: String
         let secondaryLabelText: String
@@ -27,20 +25,19 @@ final class AuthHeaderView: BaseView {
         }
         self.label = BaseLabel(
             text: labelText,
-            textColor: App.color.label,
+            textColor: App.Color.label,
             fontSize: 32,
             fontType: .bold,
             textAlignment: .center
         )
         self.secondaryLabel = BaseLabel(
             text: secondaryLabelText,
-            textColor: App.color.secondaryLabel,
+            textColor: App.Color.secondaryLabel,
             fontSize: 18,
             textAlignment: .center
         )
         super.init(frame: .zero)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

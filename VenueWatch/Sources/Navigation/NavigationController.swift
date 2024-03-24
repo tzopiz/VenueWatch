@@ -10,11 +10,11 @@ import UIKit
 final class NavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = App.color.systemBackground
+        view.backgroundColor = App.Color.systemBackground
         navigationBar.isTranslucent = false
         navigationBar.standardAppearance.titleTextAttributes = [
-            .foregroundColor: App.color.secondaryLabel,
-            .font: App.font.rubik(style: .regular, size: 20)!
+            .foregroundColor: App.Color.secondaryLabel,
+            .font: App.Font.rubik(style: .regular, size: 20)!
         ]
     }
 }

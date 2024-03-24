@@ -31,8 +31,8 @@ struct RegexValidator: Validator, Hashable {
         self.errorMessage = errorMessage
     }
     public func isValid(value: String?) -> Bool {
-        guard let v = value else { return false }
+        guard let value = value else { return false }
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
-        return predicate.evaluate(with: v)
+        return predicate.evaluate(with: value)
     }
 }

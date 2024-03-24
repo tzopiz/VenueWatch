@@ -31,18 +31,16 @@ extension BaseViewController {
     /// Добавьте код для добавления подвидов на контроллер,
     /// таких как их инициализация, настройка свойств и добавление на представление.
     func setupViews() { }
-    
     /// Устанавливает ограничения для подвидов внутри контроллера.
     /// Добавьте код для установки ограничений для подвидов,
     /// таких как установка автолейаут-ограничений, задание отступов и т.д.
     func layoutViews() { }
-    
     /// Настраивает внешний вид контроллера.
     /// Добавьте код для настройки внешнего вида контроллера,
     /// таких как установка фона, цветов, шрифтов и других свойств визуальных элементов.
     /// Вы также можете применять стили, добавлять тени, закруглять углы и т.д.
     func configureViews() {
-        view.backgroundColor = App.color.secondarySystemBackground
+        view.backgroundColor = App.Color.secondarySystemBackground
     }
 }
 
@@ -56,19 +54,18 @@ extension BaseViewController {
         let button = UIButton(type: .system)
         if let title = title { button.setTitle(title, for: .normal) }
         if let image = image { button.setImage(image, for: .normal) }
-        button.titleLabel?.font = App.font.rubik(style: .regular, size: 17)!
-        
+        button.titleLabel?.font = App.Font.rubik(style: .regular, size: 17)!
         switch position {
         case .left:
             button.addTarget(self, action: selector, for: .touchUpInside)
             let barButton = UIBarButtonItem(customView: button)
-            if let _ = navigationItem.leftBarButtonItems {
+            if navigationItem.leftBarButtonItems != nil {
                 navigationItem.leftBarButtonItems?.append(barButton)
             } else { navigationItem.leftBarButtonItem = barButton }
         case .right:
             button.addTarget(self, action: selector, for: .touchUpInside)
             let barButton = UIBarButtonItem(customView: button)
-            if let _ = navigationItem.rightBarButtonItems {
+            if navigationItem.rightBarButtonItems != nil {
                 navigationItem.rightBarButtonItems?.append(barButton)
             } else { navigationItem.rightBarButtonItem = barButton }
         }
@@ -85,5 +82,4 @@ extension BaseViewController: PresentDelegate {
     @objc func present(viewController: UIViewController, animated: Bool) {
         print(#function)
     }
-    
 }

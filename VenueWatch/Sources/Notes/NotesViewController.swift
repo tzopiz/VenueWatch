@@ -11,12 +11,6 @@ final class NotesViewController: CollectionViewController { }
 
 // MARK: - Configure
 extension NotesViewController {
-    override func setupViews() {
-        super.setupViews()
-    }
-    override func layoutViews() {
-        super.layoutViews()
-    }
     override func configureViews() {
         super.configureViews()
         navigationItem.title = App.string.notes()

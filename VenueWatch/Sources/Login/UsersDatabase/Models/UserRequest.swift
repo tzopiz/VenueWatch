@@ -19,7 +19,6 @@ enum UserRequest {
     typealias Validators = Utilities.Validators
     case signUp(SignUp)
     case signIn(SignIn)
-    
     var body: UserRequestProtocol {
         switch self {
         case .signUp(let signUp): return signUp
@@ -30,17 +29,15 @@ enum UserRequest {
         let username: String?
         let email: String?
         let password: String?
-        
-        func validate() -> ValidationResult<SignUp, ValidationError<Array<String>>> {
-            var errors = ValidationError<Array<String>>(message: Array<String>())
-            let validators: Array<(String?, Validators.ValidatorType)> = [
+        func validate() -> ValidationResult<SignUp, ValidationError<[String]>> {
+            var errors = ValidationError<[String]>(message: [String]())
+            let validators: [(String?, Validators.ValidatorType)] = [
                 (email, .email()),
                 (password, .password()),
                 (username, .username())
             ]
-            
             for (value, type) in validators {
-                guard case let .invalid(error) = Validators.isValid(value, type: type) 
+                guard case let .invalid(error) = Validators.isValid(value, type: type)
                 else { continue }
                 errors.message.append(error)
             }
@@ -52,13 +49,12 @@ enum UserRequest {
     struct SignIn: Codable, UserRequestProtocol, Validatable {
         let email: String?
         let password: String?
-        func validate() -> ValidationResult<SignIn, ValidationError<Array<String>>> {
-            var errors = ValidationError<Array<String>>(message: Array<String>())
-            let validators: Array<(String?, Validators.ValidatorType)> = [
+        func validate() -> ValidationResult<SignIn, ValidationError<[String]>> {
+            var errors = ValidationError<[String]>(message: [String]())
+            let validators: [(String?, Validators.ValidatorType)] = [
                 (email, .email()),
                 (password, .password())
             ]
-            
             for (value, type) in validators {
                 guard case let .invalid(error) = Validators.isValid(value, type: type)
                 else { continue }

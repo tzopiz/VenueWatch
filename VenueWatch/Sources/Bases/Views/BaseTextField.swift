@@ -20,7 +20,7 @@ public class BaseTextField: UITextField {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    ///```swift
+    /// ```swift
     /// placeholder: String? = nil,
     /// cornerRadius: CGFloat = 0,
     /// borderWidth: CGFloat = 0,
@@ -28,14 +28,14 @@ public class BaseTextField: UITextField {
     /// textColor: UIColor = .clear,
     /// font: UIFont? = App.font.rubikRegular(size: 15)
     /// backgroundColor: UIColor = UIColor.clear
-    ///```
+    /// ```
     func configure(
         placeholder: String? = nil,
         cornerRadius: CGFloat = 0,
         borderWidth: CGFloat = 0,
         borderColor: CGColor? = UIColor.clear.cgColor,
         textColor: UIColor = .clear,
-        font: UIFont? = App.font.rubik(style: .regular, size: 15),
+        font: UIFont? = App.Font.rubik(style: .regular, size: 15),
         backgroundColor: UIColor = .clear
     ) {
         self.placeholder = placeholder
@@ -60,12 +60,10 @@ extension BaseTextField {
     /// Добавьте код для добавления подвидов на представление,
     /// таких как их инициализация, настройка свойств и добавление на представление.
     func setupViews() { }
-    
     /// Устанавливает ограничения для подвидов внутри представления.
     /// Добавьте код для установки ограничений для подвидов,
     /// таких как установка автолейаут-ограничений, задание отступов и т.д.
     func layoutViews() { }
-    
     /// Настраивает внешний вид представления.
     /// Добавьте код для настройки внешнего вида представления,
     /// таких как установка фона, цветов, шрифтов и других свойств визуальных элементов.

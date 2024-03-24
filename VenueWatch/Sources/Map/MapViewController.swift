@@ -11,12 +11,6 @@ final class MapViewController: BaseViewController { }
 
 // MARK: - Configure
 extension MapViewController {
-    override func setupViews() {
-        super.setupViews()
-    }
-    override func layoutViews() {
-        super.layoutViews()
-    }
     override func configureViews() {
         super.configureViews()
         navigationItem.title = App.string.map()

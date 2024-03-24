@@ -11,11 +11,9 @@ public class CollectionViewController: BaseViewController {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
-        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = .clear
-        
         return collectionView
     }()
 }
@@ -32,7 +30,7 @@ extension CollectionViewController {
     }
     override func configureViews() {
         super.configureViews()
-        view.backgroundColor = App.color.secondarySystemBackground
+        view.backgroundColor = App.Color.secondarySystemBackground
         collectionView.delegate = self
         collectionView.dataSource = self
         let refreshControl = UIRefreshControl()
@@ -59,7 +57,7 @@ extension CollectionViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDataSource
 extension CollectionViewController: UICollectionViewDelegate { }
 
-//MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(
         _ collectionView: UICollectionView,
