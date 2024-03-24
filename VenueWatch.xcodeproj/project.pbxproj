@@ -503,7 +503,6 @@
 			buildConfigurationList = 0AF8CAA12BA034DB0069DF7E /* Build configuration list for PBXNativeTarget "VenueWatch" */;
 			buildPhases = (
 				0AF8CA892BA034D90069DF7E /* Sources */,
-				0AC6A2272BB0792E009B6D6F /* SwiftLint */,
 				0AF8CA8A2BA034D90069DF7E /* Frameworks */,
 				0AF8CA8B2BA034D90069DF7E /* Resources */,
 			);
@@ -553,7 +552,6 @@
 			packageReferences = (
 				0A996BEE2BADAE5D002A7884 /* XCRemoteSwiftPackageReference "R.swift" */,
 				0A996BF32BADAE67002A7884 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				0AC6A2262BB07909009B6D6F /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = 0AF8CA8E2BA034D90069DF7E /* Products */;
 			projectDirPath = "";
@@ -598,27 +596,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0AC6A2272BB0792E009B6D6F /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A3C400F2BAB94C000CDCFDF /* Sources */ = {
@@ -991,14 +968,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.7.1;
-			};
-		};
-		0AC6A2262BB07909009B6D6F /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/SwiftLint.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.54.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
