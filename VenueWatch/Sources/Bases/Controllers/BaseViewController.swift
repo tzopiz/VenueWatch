@@ -1,32 +1,39 @@
 //
-//  BaseViewController.swift
+//  BaseViewController_2.swift
 //  VenueWatch
 //
-//  Created by Дмитрий Корчагин on 3/12/24.
+//  Created by Дмитрий Корчагин on 3/25/24.
 //
 
 import UIKit
 
-protocol PresentDelegate: AnyObject {
-    func present(viewController: UIViewController, animated: Bool)
+protocol IBaseViewModel {
+    var title: String? { get }
+    var presentHandler: ((UIViewController, Bool) -> Void)? { get set }
 }
-
-public class BaseViewController: UIViewController {
+class BaseViewController<ViewModel: IBaseViewModel>: UIViewController {
     enum NavBarPosition {
-        case left
-        case right
+        case left, right
     }
-    public override func viewDidLoad() {
+    var viewModel: ViewModel!
+    var presentHandler: ((UIViewController, Bool) -> Void)?
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         layoutViews()
         configureViews()
     }
-}
-
-// MARK: - Configure
-@objc
-extension BaseViewController {
+    
+    // MARK: - Configure
     /// Добавляет подвиды на контроллер.
     /// Добавьте код для добавления подвидов на контроллер,
     /// таких как их инициализация, настройка свойств и добавление на представление.
@@ -40,10 +47,16 @@ extension BaseViewController {
     /// таких как установка фона, цветов, шрифтов и других свойств визуальных элементов.
     /// Вы также можете применять стили, добавлять тени, закруглять углы и т.д.
     func configureViews() {
+        navigationItem.title = viewModel.title
         view.backgroundColor = App.Color.secondarySystemBackground
+        viewModel.presentHandler = { [weak self] viewController, animated in
+            guard let self = self else { return }
+            self.present(viewController, animated: animated, completion: nil)
+        }
     }
 }
 
+// MARK: - Supporting Functions
 extension BaseViewController {
     func addNavBarButton(
         at position: NavBarPosition,
@@ -69,17 +82,5 @@ extension BaseViewController {
                 navigationItem.rightBarButtonItems?.append(barButton)
             } else { navigationItem.rightBarButtonItem = barButton }
         }
-    }
-    func addSubviews(_ views: UIView...) {
-        for view in views {
-            self.view.addSubview(view)
-        }
-    }
-}
-
-// MARK: - PresentDelegate
-extension BaseViewController: PresentDelegate {
-    @objc func present(viewController: UIViewController, animated: Bool) {
-        print(#function)
     }
 }

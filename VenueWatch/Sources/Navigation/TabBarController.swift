@@ -17,13 +17,14 @@ final class TabBarController: UITabBarController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureAppearance()
-         switchTo(tab: .profile)
+        switchTo(tab: .profile)
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    private func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
-    private func configureAppearance() {
+    
+    internal func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
+    internal func configureAppearance() {
         tabBar.tintColor = App.Color.label
         tabBar.unselectedItemTintColor = App.Color.secondaryLabel
         tabBar.backgroundColor = App.Color.systemBackground
@@ -47,12 +48,28 @@ final class TabBarController: UITabBarController {
         }
         setViewControllers(controllers, animated: true)
     }
-    private func getController(for tab: Tabs) -> BaseViewController {
+    
+    internal func getController(for tab: Tabs) -> UIViewController {
         switch tab {
-        case .notes:    return NotesViewController()
-        case .map:      return MapViewController()
-        case .friends:  return FriendsViewController()
-        case .profile:  return ProfileViewController()
+        case .notes:
+            let viewModel = NotesViewModel(
+                title: "Notes",
+                items: [],
+                lineSpacing: 8,
+                headerSize: CGSize(width: 300, height: 32)
+            )
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumLineSpacing = 0
+            return NotesViewController(viewModel: viewModel, layout: layout)
+        case .map:
+            let viewModel = MapViewModel(title: "Map")
+            return MapViewController(viewModel: viewModel)
+        case .friends:
+            let viewModel = FriendsViewModel(title: "Friends", friends: [])
+            return FriendsViewController(viewModel: viewModel)
+        case .profile:
+            let viewModel = ProfileViewModel(title: "Profile")
+            return ProfileViewController(viewModel: viewModel)
         }
     }
 }

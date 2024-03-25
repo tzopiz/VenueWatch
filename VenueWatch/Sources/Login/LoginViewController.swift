@@ -16,34 +16,28 @@ enum LoginType {
         }
     }
 }
-final class LoginViewController: BaseViewController {
+final class LoginViewController: BaseViewController<LoginViewModel> {
+    internal let authHeaderView: AuthHeaderView
+    internal let credentialInputView: CredentialInputView
+    internal let footerButtonsView: FooterButtonsView
+    internal let appleButtonsView = AppleButtonsView()
+    internal let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
+    public let appleLoginService = AppleLoginService()
+    public let authService = AuthService()
     
-    private var currentLoginType: LoginType
-    private let authHeaderView: AuthHeaderView
-    private let credentialInputView: CredentialInputView
-    private let footerButtonsView: FooterButtonsView
-    private let appleButtonsView = AppleButtonsView()
-    private let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
-    private let appleLoginService = AppleLoginService()
-    private let authService = AuthService()
-    
-    init(currentLoginType: LoginType) {
-        self.currentLoginType = currentLoginType
-        credentialInputView = CredentialInputView(type: currentLoginType)
-        footerButtonsView = FooterButtonsView(type: currentLoginType)
-        authHeaderView = AuthHeaderView(type: currentLoginType)
-        super.init(nibName: nil, bundle: nil)
+    override init(viewModel: LoginViewModel) {
+        credentialInputView = CredentialInputView(type: viewModel.currentLoginType)
+        footerButtonsView = FooterButtonsView(type: viewModel.currentLoginType)
+        authHeaderView = AuthHeaderView(type: viewModel.currentLoginType)
+        super.init(viewModel: viewModel)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: - Configure
-extension LoginViewController {
+    // MARK: - Configure
     override func setupViews() {
         super.setupViews()
-        addSubviews(mainStackView)
+        view.addSubviews(mainStackView)
         mainStackView.addArrangedSubviews(
             authHeaderView, credentialInputView, footerButtonsView, appleButtonsView
         )
@@ -70,11 +64,9 @@ extension LoginViewController {
             secondarySelector: #selector(secondaryButtonButtonTapped),
             toggleButtonSelector: #selector(toggleButtonTapped)
         )
-        footerButtonsView.delegate = self
-        for subview in view.subviews {
-            if let textField = subview as? AuthTextField {
-                textField.delegate = self
-            }
+        footerButtonsView.buttonTapHandler = { [weak self] viewController, animated in
+            guard let self = self else { return }
+            self.viewModel.presentHandler?(viewController, animated)
         }
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapGesture.cancelsTouchesInView = false
@@ -84,7 +76,7 @@ extension LoginViewController {
 
 // MARK: - Actions
 extension LoginViewController {
-    @IBAction private func signInAppleButtonTapped() {
+    @IBAction public func signInAppleButtonTapped() {
         appleLoginService.login { result in
             switch result {
             case .success(let result): print(result.fullName)
@@ -92,8 +84,8 @@ extension LoginViewController {
             }
         }
     }
-    @IBAction private func signUpAppleButtonTapped() { }
-    @IBAction private func authButtonTapped() {
+    @IBAction internal func signUpAppleButtonTapped() { }
+    @IBAction public func authButtonTapped() {
         let credential = credentialInputView.credential.body
         var userRequest: URLRequest?
         if let credential = credential as? UserRequest.SignUp,
@@ -122,7 +114,7 @@ extension LoginViewController {
         }
         performRequest(userRequest)
     }
-    private func performRequest(_ userRequest: URLRequest?) {
+    internal func performRequest(_ userRequest: URLRequest?) {
         guard let userRequest = userRequest else { return }
         Task {
             do {
@@ -134,30 +126,22 @@ extension LoginViewController {
             }
         }
     }
-    @IBAction private func secondaryButtonButtonTapped() {
+    @IBAction internal func secondaryButtonButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction private func toggleButtonTapped() {
+    @IBAction public func toggleButtonTapped() {
         guard let navigationController = self.navigationController else { return }
-        currentLoginType.toggle()
-        navigationController.presentLoginViewController(for: currentLoginType)
+        viewModel.toggleCurrentLoginType()
+        navigationController.presentLoginViewController(for: viewModel.currentLoginType)
     }
     @IBAction func hideKeyboard() {
-        credentialInputView.endEditing(true)
+        viewModel.textFieldShouldReturn(credentialInputView)
     }
 }
 
-// MARK: - PresentDelegate
-extension LoginViewController {
-    override func present(viewController: UIViewController, animated: Bool) {
-        self.present(viewController, animated: true)
-    }
-}
-
-// MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        credentialInputView.endEditing(true)
+        viewModel.textFieldShouldReturn(textField)
         return true
     }
 }

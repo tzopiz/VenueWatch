@@ -19,12 +19,12 @@ final class FooterButtonsView: BaseView {
         }
     }
     
-    private let authButton: BaseButton
-    private let secondaryButton: ButtonTextView
-    private let toggleButton: BaseButton
-    private let secondaryButtonHeight: CGFloat
-    private let stackView = BaseStackView(axis: .vertical)
-    weak var delegate: PresentDelegate?
+    internal let authButton: BaseButton
+    internal let secondaryButton: ButtonTextView
+    internal let toggleButton: BaseButton
+    internal let secondaryButtonHeight: CGFloat
+    internal let stackView = BaseStackView(axis: .vertical)
+    var buttonTapHandler: ((UIViewController, Bool) -> Void)?
     let height: CGFloat
     
     init(type: LoginType) {
@@ -118,7 +118,7 @@ extension FooterButtonsView: UITextViewDelegate {
     ) -> Bool {
         if URL.absoluteString.hasPrefix("https") {
             let webViewerController = WebViewerController(url: URL)
-            delegate?.present(viewController: webViewerController, animated: true)
+            buttonTapHandler?(webViewerController, true)
             return false
         }
         return true

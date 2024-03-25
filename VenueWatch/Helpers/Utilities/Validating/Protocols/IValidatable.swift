@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Validatable {
+protocol IValidatable {
     associatedtype ValueType
     associatedtype ErrorType
     func validate() -> ValidationResult<ValueType, ValidationError<ErrorType>>

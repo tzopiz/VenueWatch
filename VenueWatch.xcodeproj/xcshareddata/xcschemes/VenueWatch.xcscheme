@@ -41,6 +41,17 @@
                ReferencedContainer = "container:VenueWatch.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0A87E18E2BB1F5A80030CC3D"
+               BuildableName = "VenueWatchUITests.xctest"
+               BlueprintName = "VenueWatchUITests"
+               ReferencedContainer = "container:VenueWatch.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

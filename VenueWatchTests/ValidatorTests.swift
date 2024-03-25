@@ -11,8 +11,8 @@ import XCTest
 final class ValidatorTests: XCTestCase {
     typealias ValidatorType = Utilities.Validators.ValidatorType
     typealias Validators = Utilities.Validators
-
-    private var validPasswords: Array<String?> {
+    
+    internal var validPasswords: Array<String?> {
         ["StrongPassword123?",
          "SecurePwd456@",
          "MyPass123!",
@@ -20,7 +20,7 @@ final class ValidatorTests: XCTestCase {
          "SafePassword99%",
          "Pycbum-5kaqcu-vycbiw"]
     }
-    private var invalidPasswords: Array<String?> {
+    internal var invalidPasswords: Array<String?> {
         [nil,
          "weak",
          "strong_password123.",
@@ -29,13 +29,13 @@ final class ValidatorTests: XCTestCase {
          "qqqqqqqqqqqqqqqqqqQ",
          "strongpass1?"]
     }
-    private var validEmails: Array<String?> {
+    internal var validEmails: Array<String?> {
         ["example@example.com",
          "user@email.co.uk",
          "test123@example-domain.com",
          "test@.domain.com"]
     }
-    private var invalidEmails: Array<String?> {
+    internal var invalidEmails: Array<String?> {
         [nil,
          "example@example",
          "user@.com",
@@ -43,13 +43,13 @@ final class ValidatorTests: XCTestCase {
          "@gmail.com",
          "tzopiz@gmail.com@"]
     }
-    private var validUsernames: Array<String?> {
+    internal var validUsernames: Array<String?> {
         ["user123",
          "123user",
          "___123user",
          "user1234567890_"]
     }
-    private var invalidUsernames: Array<String?> {
+    internal var invalidUsernames: Array<String?> {
         [nil,
          "user@name",
          "user$%#",
@@ -57,6 +57,7 @@ final class ValidatorTests: XCTestCase {
          "user.name",
          " username"]
     }
+    
     func testValidPasswordValidator() {
         let type: ValidatorType = .password()
         for validPassword in validPasswords {
@@ -69,6 +70,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testInvalidPasswordValidator() {
         let type: ValidatorType = .password()
         for invalidPassword in invalidPasswords {
@@ -81,6 +83,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testValidEmailValidator() {
         let type: ValidatorType = .email()
         for validEmail in validEmails {
@@ -93,6 +96,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testInvalidEmailValidator() {
         let type: ValidatorType = .email()
         for invalidEmail in invalidEmails {
@@ -105,6 +109,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testValidUsernameValidator() {
         let type: ValidatorType = .username()
         for validUsername in validUsernames {
@@ -117,6 +122,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testInvalidUsernameValidator() {
         let type: ValidatorType = .username()
         for invalidUsername in invalidUsernames {

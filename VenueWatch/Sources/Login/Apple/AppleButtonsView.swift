@@ -9,11 +9,11 @@ import UIKit
 import AuthenticationServices
 
 final class AppleButtonsView: BaseView {
-    private let signInAppleButton = ASAuthorizationAppleIDButton(
+    internal let signInAppleButton = ASAuthorizationAppleIDButton(
         authorizationButtonType: .signIn,
         authorizationButtonStyle: .black
     )
-    private let signUpAppleButton = ASAuthorizationAppleIDButton(
+    internal let signUpAppleButton = ASAuthorizationAppleIDButton(
         authorizationButtonType: .signUp,
         authorizationButtonStyle: .black
     )
