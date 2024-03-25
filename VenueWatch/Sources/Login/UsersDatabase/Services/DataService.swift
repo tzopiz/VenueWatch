@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class DataService: Service {
+final class DataService: IService {
     typealias ServiceError = APIRequest.ServiceError
     
     // MARK: - Get user data

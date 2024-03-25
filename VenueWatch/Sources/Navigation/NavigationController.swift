@@ -21,7 +21,8 @@ final class NavigationController: UINavigationController {
 
 extension UINavigationController {
     func presentLoginViewController(for type: LoginType) {
-        let loginViewController = LoginViewController(currentLoginType: type)
+        let loginViewModel = LoginViewModel(currentLoginType: type)
+        let loginViewController = LoginViewController(viewModel: loginViewModel)
         UIView.transition(
             with: view, duration: 0.5,
             options: .transitionFlipFromRight,

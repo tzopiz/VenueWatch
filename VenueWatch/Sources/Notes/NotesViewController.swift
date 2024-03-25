@@ -7,12 +7,5 @@
 
 import UIKit
 
-final class NotesViewController: CollectionViewController { }
+final class NotesViewController: BaseCollectionViewController<NotesViewModel, NotesCollectionViewCell> { }
 
-// MARK: - Configure
-extension NotesViewController {
-    override func configureViews() {
-        super.configureViews()
-        navigationItem.title = App.string.notes()
-    }
-}

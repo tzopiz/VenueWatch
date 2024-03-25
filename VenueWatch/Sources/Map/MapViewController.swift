@@ -7,12 +7,4 @@
 
 import UIKit
 
-final class MapViewController: BaseViewController { }
-
-// MARK: - Configure
-extension MapViewController {
-    override func configureViews() {
-        super.configureViews()
-        navigationItem.title = App.string.map()
-    }
-}
+final class MapViewController: BaseViewController<MapViewModel> { }

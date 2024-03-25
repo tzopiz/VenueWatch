@@ -12,7 +12,7 @@ protocol AppleLoginServiceDelegate: AnyObject {
     func login(completion: @escaping (Result<AppleLoginService.AuthResult, Error>) -> Void)
 }
 
-final class AppleLoginService: NSObject, AppleLoginServiceDelegate {
+class AppleLoginService: NSObject, AppleLoginServiceDelegate {
     struct AuthResult {
         let fullName: Array<String>
         let token: String
@@ -36,6 +36,7 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
         controller: ASAuthorizationController,
         didCompleteWithError error: any Error
     ) { self.handler?(.failure(error)) }
+    
     func authorizationController(
         controller: ASAuthorizationController,
         didCompleteWithAuthorization authorization: ASAuthorization

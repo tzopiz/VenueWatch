@@ -8,9 +8,7 @@
 import UIKit
 
 public class BaseTextField: UITextField {
-    private var padding: UIEdgeInsets {
-        UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-    }
+    private var padding: UIEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -36,7 +34,8 @@ public class BaseTextField: UITextField {
         borderColor: CGColor? = UIColor.clear.cgColor,
         textColor: UIColor = .clear,
         font: UIFont? = App.Font.rubik(style: .regular, size: 15),
-        backgroundColor: UIColor = .clear
+        backgroundColor: UIColor = .clear,
+        padding: UIEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     ) {
         self.placeholder = placeholder
         self.layer.cornerRadius = cornerRadius
@@ -45,6 +44,7 @@ public class BaseTextField: UITextField {
         self.layer.borderColor = borderColor
         self.font = font
         self.backgroundColor = backgroundColor
+        self.padding = padding
     }
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)

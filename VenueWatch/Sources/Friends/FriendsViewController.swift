@@ -7,12 +7,9 @@
 
 import UIKit
 
-final class FriendsViewController: BaseViewController { }
-
-// MARK: - Configure
-extension FriendsViewController {
+final class FriendsViewController: BaseViewController<FriendsViewModel> {
     override func configureViews() {
         super.configureViews()
-        navigationItem.title = App.string.friends()
+        navigationItem.title = viewModel.title
     }
 }

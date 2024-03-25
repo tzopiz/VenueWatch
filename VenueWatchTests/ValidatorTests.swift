@@ -11,7 +11,7 @@ import XCTest
 final class ValidatorTests: XCTestCase {
     typealias ValidatorType = Utilities.Validators.ValidatorType
     typealias Validators = Utilities.Validators
-
+    
     private var validPasswords: Array<String?> {
         ["StrongPassword123?",
          "SecurePwd456@",
@@ -57,6 +57,7 @@ final class ValidatorTests: XCTestCase {
          "user.name",
          " username"]
     }
+    
     func testValidPasswordValidator() {
         let type: ValidatorType = .password()
         for validPassword in validPasswords {
@@ -69,6 +70,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testInvalidPasswordValidator() {
         let type: ValidatorType = .password()
         for invalidPassword in invalidPasswords {
@@ -81,6 +83,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testValidEmailValidator() {
         let type: ValidatorType = .email()
         for validEmail in validEmails {
@@ -93,6 +96,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testInvalidEmailValidator() {
         let type: ValidatorType = .email()
         for invalidEmail in invalidEmails {
@@ -105,6 +109,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testValidUsernameValidator() {
         let type: ValidatorType = .username()
         for validUsername in validUsernames {
@@ -117,6 +122,7 @@ final class ValidatorTests: XCTestCase {
             }
         }
     }
+    
     func testInvalidUsernameValidator() {
         let type: ValidatorType = .username()
         for invalidUsername in invalidUsernames {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AuthService: Service {
+class AuthService: IService {
     typealias ServiceError = APIRequest.ServiceError
     
     // MARK: - Log In
