@@ -9,7 +9,7 @@ import UIKit
 
 class LabelCollectionViewCell: BaseCollectionViewCell {
     override class var reuseIdentifier: String { String(describing: LabelCollectionViewCell.self) }
-    internal let label = BaseLabel(
+    private let label = BaseLabel(
         textColor: App.Color.label,
         fontSize: 17,
         fontType: .regular,
@@ -33,10 +33,7 @@ extension LabelCollectionViewCell {
     override func setupViews() {
         addSubviews(label)
     }
-
     override func layoutViews() {
         label.snp.makeConstraints { $0.edges.equalToSuperview().inset(4) }
     }
-    
-    override func configureViews() { }
 }

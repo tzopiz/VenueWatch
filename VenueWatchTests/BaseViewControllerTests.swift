@@ -49,7 +49,6 @@ final class BaseViewControllerTests: XCTestCase {
     @objc func dummySelector() { }
 }
 
-// Тестовая ViewModel для использования в тестах
 class TestViewModel: IBaseViewModel {
     var title: String?
     var presentHandler: ((UIViewController, Bool) -> Void)?

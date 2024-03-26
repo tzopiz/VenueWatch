@@ -12,7 +12,7 @@ final class ValidatorTests: XCTestCase {
     typealias ValidatorType = Utilities.Validators.ValidatorType
     typealias Validators = Utilities.Validators
     
-    internal var validPasswords: Array<String?> {
+    private var validPasswords: Array<String?> {
         ["StrongPassword123?",
          "SecurePwd456@",
          "MyPass123!",
@@ -20,7 +20,7 @@ final class ValidatorTests: XCTestCase {
          "SafePassword99%",
          "Pycbum-5kaqcu-vycbiw"]
     }
-    internal var invalidPasswords: Array<String?> {
+    private var invalidPasswords: Array<String?> {
         [nil,
          "weak",
          "strong_password123.",
@@ -29,7 +29,7 @@ final class ValidatorTests: XCTestCase {
          "qqqqqqqqqqqqqqqqqqQ",
          "strongpass1?"]
     }
-    internal var validEmails: Array<String?> {
+    private var validEmails: Array<String?> {
         ["example@example.com",
          "user@email.co.uk",
          "test123@example-domain.com",
@@ -43,13 +43,13 @@ final class ValidatorTests: XCTestCase {
          "@gmail.com",
          "tzopiz@gmail.com@"]
     }
-    internal var validUsernames: Array<String?> {
+    private var validUsernames: Array<String?> {
         ["user123",
          "123user",
          "___123user",
          "user1234567890_"]
     }
-    internal var invalidUsernames: Array<String?> {
+    private var invalidUsernames: Array<String?> {
         [nil,
          "user@name",
          "user$%#",

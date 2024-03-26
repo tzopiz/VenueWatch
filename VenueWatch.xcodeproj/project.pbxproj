@@ -29,7 +29,6 @@
 		0A398E542BA8BCA200AA231C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A398E532BA8BCA200AA231C /* Utilities.swift */; };
 		0A398E572BA8BCD300AA231C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A398E562BA8BCD300AA231C /* Alert.swift */; };
 		0A3C3FAA2BAAD88400CDCFDF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FA92BAAD88400CDCFDF /* LoginViewController.swift */; };
-		0A3C3FB22BAAE36F00CDCFDF /* UIWindow + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FB12BAAE36F00CDCFDF /* UIWindow + ext.swift */; };
 		0A3C3FB52BAAE84700CDCFDF /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FB42BAAE84700CDCFDF /* BaseButton.swift */; };
 		0A3C3FBE2BAB175B00CDCFDF /* TermsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FBD2BAB175B00CDCFDF /* TermsTextView.swift */; };
 		0A3C3FC12BAB1AE500CDCFDF /* WebViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FC02BAB1AE500CDCFDF /* WebViewerController.swift */; };
@@ -123,7 +122,6 @@
 		0A398E532BA8BCA200AA231C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		0A398E562BA8BCD300AA231C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0A3C3FA92BAAD88400CDCFDF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		0A3C3FB12BAAE36F00CDCFDF /* UIWindow + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow + ext.swift"; sourceTree = "<group>"; };
 		0A3C3FB42BAAE84700CDCFDF /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		0A3C3FBD2BAB175B00CDCFDF /* TermsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTextView.swift; sourceTree = "<group>"; };
 		0A3C3FC02BAB1AE500CDCFDF /* WebViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewerController.swift; sourceTree = "<group>"; };
@@ -488,7 +486,6 @@
 			children = (
 				0AF8CAD92BA04AA00069DF7E /* UIView + ext.swift */,
 				0A36630C2BA0CA11004FAE1D /* UIApplication + ext.swift */,
-				0A3C3FB12BAAE36F00CDCFDF /* UIWindow + ext.swift */,
 				0A87E1772BB1D92A0030CC3D /* UICollectionView + ext.swift */,
 				0A87E17A2BB1DB8F0030CC3D /* UICollectionViewCell + ext.swift */,
 			);
@@ -712,7 +709,6 @@
 				0A87E17E2BB1DD9E0030CC3D /* NotesViewModel.swift in Sources */,
 				0A3938B42BA8FA6800150F7F /* AuthHeaderView.swift in Sources */,
 				0A87E1682BB1C1FA0030CC3D /* ProfileViewModel.swift in Sources */,
-				0A3C3FB22BAAE36F00CDCFDF /* UIWindow + ext.swift in Sources */,
 				0A36630B2BA0C6C1004FAE1D /* AppleLoginService.swift in Sources */,
 				0AF8CA912BA034D90069DF7E /* AppDelegate.swift in Sources */,
 				0AF294312BAA50F50075C11A /* FooterButtonsView.swift in Sources */,

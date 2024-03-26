@@ -26,7 +26,7 @@ enum APIRequest {
         return request
     }
     
-    internal var url: URL? {
+    private var url: URL? {
         var components = URLComponents()
         components.scheme = WebSite.scheme
         components.host = WebSite.baseURL
@@ -34,7 +34,7 @@ enum APIRequest {
         components.path = self.path
         return components.url
     }
-    internal var path: String {
+    private var path: String {
         switch self {
         case .createAccount(let path, _),
                 .signIn(let path, _),
@@ -43,13 +43,13 @@ enum APIRequest {
             return path
         }
     }
-    internal var httpMethod: String {
+    private var httpMethod: String {
         switch self {
         case .getData: return HTTPMethod.GET.rawValue
         default: return HTTPMethod.POST.rawValue
         }
     }
-    internal var httpBody: Data? {
+    private var httpBody: Data? {
         switch self {
         case .createAccount(_, let userRequest):
             return try? JSONEncoder().encode(userRequest)

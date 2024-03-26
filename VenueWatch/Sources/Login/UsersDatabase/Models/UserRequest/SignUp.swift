@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol SignUpProtocol: UserRequestProtocol {
+protocol ISignUpRequest: IUserRequest {
     var email: String? { get }
     var password: String? { get }
     var username: String? { get }
 }
 
 extension UserRequest {
-    struct SignUp: Codable, SignUpProtocol, IValidatable {
+    struct SignUp: Codable, ISignUpRequest, IValidatable {
         let username: String?
         let email: String?
         let password: String?

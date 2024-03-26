@@ -8,8 +8,8 @@
 import UIKit
 
 protocol IFriendsViewModel: IBaseViewModel {
-    associatedtype Friend
-    var friends: Array<Friend> { get }
+    associatedtype ItemType
+    var friends: Array<ItemType> { get }
 }
 class FriendsViewModel: IFriendsViewModel {
     struct Friend {
@@ -17,9 +17,11 @@ class FriendsViewModel: IFriendsViewModel {
         var surname: String
         var photo: String
     }
+    
     var title: String?
     var friends: Array<Friend>
     var presentHandler: ((UIViewController, Bool) -> Void)?
+    
     init(title: String? = nil, friends: Array<Friend>) {
         self.title = title
         self.friends = friends

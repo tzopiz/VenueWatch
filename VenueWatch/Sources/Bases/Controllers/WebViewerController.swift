@@ -8,16 +8,14 @@
 import UIKit
 import WebKit
 
-protocol IWebViewModel: IBaseViewModel {
-    
-}
+protocol IWebViewModel: IBaseViewModel { }
 class WebViewModel: IWebViewModel {
     var presentHandler: ((UIViewController, Bool) -> Void)?
     var title: String?
 }
 
 class WebViewerController: BaseViewController<WebViewModel> {
-    internal let webView = WKWebView()
+    private let webView = WKWebView()
     var url: URL
     
     init(url: URL) {

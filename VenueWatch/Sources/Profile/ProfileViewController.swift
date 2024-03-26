@@ -22,7 +22,7 @@ final class ProfileViewController: BaseViewController<ProfileViewModel> {
 
 // MARK: - Actions
 extension ProfileViewController {
-    @IBAction internal func loginButtonTapped() {
+    @IBAction private func loginButtonTapped() {
         let loginViewModel = LoginViewModel(currentLoginType: .signUp)
         let loginViewController = LoginViewController(viewModel: loginViewModel)
         self.navigationController?.pushViewController(loginViewController, animated: true)

@@ -9,20 +9,14 @@ import Foundation
 import UIKit
 
 protocol ILoginViewModel: IBaseViewModel {
-    func textFieldShouldReturn(_ view: UIView)
     var currentLoginType: LoginType { get }
+    func textFieldShouldReturn(_ view: UIView)
     func toggleCurrentLoginType()
 }
 class LoginViewModel: ILoginViewModel {
-    func toggleCurrentLoginType() {
-        loginType.toggle()
-    }
-    func textFieldShouldReturn(_ view: UIView) {
-        view.endEditing(true)
-    }
-    var presentHandler: ((UIViewController, Bool) -> Void)?
     var title: String?
-    internal var loginType: LoginType
+    var presentHandler: ((UIViewController, Bool) -> Void)?
+    private var loginType: LoginType
     var currentLoginType: LoginType {
         loginType
     }
@@ -30,4 +24,7 @@ class LoginViewModel: ILoginViewModel {
         self.title = title
         self.loginType = currentLoginType
     }
+    
+    func toggleCurrentLoginType() { loginType.toggle() }
+    func textFieldShouldReturn(_ view: UIView) { view.endEditing(true) }
 }

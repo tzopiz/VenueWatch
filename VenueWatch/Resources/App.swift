@@ -62,6 +62,7 @@ enum App {
         static let secondaryLabel = UIColor.secondaryLabel
         static let accentColor = UIColor.systemBlue
     }
+    
     // MARK: - Images
     enum Image {
         static let notes =  UIImage(systemName: "house")

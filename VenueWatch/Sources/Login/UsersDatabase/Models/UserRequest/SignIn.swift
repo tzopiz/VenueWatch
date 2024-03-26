@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol SignInRequestProtocol: UserRequestProtocol {
+protocol ISignInRequest: IUserRequest {
     var email: String? { get }
     var password: String? { get }
 }
 
 extension UserRequest {
-    struct SignIn: Codable, SignInRequestProtocol, IValidatable {
+    struct SignIn: Codable, ISignInRequest, IValidatable {
         let email: String?
         let password: String?
         func validate() -> ValidationResult<SignIn, ValidationError<Array<String>>> {

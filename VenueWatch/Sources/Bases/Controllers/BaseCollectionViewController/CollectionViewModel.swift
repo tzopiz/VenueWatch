@@ -13,31 +13,20 @@ protocol ICollectionViewModel: IBaseViewModel {
     var lineSpacing: CGFloat { get }
     var headerSize: CGSize { get }
     func configureCell(_ cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
-    
 }
 extension ICollectionViewModel {
-    func minimumLineSpacing(at section: Int) -> CGFloat {
-        return lineSpacing
-    }
-    
-    func referenceSizeForHeader(at section: Int) -> CGSize {
-        return headerSize
-    }
+    func minimumLineSpacing(at section: Int) -> CGFloat { lineSpacing }
+    func referenceSizeForHeader(at section: Int) -> CGSize { headerSize }
 }
 
 class CollectionViewModel: ICollectionViewModel {
+    
+    var items: [String]
+    var title: String?
     var lineSpacing: CGFloat
     var headerSize: CGSize
     var presentHandler: ((UIViewController, Bool) -> Void)?
-    func configureCell(_ cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = cell as? LabelCollectionViewCell else { return }
-        let title = items[indexPath.row]
-        cell.configure(title)
-    }
     
-    typealias ItemType = String
-    var items: [String]
-    var title: String?
     init(
         items: [String], title: String? = nil,
         lineSpacing: CGFloat = 8,
@@ -47,5 +36,11 @@ class CollectionViewModel: ICollectionViewModel {
         self.title = title
         self.lineSpacing = lineSpacing
         self.headerSize = headerSize
+    }
+    
+    func configureCell(_ cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? LabelCollectionViewCell else { return }
+        let title = items[indexPath.row]
+        cell.configure(title)
     }
 }

@@ -17,13 +17,14 @@ enum LoginType {
     }
 }
 final class LoginViewController: BaseViewController<LoginViewModel> {
-    internal let authHeaderView: AuthHeaderView
-    internal let credentialInputView: CredentialInputView
-    internal let footerButtonsView: FooterButtonsView
-    internal let appleButtonsView = AppleButtonsView()
-    internal let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
-    public let appleLoginService = AppleLoginService()
-    public let authService = AuthService()
+    
+    private let authHeaderView: AuthHeaderView
+    private let credentialInputView: CredentialInputView
+    private let footerButtonsView: FooterButtonsView
+    private let appleButtonsView = AppleButtonsView()
+    private let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
+    private lazy var appleLoginService = AppleLoginService()
+    private lazy var authService = AuthService()
     
     override init(viewModel: LoginViewModel) {
         credentialInputView = CredentialInputView(type: viewModel.currentLoginType)
@@ -34,6 +35,7 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - Configure
     override func setupViews() {
         super.setupViews()
@@ -84,7 +86,7 @@ extension LoginViewController {
             }
         }
     }
-    @IBAction internal func signUpAppleButtonTapped() { }
+    @IBAction private func signUpAppleButtonTapped() { }
     @IBAction public func authButtonTapped() {
         let credential = credentialInputView.credential.body
         var userRequest: URLRequest?

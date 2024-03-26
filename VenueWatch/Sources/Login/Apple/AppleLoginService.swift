@@ -36,6 +36,7 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
         controller: ASAuthorizationController,
         didCompleteWithError error: any Error
     ) { self.handler?(.failure(error)) }
+    
     func authorizationController(
         controller: ASAuthorizationController,
         didCompleteWithAuthorization authorization: ASAuthorization

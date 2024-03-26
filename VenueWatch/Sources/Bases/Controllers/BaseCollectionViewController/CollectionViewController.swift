@@ -7,8 +7,9 @@
 
 import UIKit
 
-class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UICollectionViewCell>: UICollectionViewController where Cell: IReusableCell {
-
+class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UICollectionViewCell>:
+    UICollectionViewController where Cell: IReusableCell {
+    
     var viewModel: ViewModel
     
     init(viewModel: ViewModel, layout: UICollectionViewLayout) {
@@ -47,65 +48,40 @@ class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UIColl
     }
     
     // MARK: - UICollectionViewDataSource
-    
     override func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
-    ) -> Int {
-        return viewModel.items.count
-    }
+    ) -> Int { viewModel.items.count }
     
     override func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
+        guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: Cell.self),
             for: indexPath
-        ) as! Cell
+        ) as? Cell
+        else { return UICollectionViewCell() }
         viewModel.configureCell(cell, forItemAt: indexPath)
         return cell
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
-    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 50) // Default cell size
-    }
+    ) -> CGSize { CGSize(width: collectionView.frame.width, height: 50) }
     
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int
-    ) -> CGFloat {
-        return viewModel.minimumLineSpacing(at: section)
-    }
+    ) -> CGFloat { viewModel.minimumLineSpacing(at: section) }
     
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         referenceSizeForHeaderInSection section: Int
-    ) -> CGSize {
-        return viewModel.referenceSizeForHeader(at: section)
-    }
-}
-
-
-// MARK: - UICollectionViewUpdatable
-protocol ICollectionViewUpdatable: AnyObject {
-    func refreshData()
-}
-
-extension BaseCollectionViewController: ICollectionViewUpdatable {
-    func refreshData() {
-        DispatchQueue.main.async {
-            self.collectionView.refreshControl?.beginRefreshing()
-            self.collectionView.reloadData()
-            self.collectionView.refreshControl?.endRefreshing()
-        }
-    }
+    ) -> CGSize { viewModel.referenceSizeForHeader(at: section) }
 }

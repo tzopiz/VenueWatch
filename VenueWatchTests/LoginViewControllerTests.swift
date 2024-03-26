@@ -23,6 +23,7 @@ class LoginViewControllerTests: XCTestCase {
         viewController = nil
         super.tearDown()
     }
+    
     func testToggleCurrentLoginType() {
         let viewModel = LoginViewModel(title: "Test Title", currentLoginType: .signIn)
         let viewController = LoginViewController(viewModel: viewModel)
@@ -32,11 +33,13 @@ class LoginViewControllerTests: XCTestCase {
         
         XCTAssertEqual(viewModel.currentLoginType, .signUp)
     }
+    
     func testTextFieldShouldReturn() {
         let textField = UITextField()
         let shouldReturn = viewController.textFieldShouldReturn(textField)
         XCTAssertTrue(shouldReturn, "TextField should return true")
     }
+    
     func testTextFieldShouldReturn2() {
         let viewModel = LoginViewModel(title: "Test Title", currentLoginType: .signIn)
         let viewController = LoginViewController(viewModel: viewModel)

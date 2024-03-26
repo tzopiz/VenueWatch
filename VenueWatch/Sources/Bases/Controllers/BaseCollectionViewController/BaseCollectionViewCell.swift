@@ -24,6 +24,7 @@ class BaseCollectionViewCell: UICollectionViewCell, IConfigurable {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     func configure(_ parametrs: Any...) { }
 }
 

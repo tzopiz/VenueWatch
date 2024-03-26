@@ -15,6 +15,7 @@ class BaseViewController<ViewModel: IBaseViewModel>: UIViewController {
     enum NavBarPosition {
         case left, right
     }
+    
     var viewModel: ViewModel!
     var presentHandler: ((UIViewController, Bool) -> Void)?
     

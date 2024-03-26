@@ -19,11 +19,11 @@ final class FooterButtonsView: BaseView {
         }
     }
     
-    internal let authButton: BaseButton
-    internal let secondaryButton: ButtonTextView
-    internal let toggleButton: BaseButton
-    internal let secondaryButtonHeight: CGFloat
-    internal let stackView = BaseStackView(axis: .vertical)
+    private let authButton: BaseButton
+    private let secondaryButton: ButtonTextView
+    private let toggleButton: BaseButton
+    private let secondaryButtonHeight: CGFloat
+    private let stackView = BaseStackView(axis: .vertical)
     var buttonTapHandler: ((UIViewController, Bool) -> Void)?
     let height: CGFloat
     
@@ -84,17 +84,11 @@ extension FooterButtonsView {
     }
     override func layoutViews() {
         super.layoutViews()
-        stackView.snp.makeConstraints { make in
-            make.center.leading.trailing.equalToSuperview()
-        }
-        authButton.snp.makeConstraints { make in
-            make.height.equalTo(50)
-        }
+        stackView.snp.makeConstraints { $0.center.leading.trailing.equalToSuperview() }
+        authButton.snp.makeConstraints { $0.height.equalTo(50) }
+        toggleButton.snp.makeConstraints { $0.height.lessThanOrEqualTo(40) }
         secondaryButton.view().snp.makeConstraints { make in
             make.height.lessThanOrEqualTo(secondaryButtonHeight)
-        }
-        toggleButton.snp.makeConstraints { make in
-            make.height.lessThanOrEqualTo(40)
         }
     }
     override func configureViews() {

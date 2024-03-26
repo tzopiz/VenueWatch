@@ -14,6 +14,7 @@ final class TabBarController: UITabBarController {
         case friends
         case profile
     }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureAppearance()
@@ -23,8 +24,8 @@ final class TabBarController: UITabBarController {
         super.init(coder: coder)
     }
     
-    internal func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
-    internal func configureAppearance() {
+    private func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
+    private func configureAppearance() {
         tabBar.tintColor = App.Color.label
         tabBar.unselectedItemTintColor = App.Color.secondaryLabel
         tabBar.backgroundColor = App.Color.systemBackground
@@ -49,7 +50,7 @@ final class TabBarController: UITabBarController {
         setViewControllers(controllers, animated: true)
     }
     
-    internal func getController(for tab: Tabs) -> UIViewController {
+    private func getController(for tab: Tabs) -> UIViewController {
         switch tab {
         case .notes:
             let viewModel = NotesViewModel(

@@ -7,6 +7,5 @@
 
 import UIKit
 
-final class NotesViewController: BaseCollectionViewController<NotesViewModel, NotesCollectionViewCell> {
-}
+final class NotesViewController: BaseCollectionViewController<NotesViewModel, NotesCollectionViewCell> { }
 
