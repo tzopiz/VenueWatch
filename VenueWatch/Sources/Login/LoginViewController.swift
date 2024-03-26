@@ -78,7 +78,7 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
 
 // MARK: - Actions
 extension LoginViewController {
-    @IBAction func signInAppleButtonTapped() {
+    @IBAction private func signInAppleButtonTapped() {
         appleLoginService.login { result in
             switch result {
             case .success(let result): print(result.fullName)
@@ -87,7 +87,7 @@ extension LoginViewController {
         }
     }
     @IBAction private func signUpAppleButtonTapped() { }
-    @IBAction func authButtonTapped() {
+    @IBAction private func authButtonTapped() {
         let credential = credentialInputView.credential.body
         var userRequest: URLRequest?
         if let credential = credential as? UserRequest.SignUp,
@@ -131,12 +131,12 @@ extension LoginViewController {
     @IBAction private func secondaryButtonButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction func toggleButtonTapped() {
+    @IBAction private func toggleButtonTapped() {
         guard let navigationController = self.navigationController else { return }
         viewModel.toggleCurrentLoginType()
         navigationController.presentLoginViewController(for: viewModel.currentLoginType)
     }
-    @IBAction func hideKeyboard() {
+    @IBAction private func hideKeyboard() {
         viewModel.textFieldShouldReturn(credentialInputView)
     }
 }
