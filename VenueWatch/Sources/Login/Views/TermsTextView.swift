@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class TermsTextView: UITextView {
+class TermsTextView: UITextView {
     convenience init(_ str: String) {
         self.init()
         let attributedString = NSMutableAttributedString(string: str)

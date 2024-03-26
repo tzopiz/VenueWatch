@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class BaseTextField: UITextField {
+class BaseTextField: UITextField {
     private var padding: UIEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,10 +46,10 @@ public class BaseTextField: UITextField {
         self.backgroundColor = backgroundColor
         self.padding = padding
     }
-    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
 }

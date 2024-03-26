@@ -25,15 +25,15 @@ extension Validator {
 
 struct RegexValidator: Validator, Hashable {
     
-    public var errorMessage: String
-    internal var regex: String
+    var errorMessage: String
+    private var regex: String
     
-    public init(regex: String, errorMessage: String) {
+    init(regex: String, errorMessage: String) {
         self.regex = regex
         self.errorMessage = errorMessage
     }
     
-    public func isValid(value: String?) -> Bool {
+    func isValid(value: String?) -> Bool {
         guard let value = value else { return false }
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
         return predicate.evaluate(with: value)
