@@ -7,8 +7,10 @@
 
 import Foundation
 
-final class AuthService: Service {
+class AuthService: IService {
     typealias ServiceError = APIRequest.ServiceError
+    
+    // MARK: - Log In
     func fetch(request: URLRequest) async throws -> String {
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse,
@@ -27,6 +29,7 @@ final class AuthService: Service {
             }
         }
     }
+    
     // MARK: - Sign Out
     func signOut() {
         let url = URL(string: APIRequest.WebSite.fullURL)!

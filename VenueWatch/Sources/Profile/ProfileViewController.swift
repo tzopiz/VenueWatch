@@ -7,13 +7,11 @@
 
 import UIKit
 
-final class ProfileViewController: BaseViewController { }
-
-// MARK: - Configure
-extension ProfileViewController {
+final class ProfileViewController: BaseViewController<ProfileViewModel> {
+    
+    // MARK: - Configure
     override func configureViews() {
         super.configureViews()
-        navigationItem.title = App.string.profile()
         addNavBarButton(
             at: .right,
             with: App.string.logIn(),
@@ -23,10 +21,10 @@ extension ProfileViewController {
 }
 
 // MARK: - Actions
-
 extension ProfileViewController {
     @IBAction private func loginButtonTapped() {
-        let loginViewController = LoginViewController(currentLoginType: .signUp)
+        let loginViewModel = LoginViewModel(currentLoginType: .signUp)
+        let loginViewController = LoginViewController(viewModel: loginViewModel)
         self.navigationController?.pushViewController(loginViewController, animated: true)
     }
 }

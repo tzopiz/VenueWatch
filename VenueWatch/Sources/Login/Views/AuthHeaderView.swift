@@ -8,10 +8,12 @@
 import UIKit
 
 final class AuthHeaderView: BaseView {
-    private let label: BaseLabel
-    private let secondaryLabel: BaseLabel
-    private let stackView = BaseStackView(axis: .vertical)
-    private let logoImageView = UIImageView(image: UIImage(systemName: "mappin.and.ellipse"))
+    
+    internal let label: BaseLabel
+    internal let secondaryLabel: BaseLabel
+    internal let stackView = BaseStackView(axis: .vertical)
+    internal let logoImageView = UIImageView(image: UIImage(systemName: "mappin.and.ellipse"))
+    
     init(type: LoginType) {
         let labelText: String
         let secondaryLabelText: String

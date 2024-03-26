@@ -8,10 +8,13 @@
 import UIKit
 
 final class CredentialInputView: BaseView {
-    private let usernameTextField: AuthTextField?
-    private let emailTextField: AuthTextField = AuthTextField(type: .email())
-    private let passwordTextField: AuthTextField = AuthTextField(type: .password())
+    
+    internal let usernameTextField: AuthTextField?
+    internal let emailTextField: AuthTextField = AuthTextField(type: .email())
+    internal let passwordTextField: AuthTextField = AuthTextField(type: .password())
+    
     let height: CGFloat
+    
     init(type: LoginType) {
         switch type {
         case .signIn:
@@ -26,6 +29,7 @@ final class CredentialInputView: BaseView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     var credential: UserRequest {
         if let usernameTextField = usernameTextField {
             let request = UserRequest.SignUp(

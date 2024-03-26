@@ -21,6 +21,7 @@ extension Utilities.Alert {
             viewController.present(alert, animated: true)
         }
     }
+    
     // MARK: - Show the function is in development
     public static func functionIsBeingDeveloped(on viewController: UIViewController) {
         self.showAlert(
@@ -29,6 +30,7 @@ extension Utilities.Alert {
             message: App.string.functionIsBeingDeveloped()
         )
     }
+    
     // MARK: - Show Validation Alerts
     public static func showInvalidAlert(on viewController: UIViewController, _ type: AlertType) {
         let title: String
@@ -40,6 +42,7 @@ extension Utilities.Alert {
         let message = App.string.enterAValidArg1(App.string.email())
         self.showAlert(viewController, title: title, message: message)
     }
+    
     // MARK: - Registration Errors
     public static func showRegistrationErrorAlert(on viewController: UIViewController) {
         self.showAlert(viewController, title: "Unknown Registration Error", message: nil)
@@ -47,6 +50,7 @@ extension Utilities.Alert {
     public static func showRegistrationErrorAlert(on viewController: UIViewController, with error: String) {
         self.showAlert(viewController, title: "Unknown Registration Error", message: "\(error)")
     }
+    
     // MARK: - Log In Errors
     public static func showSignInErrorAlert(on viewController: UIViewController) {
         self.showAlert(viewController, title: "Unknown Error Signing In", message: nil)
@@ -54,10 +58,12 @@ extension Utilities.Alert {
     public static func showSignInErrorAlert(on viewController: UIViewController, with error: String) {
         self.showAlert(viewController, title: "Error Signing In", message: "\(error)")
     }
+    
     // MARK: - Logout Errors
     public static func showLogoutError(on viewController: UIViewController, with error: Error) {
         self.showAlert(viewController, title: "Log Out Error", message: "\(error.localizedDescription)")
     }
+    
     // MARK: - Forgot Password
     public static func showPasswordResetSent(on viewController: UIViewController) {
         self.showAlert(viewController, title: "Password Reset Sent", message: nil)
@@ -65,6 +71,7 @@ extension Utilities.Alert {
     public static func showErrorSendingPasswordReset(on viewController: UIViewController, with error: String) {
         self.showAlert(viewController, title: "Error Sending Password Reset", message: "\(error)")
     }
+    
     // MARK: - Fetching User Errors
     public static func showFetchingUserError(on viewController: UIViewController, with error: Error) {
         self.showAlert(viewController, title: "Error Fetching User", message: "\(error.localizedDescription)")

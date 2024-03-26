@@ -12,12 +12,12 @@ protocol AppleLoginServiceDelegate: AnyObject {
     func login(completion: @escaping (Result<AppleLoginService.AuthResult, Error>) -> Void)
 }
 
-final class AppleLoginService: NSObject, AppleLoginServiceDelegate {
+class AppleLoginService: NSObject, AppleLoginServiceDelegate {
     struct AuthResult {
-        let fullName: [String]
+        let fullName: Array<String>
         let token: String
     }
-    private var handler: ((Result<AuthResult, any Error>) -> Void)?
+    internal var handler: ((Result<AuthResult, any Error>) -> Void)?
     func login(completion: @escaping (Result<AuthResult, any Error>) -> Void) {
         self.handler = completion
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -36,6 +36,7 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
         controller: ASAuthorizationController,
         didCompleteWithError error: any Error
     ) { self.handler?(.failure(error)) }
+    
     func authorizationController(
         controller: ASAuthorizationController,
         didCompleteWithAuthorization authorization: ASAuthorization

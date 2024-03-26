@@ -36,9 +36,3 @@ extension BaseView {
     /// Вы также можете применять стили, добавлять тени, закруглять углы и т.д.
     func configureViews() { }
 }
-
-extension BaseView {
-    func addSubviews(_ views: UIView...) {
-        views.forEach { self.addSubview($0) }
-    }
-}

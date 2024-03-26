@@ -18,13 +18,15 @@ final class FooterButtonsView: BaseView {
             }
         }
     }
+    
     private let authButton: BaseButton
     private let secondaryButton: ButtonTextView
     private let toggleButton: BaseButton
     private let secondaryButtonHeight: CGFloat
     private let stackView = BaseStackView(axis: .vertical)
-    weak var delegate: PresentDelegate?
+    var buttonTapHandler: ((UIViewController, Bool) -> Void)?
     let height: CGFloat
+    
     init(type: LoginType) {
         let authButtonTitle: String,
             toggleButtonTitle: String
@@ -53,6 +55,7 @@ final class FooterButtonsView: BaseView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     func addSelectos(
         target: Any?,
         authButtonSelector: Selector,
@@ -81,17 +84,11 @@ extension FooterButtonsView {
     }
     override func layoutViews() {
         super.layoutViews()
-        stackView.snp.makeConstraints { make in
-            make.center.leading.trailing.equalToSuperview()
-        }
-        authButton.snp.makeConstraints { make in
-            make.height.equalTo(50)
-        }
+        stackView.snp.makeConstraints { $0.center.leading.trailing.equalToSuperview() }
+        authButton.snp.makeConstraints { $0.height.equalTo(50) }
+        toggleButton.snp.makeConstraints { $0.height.lessThanOrEqualTo(40) }
         secondaryButton.view().snp.makeConstraints { make in
             make.height.lessThanOrEqualTo(secondaryButtonHeight)
-        }
-        toggleButton.snp.makeConstraints { make in
-            make.height.lessThanOrEqualTo(40)
         }
     }
     override func configureViews() {
@@ -115,7 +112,7 @@ extension FooterButtonsView: UITextViewDelegate {
     ) -> Bool {
         if URL.absoluteString.hasPrefix("https") {
             let webViewerController = WebViewerController(url: URL)
-            delegate?.present(viewController: webViewerController, animated: true)
+            buttonTapHandler?(webViewerController, true)
             return false
         }
         return true

@@ -7,9 +7,11 @@
 
 import Foundation
 
-final class DataService: Service {
+final class DataService: IService {
     typealias ServiceError = APIRequest.ServiceError
-    func fetch(request: URLRequest) async throws -> [String] {
+    
+    // MARK: - Get user data
+    func fetch(request: URLRequest) async throws -> Array<String> {
         guard let request = APIRequest.getData().request
         else { throw ServiceError.unknown("Invalid request") }
         let (data, response) = try await URLSession.shared.data(for: request)
