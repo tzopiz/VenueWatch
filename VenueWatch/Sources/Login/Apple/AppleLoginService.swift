@@ -17,7 +17,7 @@ class AppleLoginService: NSObject, AppleLoginServiceDelegate {
         let fullName: Array<String>
         let token: String
     }
-    internal var handler: ((Result<AuthResult, any Error>) -> Void)?
+    private var handler: ((Result<AuthResult, any Error>) -> Void)?
     func login(completion: @escaping (Result<AuthResult, any Error>) -> Void) {
         self.handler = completion
         let appleIDProvider = ASAuthorizationAppleIDProvider()

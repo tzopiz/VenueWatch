@@ -35,7 +35,7 @@ final class ValidatorTests: XCTestCase {
          "test123@example-domain.com",
          "test@.domain.com"]
     }
-    internal var invalidEmails: Array<String?> {
+    private var invalidEmails: Array<String?> {
         [nil,
          "example@example",
          "user@.com",

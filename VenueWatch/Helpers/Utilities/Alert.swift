@@ -23,7 +23,7 @@ extension Utilities.Alert {
     }
     
     // MARK: - Show the function is in development
-    public static func functionIsBeingDeveloped(on viewController: UIViewController) {
+    static func functionIsBeingDeveloped(on viewController: UIViewController) {
         self.showAlert(
             viewController,
             title: App.string.attention(),
@@ -32,7 +32,7 @@ extension Utilities.Alert {
     }
     
     // MARK: - Show Validation Alerts
-    public static func showInvalidAlert(on viewController: UIViewController, _ type: AlertType) {
+    static func showInvalidAlert(on viewController: UIViewController, _ type: AlertType) {
         let title: String
         switch type {
         case .email: title = App.string.invalidArg1(App.string.email())
@@ -44,39 +44,39 @@ extension Utilities.Alert {
     }
     
     // MARK: - Registration Errors
-    public static func showRegistrationErrorAlert(on viewController: UIViewController) {
+    showRegistrationErrorAlert(on viewController: UIViewController) {
         self.showAlert(viewController, title: "Unknown Registration Error", message: nil)
     }
-    public static func showRegistrationErrorAlert(on viewController: UIViewController, with error: String) {
+    static func showRegistrationErrorAlert(on viewController: UIViewController, with error: String) {
         self.showAlert(viewController, title: "Unknown Registration Error", message: "\(error)")
     }
     
     // MARK: - Log In Errors
-    public static func showSignInErrorAlert(on viewController: UIViewController) {
+    static func showSignInErrorAlert(on viewController: UIViewController) {
         self.showAlert(viewController, title: "Unknown Error Signing In", message: nil)
     }
-    public static func showSignInErrorAlert(on viewController: UIViewController, with error: String) {
+    static func showSignInErrorAlert(on viewController: UIViewController, with error: String) {
         self.showAlert(viewController, title: "Error Signing In", message: "\(error)")
     }
     
     // MARK: - Logout Errors
-    public static func showLogoutError(on viewController: UIViewController, with error: Error) {
+    static func showLogoutError(on viewController: UIViewController, with error: Error) {
         self.showAlert(viewController, title: "Log Out Error", message: "\(error.localizedDescription)")
     }
     
     // MARK: - Forgot Password
-    public static func showPasswordResetSent(on viewController: UIViewController) {
+    static func showPasswordResetSent(on viewController: UIViewController) {
         self.showAlert(viewController, title: "Password Reset Sent", message: nil)
     }
-    public static func showErrorSendingPasswordReset(on viewController: UIViewController, with error: String) {
+    static func showErrorSendingPasswordReset(on viewController: UIViewController, with error: String) {
         self.showAlert(viewController, title: "Error Sending Password Reset", message: "\(error)")
     }
     
     // MARK: - Fetching User Errors
-    public static func showFetchingUserError(on viewController: UIViewController, with error: Error) {
+    static func showFetchingUserError(on viewController: UIViewController, with error: Error) {
         self.showAlert(viewController, title: "Error Fetching User", message: "\(error.localizedDescription)")
     }
-    public static func showUnknownFetchingUserError(on viewController: UIViewController) {
+    static func showUnknownFetchingUserError(on viewController: UIViewController) {
         self.showAlert(viewController, title: "Unknown Error Fetching User", message: nil)
     }
 }

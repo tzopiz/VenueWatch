@@ -16,8 +16,8 @@ import UIKit
 /// self.textAlignment = .left
 /// self.lineBreakMode = .byWordWrapping
 /// ```
-public class BaseLabel: UILabel {
-    internal init(
+class BaseLabel: UILabel {
+    private init(
         text: String? = nil,
         textColor: UIColor? = App.Color.label,
         fontSize: CGFloat = 15,
