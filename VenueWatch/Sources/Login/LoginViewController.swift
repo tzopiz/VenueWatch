@@ -116,7 +116,7 @@ extension LoginViewController {
         }
         performRequest(userRequest)
     }
-    private func performRequest(_ userRequest: URLRequest?) {
+    internal func performRequest(_ userRequest: URLRequest?) {
         guard let userRequest = userRequest else { return }
         Task {
             do {
@@ -128,7 +128,7 @@ extension LoginViewController {
             }
         }
     }
-    @IBAction private func secondaryButtonButtonTapped() {
+    @IBAction internal func secondaryButtonButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
     @IBAction public func toggleButtonTapped() {

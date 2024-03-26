@@ -9,9 +9,9 @@ import UIKit
 
 final class CredentialInputView: BaseView {
     
-    private let usernameTextField: AuthTextField?
-    private let emailTextField: AuthTextField = AuthTextField(type: .email())
-    private let passwordTextField: AuthTextField = AuthTextField(type: .password())
+    internal let usernameTextField: AuthTextField?
+    internal let emailTextField: AuthTextField = AuthTextField(type: .email())
+    internal let passwordTextField: AuthTextField = AuthTextField(type: .password())
     
     let height: CGFloat
     

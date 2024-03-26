@@ -26,7 +26,7 @@ extension Validator {
 struct RegexValidator: Validator, Hashable {
     
     public var errorMessage: String
-    private var regex: String
+    internal var regex: String
     
     public init(regex: String, errorMessage: String) {
         self.regex = regex
