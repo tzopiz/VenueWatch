@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol IBaseViewModel {
-    var title: String? { get }
-    var presentHandler: ((UIViewController, Bool) -> Void)? { get set }
-}
 class BaseViewController<ViewModel: IBaseViewModel>: UIViewController {
     enum NavBarPosition {
         case left, right

@@ -29,7 +29,7 @@ final class TabBarController: UITabBarController {
         tabBar.tintColor = App.Color.label
         tabBar.unselectedItemTintColor = App.Color.secondaryLabel
         tabBar.backgroundColor = App.Color.systemBackground
-        tabBar.addTopBorder(with: App.Color.separator, height: 2/3)
+        tabBar.addBottomBorder(with: App.Color.separator, height: 2/3)
         let images = [
             App.Image.notes, App.Image.map, App.Image.friends, App.Image.profile
         ]
@@ -44,7 +44,7 @@ final class TabBarController: UITabBarController {
             controller.tabBarItem = UITabBarItem(title: titles[tab.rawValue],
                                                  image: images[tab.rawValue],
                                                  selectedImage: selectedImages[tab.rawValue])
-            controller.navigationBar.addBottomBorder(with: App.Color.separator, height: 1)
+            controller.navigationBar.addTopBorder(with: App.Color.separator, height: 1)
             return controller
         }
         setViewControllers(controllers, animated: true)

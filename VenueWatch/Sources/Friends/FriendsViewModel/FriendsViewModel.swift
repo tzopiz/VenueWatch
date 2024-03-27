@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol IFriendsViewModel: IBaseViewModel {
-    associatedtype ItemType
-    var friends: Array<ItemType> { get }
-}
 class FriendsViewModel: IFriendsViewModel {
     struct Friend {
         var name: String

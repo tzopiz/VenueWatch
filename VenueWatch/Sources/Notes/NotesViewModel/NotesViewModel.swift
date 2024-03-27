@@ -7,7 +7,6 @@
 
 import UIKit
 
-protocol INotesViewModel: ICollectionViewModel { }
 class NotesViewModel: INotesViewModel {
     struct Note {
         struct Person {

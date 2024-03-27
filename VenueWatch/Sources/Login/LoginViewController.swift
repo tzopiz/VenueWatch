@@ -23,8 +23,6 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
     private let footerButtonsView: FooterButtonsView
     private let appleButtonsView = AppleButtonsView()
     private let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
-    private lazy var appleLoginService = AppleLoginService()
-    private lazy var authService = AuthService()
     
     override init(viewModel: LoginViewModel) {
         credentialInputView = CredentialInputView(type: viewModel.currentLoginType)
@@ -79,7 +77,7 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
 // MARK: - Actions
 extension LoginViewController {
     @IBAction private func signInAppleButtonTapped() {
-        appleLoginService.login { result in
+        viewModel.appleLoginService.login { result in
             switch result {
             case .success(let result): print(result.fullName)
             case .failure(let error): print(error.localizedDescription)
@@ -120,7 +118,7 @@ extension LoginViewController {
         guard let userRequest = userRequest else { return }
         Task {
             do {
-                let result = try await authService.fetch(request: userRequest)
+                let result = try await viewModel.authService.fetch(request: userRequest)
                 print(result)
             } catch {
                 print(#function, error.localizedDescription)
@@ -134,7 +132,7 @@ extension LoginViewController {
     @IBAction private func toggleButtonTapped() {
         guard let navigationController = self.navigationController else { return }
         viewModel.toggleCurrentLoginType()
-        navigationController.presentLoginViewController(for: viewModel.currentLoginType)
+        viewModel.presentLoginViewController(navigationController, for: viewModel.currentLoginType)
     }
     @IBAction private func hideKeyboard() {
         viewModel.textFieldShouldReturn(credentialInputView)

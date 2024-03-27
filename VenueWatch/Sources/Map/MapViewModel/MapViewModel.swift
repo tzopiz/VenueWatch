@@ -7,7 +7,6 @@
 
 import UIKit
 
-protocol IMapViewModel: IBaseViewModel { }
 class MapViewModel: IMapViewModel {
     var title: String?
     var presentHandler: ((UIViewController, Bool) -> Void)?

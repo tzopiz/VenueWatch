@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    func addBottomBorder(with color: UIColor?, height: CGFloat) {
+    func addTopBorder(with color: UIColor?, height: CGFloat) {
         guard let color = color else { return }
         let separator = UIView()
         separator.backgroundColor = color
@@ -22,7 +22,7 @@ extension UIView {
         )
         addSubview(separator)
     }
-    func addTopBorder(with color: UIColor?, height: CGFloat) {
+    func addBottomBorder(with color: UIColor?, height: CGFloat) {
         guard let color = color else { return }
         let separator = UIView()
         separator.backgroundColor = color
@@ -37,7 +37,7 @@ extension UIView {
         addSubview(separator)
     }
     func addSubviews(_ views: UIView...) {
-        for view in views {
+        views.forEach { view in
             self.addSubview(view)
         }
     }
