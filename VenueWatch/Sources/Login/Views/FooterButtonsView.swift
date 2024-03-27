@@ -9,14 +9,15 @@ import UIKit
 
 final class FooterButtonsView: BaseView {
     enum ButtonTextView {
-        case button(UIButton)
+        case button(BaseButton)
         case textView(TermsTextView)
-        func view() -> UIView {
+        var view: UIView {
             switch self {
             case .button(let button): return button
             case .textView(let textView): return textView
             }
         }
+
     }
     
     private let authButton: BaseButton
@@ -79,7 +80,7 @@ extension FooterButtonsView {
         super.setupViews()
         addSubviews(stackView)
         stackView.addArrangedSubviews(
-            authButton, secondaryButton.view(), toggleButton
+            authButton, secondaryButton.view, toggleButton
         )
     }
     override func layoutViews() {
@@ -87,7 +88,7 @@ extension FooterButtonsView {
         stackView.snp.makeConstraints { $0.center.leading.trailing.equalToSuperview() }
         authButton.snp.makeConstraints { $0.height.equalTo(50) }
         toggleButton.snp.makeConstraints { $0.height.lessThanOrEqualTo(40) }
-        secondaryButton.view().snp.makeConstraints { make in
+        secondaryButton.view.snp.makeConstraints { make in
             make.height.lessThanOrEqualTo(secondaryButtonHeight)
         }
     }

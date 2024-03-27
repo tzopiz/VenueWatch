@@ -45,8 +45,7 @@ extension AppleLoginService: ASAuthorizationControllerDelegate {
               let identityToken = credential.identityToken
         else { fatalError() }
         let fullname = [
-            credential.fullName?.givenName,
-            credential.fullName?.familyName
+            credential.fullName?.givenName, credential.fullName?.familyName
         ].compactMap { $0 }
         let token = String(decoding: identityToken, as: UTF8.self)
         let authResult = AuthResult(fullName: fullname, token: token)

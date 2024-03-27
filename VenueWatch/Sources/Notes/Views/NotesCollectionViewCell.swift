@@ -13,4 +13,15 @@ class NotesCollectionViewCell: BaseCollectionViewCell {
             print(parametr)
         }
     }
+    
+    // MARK: - Configure
+    override func setupViews() {
+        super.setupViews()
+    }
+    override func layoutViews() {
+        super.layoutViews()
+    }
+    override func configureViews() {
+        super.configureViews()
+    }
 }

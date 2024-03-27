@@ -5,7 +5,6 @@
 //  Created by Дмитрий Корчагин on 3/18/24.
 //
 
-import Foundation
 import UIKit
 
 extension Utilities.Alert {
@@ -44,7 +43,7 @@ extension Utilities.Alert {
     }
     
     // MARK: - Registration Errors
-    showRegistrationErrorAlert(on viewController: UIViewController) {
+    static func showRegistrationErrorAlert(on viewController: UIViewController) {
         self.showAlert(viewController, title: "Unknown Registration Error", message: nil)
     }
     static func showRegistrationErrorAlert(on viewController: UIViewController, with error: String) {

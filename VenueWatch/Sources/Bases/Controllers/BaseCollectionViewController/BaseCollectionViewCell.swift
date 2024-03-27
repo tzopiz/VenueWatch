@@ -10,7 +10,6 @@ import UIKit
 protocol IConfigurable {
     func configure(_ parametrs: Any...)
 }
-
 class BaseCollectionViewCell: UICollectionViewCell, IConfigurable {
     
     override class var reuseIdentifier: String { String(describing: BaseCollectionViewCell.self) }

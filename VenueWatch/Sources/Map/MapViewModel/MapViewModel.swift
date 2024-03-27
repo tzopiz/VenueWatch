@@ -1,18 +1,15 @@
 //
-//  ProfileViewModel.swift
+//  MapViewModel.swift
 //  VenueWatch
 //
 //  Created by Дмитрий Корчагин on 3/25/24.
 //
 
-import UIKit
+import Foundation
 
-protocol IProfileViewModel: IBaseViewModel { }
-class ProfileViewModel: IProfileViewModel {
-    
+class MapViewModel: IMapViewModel {
     var title: String?
     var navigationDelegate: ViewModelNavigationDelegate?
-    
     init(title: String? = nil) {
         self.title = title
     }

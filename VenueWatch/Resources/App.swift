@@ -73,5 +73,6 @@ enum App {
         static let mapFill = UIImage(systemName: "map.fill")
         static let friendsFill = UIImage(systemName: "person.2.wave.2.fill")
         static let profileFill = UIImage(systemName: "person.crop.rectangle.stack.fill")
+        static let logo = UIImage(systemName: "mappin.and.ellipse")
     }
 }

@@ -11,7 +11,6 @@ protocol ISignInRequest: IUserRequest {
     var email: String? { get }
     var password: String? { get }
 }
-
 extension UserRequest {
     struct SignIn: Codable, ISignInRequest, IValidatable {
         let email: String?

@@ -44,9 +44,5 @@ extension AppleButtonsView {
     }
     override func configureViews() {
         super.configureViews()
-        signUpAppleButton.alpha = 0.5
-        signUpAppleButton.isEnabled = false
-        signInAppleButton.alpha = 0.5
-        signInAppleButton.isEnabled = false
     }
 }
