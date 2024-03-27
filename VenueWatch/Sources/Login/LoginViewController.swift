@@ -66,7 +66,21 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         )
         footerButtonsView.buttonTapHandler = { [weak self] viewController, animated in
             guard let self = self else { return }
-            self.viewModel.presentHandler?(viewController, animated)
+            viewModel.navigationDelegate?.presentViewController(viewController, animated: animated)
+        }
+        viewModel.loginTypeChanged = { [weak self] loginType in
+            guard let self = self,
+                  let navigationController = self.navigationController
+            else { return }
+            let loginViewModel = LoginViewModel(currentLoginType: loginType)
+            let loginViewController = LoginViewController(viewModel: loginViewModel)
+            UIView.transition(
+                with: navigationController.view, duration: 0.5,
+                options: loginType == .signIn ? .transitionFlipFromRight : .transitionFlipFromLeft,
+                animations: {
+                    navigationController.viewControllers.removeLast()
+                    navigationController.viewControllers.append(loginViewController)
+                }, completion: nil)
         }
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapGesture.cancelsTouchesInView = false
@@ -77,14 +91,11 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
 // MARK: - Actions
 extension LoginViewController {
     @IBAction private func signInAppleButtonTapped() {
-        viewModel.appleLoginService.login { result in
-            switch result {
-            case .success(let result): print(result.fullName)
-            case .failure(let error): print(error.localizedDescription)
-            }
-        }
+        Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction private func signUpAppleButtonTapped() { }
+    @IBAction private func signUpAppleButtonTapped() {
+        Utilities.Alert.functionIsBeingDeveloped(on: self)
+    }
     @IBAction private func authButtonTapped() {
         let credential = credentialInputView.credential.body
         var userRequest: URLRequest?
@@ -129,19 +140,17 @@ extension LoginViewController {
     @IBAction private func secondaryButtonButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction private func toggleButtonTapped() {
-        guard let navigationController = self.navigationController else { return }
+    @IBAction func toggleButtonTapped() {
         viewModel.toggleCurrentLoginType()
-        viewModel.presentLoginViewController(navigationController, for: viewModel.currentLoginType)
     }
     @IBAction private func hideKeyboard() {
-        viewModel.textFieldShouldReturn(credentialInputView)
+        credentialInputView.endEditing(true)
     }
 }
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        viewModel.textFieldShouldReturn(textField)
+        textField.endEditing(true)
         return true
     }
 }

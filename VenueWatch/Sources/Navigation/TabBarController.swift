@@ -18,7 +18,7 @@ final class TabBarController: UITabBarController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureAppearance()
-        switchTo(tab: .profile)
+//        switchTo(tab: .profile)
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -53,12 +53,7 @@ final class TabBarController: UITabBarController {
     private func getController(for tab: Tabs) -> UIViewController {
         switch tab {
         case .notes:
-            let viewModel = NotesViewModel(
-                title: "Notes",
-                items: [],
-                lineSpacing: 8,
-                headerSize: CGSize(width: 300, height: 32)
-            )
+            let viewModel = NotesViewModel(title: "Notes", items: [])
             let layout = UICollectionViewFlowLayout()
             layout.minimumLineSpacing = 0
             return NotesViewController(viewModel: viewModel, layout: layout)

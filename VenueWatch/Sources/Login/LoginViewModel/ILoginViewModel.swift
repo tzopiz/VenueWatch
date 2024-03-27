@@ -5,13 +5,12 @@
 //  Created by Дмитрий Корчагин on 3/27/24.
 //
 
-import UIKit
+import Foundation
 
 protocol ILoginViewModel: IBaseViewModel {
     var currentLoginType: LoginType { get }
     var appleLoginService: AppleLoginService { get }
     var authService: AuthService { get }
-    func textFieldShouldReturn(_ view: UIView)
+    var loginTypeChanged: ((LoginType) -> Void)? { get set }
     func toggleCurrentLoginType()
-    func presentLoginViewController(_ viewController: UINavigationController, for type: LoginType)
 }

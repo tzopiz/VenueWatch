@@ -5,35 +5,27 @@
 //  Created by Дмитрий Корчагин on 3/25/24.
 //
 
-import UIKit
+import Foundation
 
 class LoginViewModel: ILoginViewModel {
+    var navigationDelegate: ViewModelNavigationDelegate?
+    
     var title: String?
-    var presentHandler: ((UIViewController, Bool) -> Void)?
+    var loginTypeChanged: ((LoginType) -> Void)?
+    
+    private(set) var currentLoginType: LoginType {
+        didSet {
+            loginTypeChanged?(currentLoginType)
+        }
+    }
+    
     let appleLoginService = AppleLoginService()
     let authService = AuthService()
     
-    private var loginType: LoginType
-    var currentLoginType: LoginType {
-        loginType
-    }
-    
     init(title: String? = nil, currentLoginType: LoginType) {
         self.title = title
-        self.loginType = currentLoginType
+        self.currentLoginType = currentLoginType
     }
 
-    func toggleCurrentLoginType() { loginType.toggle() }
-    func textFieldShouldReturn(_ view: UIView) { view.endEditing(true) }
-    func presentLoginViewController(_ viewController: UINavigationController, for type: LoginType) {
-        let loginViewModel = LoginViewModel(currentLoginType: type)
-        let loginViewController = LoginViewController(viewModel: loginViewModel)
-        UIView.transition(
-            with: viewController.view, duration: 0.5,
-            options: .transitionFlipFromRight,
-            animations: {
-                viewController.viewControllers.removeLast()
-                viewController.viewControllers.append(loginViewController)
-        }, completion: nil)
-    }
+    func toggleCurrentLoginType() { currentLoginType.toggle() }
 }

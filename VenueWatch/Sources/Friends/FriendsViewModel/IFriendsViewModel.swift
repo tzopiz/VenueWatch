@@ -5,7 +5,7 @@
 //  Created by Дмитрий Корчагин on 3/27/24.
 //
 
-import UIKit
+import Foundation
 
 protocol IFriendsViewModel: IBaseViewModel {
     associatedtype ItemType

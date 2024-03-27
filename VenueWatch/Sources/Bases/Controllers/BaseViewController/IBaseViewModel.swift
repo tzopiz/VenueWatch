@@ -5,10 +5,9 @@
 //  Created by Дмитрий Корчагин on 3/27/24.
 //
 
-import UIKit
+import Foundation
 
 protocol IBaseViewModel {
     var title: String? { get }
-    // FIXME: - Antipattern
-    var presentHandler: ((UIViewController, Bool) -> Void)? { get set }
+    var navigationDelegate: ViewModelNavigationDelegate? { get set }
 }

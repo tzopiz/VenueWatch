@@ -5,7 +5,7 @@
 //  Created by Дмитрий Корчагин on 3/25/24.
 //
 
-import UIKit
+import Foundation
 
 class NotesViewModel: INotesViewModel {
     struct Note {
@@ -13,33 +13,20 @@ class NotesViewModel: INotesViewModel {
             var name: String
             var surname: String
             var username: String
-            var profilePhoto: UIImage
         }
         let person: Person
         let likeCount: Int
-        let content: UIView
+        let link: URL
     }
     
     var title: String?
-    var items: [Note]
-    var lineSpacing: CGFloat
-    var headerSize: CGSize
-    var presentHandler: ((UIViewController, Bool) -> Void)?
+    private(set) var items: [Note]
+    var navigationDelegate: ViewModelNavigationDelegate?
     
-    init(
-        title: String? = nil,
-        items: [Note],
-        lineSpacing: CGFloat = 8,
-        headerSize: CGSize = CGSize(width: 300, height: 32)
-    ) {
+    init(title: String? = nil, items: [Note] ) {
         self.title = title
         self.items = items
-        self.lineSpacing = lineSpacing
-        self.headerSize = headerSize
     }
     
-    func configureCell(_ cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = cell as? NotesCollectionViewCell else { return }
-        cell.configure(String(indexPath.row))
-    }
+    func item(for indexPath: IndexPath) -> Note { items[indexPath.row] }
 }

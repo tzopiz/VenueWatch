@@ -10,37 +10,16 @@ import UIKit
 protocol ICollectionViewModel: IBaseViewModel {
     associatedtype ItemType
     var items: [ItemType] { get }
-    var lineSpacing: CGFloat { get }
-    var headerSize: CGSize { get }
-    func configureCell(_ cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
+    func item(for indexPath: IndexPath) -> ItemType
 }
-extension ICollectionViewModel {
-    func minimumLineSpacing(at section: Int) -> CGFloat { lineSpacing }
-    func referenceSizeForHeader(at section: Int) -> CGSize { headerSize }
-}
-
 class CollectionViewModel: ICollectionViewModel {
-    
-    var items: [String]
     var title: String?
-    var lineSpacing: CGFloat
-    var headerSize: CGSize
-    var presentHandler: ((UIViewController, Bool) -> Void)?
+    private(set) var items: [String]
+    var navigationDelegate: ViewModelNavigationDelegate?
     
-    init(
-        items: [String], title: String? = nil,
-        lineSpacing: CGFloat = 8,
-        headerSize: CGSize = CGSize(width: 300, height: 32)
-    ) {
+    init(title: String? = nil, items: [String]) {
         self.items = items
         self.title = title
-        self.lineSpacing = lineSpacing
-        self.headerSize = headerSize
     }
-    
-    func configureCell(_ cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = cell as? LabelCollectionViewCell else { return }
-        let title = items[indexPath.row]
-        cell.configure(title)
-    }
+    func item(for indexPath: IndexPath) -> ItemType { items[indexPath.row] }
 }

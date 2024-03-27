@@ -5,13 +5,12 @@
 //  Created by Дмитрий Корчагин on 3/25/24.
 //
 
-import UIKit
+import Foundation
 
 class MapViewModel: IMapViewModel {
     var title: String?
-    var presentHandler: ((UIViewController, Bool) -> Void)?
-    init(title: String? = nil, presentHandler: ((UIViewController, Bool) -> Void)? = nil) {
+    var navigationDelegate: ViewModelNavigationDelegate?
+    init(title: String? = nil) {
         self.title = title
-        self.presentHandler = presentHandler
     }
 }

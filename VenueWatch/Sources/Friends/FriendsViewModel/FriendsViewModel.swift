@@ -5,7 +5,7 @@
 //  Created by Дмитрий Корчагин on 3/25/24.
 //
 
-import UIKit
+import Foundation
 
 class FriendsViewModel: IFriendsViewModel {
     struct Friend {
@@ -16,7 +16,7 @@ class FriendsViewModel: IFriendsViewModel {
     
     var title: String?
     var friends: Array<Friend>
-    var presentHandler: ((UIViewController, Bool) -> Void)?
+    var navigationDelegate: ViewModelNavigationDelegate?
     
     init(title: String? = nil, friends: Array<Friend>) {
         self.title = title
