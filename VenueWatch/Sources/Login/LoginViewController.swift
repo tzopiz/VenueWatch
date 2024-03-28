@@ -140,7 +140,7 @@ extension LoginViewController {
     @IBAction private func secondaryButtonButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction func toggleButtonTapped() {
+    @IBAction private func toggleButtonTapped() {
         viewModel.toggleCurrentLoginType()
     }
     @IBAction private func hideKeyboard() {

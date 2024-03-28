@@ -1,5 +1,5 @@
 //
-//  CollectionViewController.swift
+//  BaseCollectionViewController.swift
 //  VenueWatch
 //
 //  Created by Дмитрий Корчагин on 3/12/24.
@@ -8,7 +8,7 @@
 import UIKit
 
 class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UICollectionViewCell>:
-    UICollectionViewController where Cell: IReusableCell {
+    UICollectionViewController, UICollectionViewDelegateFlowLayout  where Cell: IReusableCell {
     
     var viewModel: ViewModel
     
@@ -45,14 +45,18 @@ class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UIColl
         view.backgroundColor = App.Color.secondarySystemBackground
         collectionView.registerCells(Cell.self)
         collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false 
+        collectionView.refreshControl = UIRefreshControl()
+        collectionView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
     
     // MARK: - UICollectionViewDataSource
+    override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
     override func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int { viewModel.items.count }
-    
     override func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
@@ -64,13 +68,17 @@ class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UIColl
         else { return UICollectionViewCell() }
         return cell
     }
-    
     // MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
-    ) -> CGSize { CGSize(width: collectionView.frame.width, height: 50) }
+    ) -> CGSize { CGSize(width: collectionView.frame.width - 16, height: 400) }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int)
+    -> UIEdgeInsets { return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8) }
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -78,9 +86,12 @@ class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UIColl
         minimumLineSpacingForSectionAt section: Int
     ) -> CGFloat { 8 }
     
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        referenceSizeForHeaderInSection section: Int
-    ) -> CGSize { CGSize(width: view.frame.width - 32, height: 32) }
+    // MARK: - Actions
+    @objc func refreshData() {
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.beginRefreshing()
+            self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
+        }
+    }
 }

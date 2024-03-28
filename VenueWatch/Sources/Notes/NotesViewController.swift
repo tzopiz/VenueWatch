@@ -7,5 +7,30 @@
 
 import UIKit
 
-final class NotesViewController: BaseCollectionViewController<NotesViewModel, NotesCollectionViewCell> { }
-
+final class NotesViewController: BaseCollectionViewController<NotesViewModel, NotesCollectionViewCell> {
+    
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: String(describing: NotesCollectionViewCell.self),
+            for: indexPath
+        ) as? NotesCollectionViewCell
+        else { return UICollectionViewCell() }
+        let item = viewModel.item(for: indexPath)
+        cell.configure(item)
+        return cell
+    }
+    
+    // MARK: - Configure
+    override func setupViews() {
+        super.setupViews()
+    }
+    override func layoutViews() {
+        super.layoutViews()
+    }
+    override func configureViews() {
+        super.configureViews()
+    }
+}

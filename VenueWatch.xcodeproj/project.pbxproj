@@ -33,6 +33,8 @@
 		0A3C3FBE2BAB175B00CDCFDF /* TermsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FBD2BAB175B00CDCFDF /* TermsTextView.swift */; };
 		0A3C3FC12BAB1AE500CDCFDF /* WebViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FC02BAB1AE500CDCFDF /* WebViewerController.swift */; };
 		0A3C401F2BAB957600CDCFDF /* ValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */; };
+		0A51E7272BB56E9A0064B547 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51E7262BB56E9A0064B547 /* ProfileView.swift */; };
+		0A51E72A2BB5700B0064B547 /* FooterNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51E7292BB5700B0064B547 /* FooterNoteView.swift */; };
 		0A5480382BB4755D00AE426F /* ViewModelNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5480372BB4755D00AE426F /* ViewModelNavigationDelegate.swift */; };
 		0A54803C2BB47CA900AE426F /* BaseCollectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A54803B2BB47CA900AE426F /* BaseCollectionViewControllerTests.swift */; };
 		0A54803F2BB480F400AE426F /* CollectionViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A54803E2BB480F400AE426F /* CollectionViewUITests.swift */; };
@@ -86,7 +88,7 @@
 		0AF8CAEA2BA07D8F0069DF7E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAE92BA07D8F0069DF7E /* LICENSE */; };
 		0AF8CAEC2BA07DC90069DF7E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAEB2BA07DC90069DF7E /* .gitignore */; };
 		0AF8CAEE2BA07DE80069DF7E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AF8CAED2BA07DE80069DF7E /* README.md */; };
-		0AF8CAF02BA09DD10069DF7E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAEF2BA09DD10069DF7E /* CollectionViewController.swift */; };
+		0AF8CAF02BA09DD10069DF7E /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8CAEF2BA09DD10069DF7E /* BaseCollectionViewController.swift */; };
 		0AFCF6292BB4180F00229F0D /* INotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFCF6282BB4180F00229F0D /* INotesViewModel.swift */; };
 		0AFCF62C2BB4183E00229F0D /* ILoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFCF62B2BB4183E00229F0D /* ILoginViewModel.swift */; };
 		0AFCF62F2BB4189400229F0D /* IMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFCF62E2BB4189400229F0D /* IMapViewModel.swift */; };
@@ -142,6 +144,8 @@
 		0A3C3FC02BAB1AE500CDCFDF /* WebViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewerController.swift; sourceTree = "<group>"; };
 		0A3C40132BAB94C000CDCFDF /* VenueWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenueWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTests.swift; sourceTree = "<group>"; };
+		0A51E7262BB56E9A0064B547 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		0A51E7292BB5700B0064B547 /* FooterNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterNoteView.swift; sourceTree = "<group>"; };
 		0A5480272BB41CC200AE426F /* VenueWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenueWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5480372BB4755D00AE426F /* ViewModelNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelNavigationDelegate.swift; sourceTree = "<group>"; };
 		0A54803B2BB47CA900AE426F /* BaseCollectionViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewControllerTests.swift; sourceTree = "<group>"; };
@@ -195,7 +199,7 @@
 		0AF8CAE92BA07D8F0069DF7E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0AF8CAEB2BA07DC90069DF7E /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0AF8CAED2BA07DE80069DF7E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		0AF8CAEF2BA09DD10069DF7E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		0AF8CAEF2BA09DD10069DF7E /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
 		0AFCF6282BB4180F00229F0D /* INotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INotesViewModel.swift; sourceTree = "<group>"; };
 		0AFCF62B2BB4183E00229F0D /* ILoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILoginViewModel.swift; sourceTree = "<group>"; };
 		0AFCF62E2BB4189400229F0D /* IMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMapViewModel.swift; sourceTree = "<group>"; };
@@ -332,7 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				0A87E16B2BB1C3E80030CC3D /* CollectionViewModel.swift */,
-				0AF8CAEF2BA09DD10069DF7E /* CollectionViewController.swift */,
+				0AF8CAEF2BA09DD10069DF7E /* BaseCollectionViewController.swift */,
 				0A87E1742BB1CB5F0030CC3D /* LabelCollectionViewCell.swift */,
 				0A87E1702BB1C8220030CC3D /* BaseCollectionViewCell.swift */,
 			);
@@ -493,8 +497,8 @@
 		0AF8CACE2BA042DF0069DF7E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0AF8CAF32BA0AC6B0069DF7E /* Login */,
 				0AF8CAA52BA035EF0069DF7E /* Navigation */,
+				0AF8CAF32BA0AC6B0069DF7E /* Login */,
 				0AF8CADE2BA04F920069DF7E /* Notes */,
 				0AF8CADD2BA04F8E0069DF7E /* Map */,
 				0AF8CADC2BA04F840069DF7E /* Friends */,
@@ -613,6 +617,8 @@
 			isa = PBXGroup;
 			children = (
 				0A87E1822BB1E1E40030CC3D /* NotesCollectionViewCell.swift */,
+				0A51E7292BB5700B0064B547 /* FooterNoteView.swift */,
+				0A51E7262BB56E9A0064B547 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -822,7 +828,7 @@
 			files = (
 				0AF2940E2BA9C47C0075C11A /* CredentialInputView.swift in Sources */,
 				0A3C3FBE2BAB175B00CDCFDF /* TermsTextView.swift in Sources */,
-				0AF8CAF02BA09DD10069DF7E /* CollectionViewController.swift in Sources */,
+				0AF8CAF02BA09DD10069DF7E /* BaseCollectionViewController.swift in Sources */,
 				0A3938B02BA8E21E00150F7F /* BaseLabel.swift in Sources */,
 				0A3938AB2BA8DF1600150F7F /* BaseView.swift in Sources */,
 				0AF8CAA72BA0360B0069DF7E /* TabBarController.swift in Sources */,
@@ -855,6 +861,7 @@
 				0A87E16A2BB1C26A0030CC3D /* FriendsViewModel.swift in Sources */,
 				0A87E1632BB1B6970030CC3D /* BaseViewController.swift in Sources */,
 				0AFCF6292BB4180F00229F0D /* INotesViewModel.swift in Sources */,
+				0A51E72A2BB5700B0064B547 /* FooterNoteView.swift in Sources */,
 				0AF294112BA9CEA60075C11A /* BaseTextField.swift in Sources */,
 				0A87E17B2BB1DB8F0030CC3D /* UICollectionViewCell + ext.swift in Sources */,
 				0AF8CAE42BA04FFB0069DF7E /* FriendsViewController.swift in Sources */,
@@ -872,6 +879,7 @@
 				0A0858752BAECDB300A92BBE /* Validator.swift in Sources */,
 				0AF8CAE02BA04FCB0069DF7E /* NotesViewController.swift in Sources */,
 				0AF8CA932BA034D90069DF7E /* SceneDelegate.swift in Sources */,
+				0A51E7272BB56E9A0064B547 /* ProfileView.swift in Sources */,
 				0A398E4F2BA8B17B00AA231C /* APIRequest.swift in Sources */,
 				0AFCF62C2BB4183E00229F0D /* ILoginViewModel.swift in Sources */,
 				0A5480382BB4755D00AE426F /* ViewModelNavigationDelegate.swift in Sources */,

@@ -35,7 +35,8 @@ final class FooterButtonsView: BaseView {
         case .signIn:
             height = 130
             secondaryButtonHeight = 50
-            let button = BaseButton(App.string.secondaryButtonTitleSignIn())
+            let button = BaseButton()
+            button.setTitle(App.string.secondaryButtonTitleSignIn(), for: .normal)
             button.titleLabel?.font = App.Font.rubik(style: .regular, size: 12)
             button.tintColor = App.Color.label
             authButtonTitle = App.string.signIn()
@@ -49,8 +50,10 @@ final class FooterButtonsView: BaseView {
             authButtonTitle = App.string.signUp()
             toggleButtonTitle = App.string.toggleButtonTitleSignUp()
         }
-        authButton = BaseButton(authButtonTitle)
-        toggleButton = BaseButton(toggleButtonTitle)
+        authButton = BaseButton()
+        authButton.setTitle(authButtonTitle, for: .normal)
+        toggleButton = BaseButton()
+        toggleButton.setTitle(toggleButtonTitle, for: .normal)
         super.init(frame: .zero)
     }
     required init?(coder: NSCoder) {
