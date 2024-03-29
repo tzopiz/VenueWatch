@@ -86,5 +86,10 @@ enum App {
         static let dislikeFill = UIImage(systemName: "hand.thumbsdown.fill")
         static let commentFill = UIImage(systemName: "text.bubble.fill")
         static let shareFill = UIImage(systemName: "arrowshape.turn.up.forward.fill")
+        
+        static let testImages: Array<UIImage?> = [
+            R.image.image1(), R.image.image2(), R.image.image3(), R.image.image4(),
+            R.image.image5(), R.image.image6(), R.image.image7()
+        ]
     }
 }

@@ -21,7 +21,7 @@ final class NotesCollectionViewCell: BaseCollectionViewCell {
         parametrs.forEach { parametr in
             guard let parametr = parametr as? Note else { return }
             self.textNote.text = parametr.text
-            self.imageViewNote.image = UIImage(data: parametr.content)
+            self.imageViewNote.image = App.Image.testImages.randomElement()!
             self.footerView.configure(likesCount: parametr.likeCount)
             self.profileView.configure(
                 fullName: parametr.person.fullName,

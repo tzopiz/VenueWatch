@@ -14,8 +14,9 @@ final class FooterNoteView: BaseView {
     private let shareButton = BaseButton()
     private let buttonsStackView = BaseStackView(axis: .horizontal)
     func configure(likesCount: Int) {
-        self.likesButton.setTitle("\(likesCount)23К", for: .normal)
-        self.dislikeButton.setTitle("\(likesCount)3544", for: .normal)
+        let random = Int.random(in: 0..<100000)
+        self.likesButton.setTitle("\(random)К", for: .normal)
+        self.dislikeButton.setTitle("\(random)3544", for: .normal)
     }
 }
 
