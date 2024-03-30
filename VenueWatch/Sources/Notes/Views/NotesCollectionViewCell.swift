@@ -20,8 +20,14 @@ final class NotesCollectionViewCell: BaseCollectionViewCell {
     override func configure(_ parametrs: Any...) {
         parametrs.forEach { parametr in
             guard let parametr = parametr as? Note else { return }
-            self.textNote.text = parametr.text
-            self.imageViewNote.image = App.Image.testImages.randomElement()!
+            let text = parametr.text
+            self.textNote.text = Array<String>(repeating: text, count: Int.random(in: 2..<50)).joined()
+            let image = App.Image.testImages.randomElement()!
+            if let originalImage = image {
+                let screenWidth = UIScreen.main.bounds.width - 16
+                let scaledImage = originalImage.scaledToWidth(screenWidth)
+                self.imageViewNote.image = scaledImage
+            }
             self.footerView.configure(likesCount: parametr.likeCount)
             self.profileView.configure(
                 fullName: parametr.person.fullName,
@@ -30,8 +36,15 @@ final class NotesCollectionViewCell: BaseCollectionViewCell {
             )
         }
     }
-    
-    // MARK: - Configure
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.imageViewNote.image = nil
+        self.textNote.text = nil
+    }
+}
+
+// MARK: - Configure
+extension NotesCollectionViewCell {
     override func setupViews() {
         super.setupViews()
         addSubviews(stackView)
@@ -39,8 +52,8 @@ final class NotesCollectionViewCell: BaseCollectionViewCell {
     }
     override func layoutViews() {
         super.layoutViews()
-        stackView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(8)
+        stackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(8)
         }
         footerView.snp.makeConstraints { $0.height.equalTo(32) }
     }

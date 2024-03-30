@@ -88,8 +88,10 @@ enum App {
         static let shareFill = UIImage(systemName: "arrowshape.turn.up.forward.fill")
         
         static let testImages: Array<UIImage?> = [
-            R.image.image1(), R.image.image2(), R.image.image3(), R.image.image4(),
-            R.image.image5(), R.image.image6(), R.image.image7()
+            R.image.image1(),  R.image.image2(),  R.image.image3(),  R.image.image4(),
+            R.image.image5(),  R.image.image6(),  R.image.image7(),  R.image.image8(),
+            R.image.image9(),  R.image.image10(), R.image.image11(), R.image.image12(),
+            R.image.image13(), R.image.image14()
         ]
     }
 }

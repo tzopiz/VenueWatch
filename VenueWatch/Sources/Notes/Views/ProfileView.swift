@@ -16,11 +16,8 @@ final class ProfileView: BaseView {
     func configure(fullName: String, username: String, imageData: Data?) {
         self.name.text = fullName
         self.username.text = username
-        if let imageData = imageData {
-            self.imageView.image = UIImage(data: imageData)
-        } else {
-            self.imageView.image = App.Image.emptyProfile
-        }
+        if let imageData = imageData { self.imageView.image = UIImage(data: imageData) }
+        else { self.imageView.image = App.Image.emptyProfile }
     }
 }
 

@@ -23,6 +23,20 @@ final class NotesViewController: BaseCollectionViewController<NotesViewModel, No
         return cell
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Убедитесь, что вы используете UICollectionViewFlowLayout
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            // Установите свойство estimatedItemSize на automaticSize
+            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.refreshData()
+    }
+
     // MARK: - Configure
     override func setupViews() {
         super.setupViews()

@@ -32,7 +32,7 @@ class NotesViewModel: INotesViewModel {
         self.title = title
         self.items = items
         if items.isEmpty {
-            for i in 0..<10 {
+            for i in 0..<1000 {
                 let personi = Person(
                     name: "name_\(i)",
                     surname: "surname_\(i)",
