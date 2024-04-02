@@ -26,6 +26,10 @@ class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UIColl
         layoutViews()
         configureViews()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.refreshData()
+    }
     
     // MARK: - Configure
     /// Добавляет подвиды на контроллер.
@@ -93,5 +97,8 @@ class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UIColl
             self.collectionView.reloadData()
             self.collectionView.refreshControl?.endRefreshing()
         }
+    }
+    @objc func scrollToTop() {
+        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 }

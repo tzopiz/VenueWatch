@@ -14,11 +14,11 @@ final class TabBarController: UITabBarController {
         case friends
         case profile
     }
+    private var lastTabSelectedIndex: Int = 0
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureAppearance()
-//        switchTo(tab: .profile)
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -26,10 +26,11 @@ final class TabBarController: UITabBarController {
     
     private func switchTo(tab: Tabs) { selectedIndex = tab.rawValue }
     private func configureAppearance() {
+        self.delegate = self
+        
         tabBar.tintColor = App.Color.label
         tabBar.unselectedItemTintColor = App.Color.secondaryLabel
         tabBar.backgroundColor = App.Color.systemBackground
-//        tabBar.addBottomBorder(with: App.Color.separator, height: 2/3)
         let images = [
             App.Image.notes, App.Image.map, App.Image.friends, App.Image.profile
         ]
@@ -44,7 +45,7 @@ final class TabBarController: UITabBarController {
             controller.tabBarItem = UITabBarItem(title: titles[tab.rawValue],
                                                  image: images[tab.rawValue],
                                                  selectedImage: selectedImages[tab.rawValue])
-//            controller.navigationBar.addTopBorder(with: App.Color.separator, height: 1)
+            controller.tabBarItem.tag = tab.rawValue
             return controller
         }
         setViewControllers(controllers, animated: true)
@@ -66,5 +67,22 @@ final class TabBarController: UITabBarController {
             let viewModel = ProfileViewModel(title: "Profile")
             return ProfileViewController(viewModel: viewModel)
         }
+    }
+}
+
+// MARK: - UITabBarControllerDelegate
+extension TabBarController: UITabBarControllerDelegate {
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard lastTabSelectedIndex == 0 && lastTabSelectedIndex == item.tag 
+        else {
+            lastTabSelectedIndex = item.tag
+            return
+        }
+        guard let notesViewController = UIApplication.shared.topViewController as? NotesViewController
+        else { return }
+    
+        notesViewController.scrollToTop()
+        
+        lastTabSelectedIndex = item.tag
     }
 }
