@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FriendsViewModel: IFriendsViewModel {
+final class FriendsViewModel: IFriendsViewModel {
     struct Friend {
         var name: String
         var surname: String

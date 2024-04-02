@@ -14,11 +14,14 @@ final class TabBarController: UITabBarController {
         case friends
         case profile
     }
-    private var lastTabSelectedIndex: Int = 0
+    private var lastTabSelectedIndex: Int {
+        self.selectedIndex
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         configureAppearance()
+        switchTo(tab: .map)
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -73,16 +76,10 @@ final class TabBarController: UITabBarController {
 // MARK: - UITabBarControllerDelegate
 extension TabBarController: UITabBarControllerDelegate {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard lastTabSelectedIndex == 0 && lastTabSelectedIndex == item.tag 
-        else {
-            lastTabSelectedIndex = item.tag
-            return
-        }
-        guard let notesViewController = UIApplication.shared.topViewController as? NotesViewController
+        guard let notesViewController = UIApplication.shared.topViewController as? NotesViewController,
+            lastTabSelectedIndex == 0 && lastTabSelectedIndex == item.tag
         else { return }
     
         notesViewController.scrollToTop()
-        
-        lastTabSelectedIndex = item.tag
     }
 }
