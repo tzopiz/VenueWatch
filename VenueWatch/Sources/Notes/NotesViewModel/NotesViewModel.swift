@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NotesViewModel: INotesViewModel {
+final class NotesViewModel: INotesViewModel {
     typealias Person = Note.Person
     struct Note {
         struct Person {
@@ -32,7 +32,7 @@ class NotesViewModel: INotesViewModel {
         self.title = title
         self.items = items
         if items.isEmpty {
-            for i in 0..<1000 {
+            for i in 1...25 {
                 let personi = Person(
                     name: "name_\(i)",
                     surname: "surname_\(i)",

@@ -7,7 +7,6 @@
 
 import UIKit
 
-protocol IProfileViewModel: IBaseViewModel { }
 class ProfileViewModel: IProfileViewModel {
     
     var title: String?
