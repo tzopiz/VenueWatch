@@ -9,14 +9,15 @@ import UIKit
 
 final class FooterButtonsView: BaseView {
     enum ButtonTextView {
-        case button(UIButton)
+        case button(BaseButton)
         case textView(TermsTextView)
-        func view() -> UIView {
+        var view: UIView {
             switch self {
             case .button(let button): return button
             case .textView(let textView): return textView
             }
         }
+
     }
     
     private let authButton: BaseButton
@@ -34,7 +35,8 @@ final class FooterButtonsView: BaseView {
         case .signIn:
             height = 130
             secondaryButtonHeight = 50
-            let button = BaseButton(App.string.secondaryButtonTitleSignIn())
+            let button = BaseButton()
+            button.setTitle(App.string.secondaryButtonTitleSignIn(), for: .normal)
             button.titleLabel?.font = App.Font.rubik(style: .regular, size: 12)
             button.tintColor = App.Color.label
             authButtonTitle = App.string.signIn()
@@ -48,8 +50,10 @@ final class FooterButtonsView: BaseView {
             authButtonTitle = App.string.signUp()
             toggleButtonTitle = App.string.toggleButtonTitleSignUp()
         }
-        authButton = BaseButton(authButtonTitle)
-        toggleButton = BaseButton(toggleButtonTitle)
+        authButton = BaseButton()
+        authButton.setTitle(authButtonTitle, for: .normal)
+        toggleButton = BaseButton()
+        toggleButton.setTitle(toggleButtonTitle, for: .normal)
         super.init(frame: .zero)
     }
     required init?(coder: NSCoder) {
@@ -79,7 +83,7 @@ extension FooterButtonsView {
         super.setupViews()
         addSubviews(stackView)
         stackView.addArrangedSubviews(
-            authButton, secondaryButton.view(), toggleButton
+            authButton, secondaryButton.view, toggleButton
         )
     }
     override func layoutViews() {
@@ -87,7 +91,7 @@ extension FooterButtonsView {
         stackView.snp.makeConstraints { $0.center.leading.trailing.equalToSuperview() }
         authButton.snp.makeConstraints { $0.height.equalTo(50) }
         toggleButton.snp.makeConstraints { $0.height.lessThanOrEqualTo(40) }
-        secondaryButton.view().snp.makeConstraints { make in
+        secondaryButton.view.snp.makeConstraints { make in
             make.height.lessThanOrEqualTo(secondaryButtonHeight)
         }
     }

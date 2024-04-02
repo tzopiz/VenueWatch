@@ -9,15 +9,20 @@ import UIKit
 
 extension UIApplication {
     var keyWindow: UIWindow? {
-        // Get connected scenes
         return self.connectedScenes
-        // Keep only active scenes, onscreen and visible to the user
             .filter { $0.activationState == .foregroundActive }
-        // Keep only the first `UIWindowScene`
             .first(where: { $0 is UIWindowScene })
-        // Get its associated windows
             .flatMap({ $0 as? UIWindowScene })?.windows
-        // Finally, keep only the key window
             .first(where: \.isKeyWindow)
+    }
+    var topViewController: UIViewController? {
+        var top = keyWindow?.rootViewController
+        while true {
+            if let presented = top?.presentedViewController { top = presented }
+            else if let nav = top as? UINavigationController { top = nav.visibleViewController }
+            else if let tab = top as? UITabBarController { top = tab.selectedViewController }
+            else { break }
+        }
+        return top
     }
 }

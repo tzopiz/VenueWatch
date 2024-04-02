@@ -1,5 +1,5 @@
 //
-//  CollectionViewController.swift
+//  BaseCollectionViewController.swift
 //  VenueWatch
 //
 //  Created by Дмитрий Корчагин on 3/12/24.
@@ -8,7 +8,7 @@
 import UIKit
 
 class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UICollectionViewCell>:
-    UICollectionViewController where Cell: IReusableCell {
+    UICollectionViewController, UICollectionViewDelegateFlowLayout  where Cell: IReusableCell {
     
     var viewModel: ViewModel
     
@@ -25,6 +25,10 @@ class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UIColl
         setupViews()
         layoutViews()
         configureViews()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.refreshData()
     }
     
     // MARK: - Configure
@@ -45,14 +49,18 @@ class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UIColl
         view.backgroundColor = App.Color.secondarySystemBackground
         collectionView.registerCells(Cell.self)
         collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false 
+        collectionView.refreshControl = UIRefreshControl()
+        collectionView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
     
     // MARK: - UICollectionViewDataSource
+    override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
     override func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int { viewModel.items.count }
-    
     override func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
@@ -62,26 +70,35 @@ class BaseCollectionViewController<ViewModel: ICollectionViewModel, Cell: UIColl
             for: indexPath
         ) as? Cell
         else { return UICollectionViewCell() }
-        viewModel.configureCell(cell, forItemAt: indexPath)
         return cell
     }
-    
     // MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
-    ) -> CGSize { CGSize(width: collectionView.frame.width, height: 50) }
+    ) -> CGSize { CGSize(width: collectionView.frame.width, height: 400) }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int)
+    -> UIEdgeInsets { return UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0) }
     
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int
-    ) -> CGFloat { viewModel.minimumLineSpacing(at: section) }
+    ) -> CGFloat { 8 }
     
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        referenceSizeForHeaderInSection section: Int
-    ) -> CGSize { viewModel.referenceSizeForHeader(at: section) }
+    // MARK: - Actions
+    @objc func refreshData() {
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.beginRefreshing()
+            self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
+        }
+    }
+    @objc func scrollToTop() {
+        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    }
 }

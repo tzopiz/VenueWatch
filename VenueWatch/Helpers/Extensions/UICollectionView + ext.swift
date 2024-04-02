@@ -10,7 +10,7 @@ import UIKit
 extension UICollectionView {
     func registerCells(_ cells: UICollectionViewCell.Type...) {
         cells.forEach { cell in
-            register(cell, forCellWithReuseIdentifier: cell.reuseIdentifier)
+            register(cell.self, forCellWithReuseIdentifier: cell.reuseIdentifier)
         }
     }
 }

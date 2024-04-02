@@ -61,6 +61,7 @@ enum App {
         static let label = UIColor.label
         static let secondaryLabel = UIColor.secondaryLabel
         static let accentColor = UIColor.systemBlue
+        static let red = UIColor.systemRed
     }
     
     // MARK: - Images
@@ -73,5 +74,24 @@ enum App {
         static let mapFill = UIImage(systemName: "map.fill")
         static let friendsFill = UIImage(systemName: "person.2.wave.2.fill")
         static let profileFill = UIImage(systemName: "person.crop.rectangle.stack.fill")
+        static let logo = UIImage(systemName: "mappin.and.ellipse")
+        static let emptyProfile = UIImage(systemName: "person.crop.circle")
+        
+        static let likes = UIImage(systemName: "hand.thumbsup")
+        static let dislike = UIImage(systemName: "hand.thumbsdown")
+        static let comment = UIImage(systemName: "text.bubble")
+        static let share = UIImage(systemName: "arrowshape.turn.up.forward")
+        
+        static let likesFill = UIImage(systemName: "hand.thumbsup.fill")
+        static let dislikeFill = UIImage(systemName: "hand.thumbsdown.fill")
+        static let commentFill = UIImage(systemName: "text.bubble.fill")
+        static let shareFill = UIImage(systemName: "arrowshape.turn.up.forward.fill")
+        
+        static let testImages: Array<UIImage?> = [
+            R.image.image1(),  R.image.image2(),  R.image.image3(),  R.image.image4(),
+            R.image.image5(),  R.image.image6(),  R.image.image7(),  R.image.image8(),
+            R.image.image9(),  R.image.image10(), R.image.image11(), R.image.image12(),
+            R.image.image13(), R.image.image14()
+        ]
     }
 }

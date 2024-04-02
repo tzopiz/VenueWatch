@@ -8,7 +8,6 @@
 import Foundation
 
 protocol IUserRequest { }
-
 enum UserRequest {
     typealias Validators = Utilities.Validators
     case signUp(SignUp)

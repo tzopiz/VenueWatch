@@ -11,10 +11,9 @@ protocol IProfileViewModel: IBaseViewModel { }
 class ProfileViewModel: IProfileViewModel {
     
     var title: String?
-    var presentHandler: ((UIViewController, Bool) -> Void)?
+    var navigationDelegate: ViewModelNavigationDelegate?
     
-    init(title: String? = nil, presentHandler: ((UIViewController, Bool) -> Void)? = nil) {
+    init(title: String? = nil) {
         self.title = title
-        self.presentHandler = presentHandler
     }
 }

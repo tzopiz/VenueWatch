@@ -10,13 +10,12 @@ import UIKit
 protocol IConfigurable {
     func configure(_ parametrs: Any...)
 }
-
 class BaseCollectionViewCell: UICollectionViewCell, IConfigurable {
     
     override class var reuseIdentifier: String { String(describing: BaseCollectionViewCell.self) }
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupViews()
         layoutViews()
         configureViews()

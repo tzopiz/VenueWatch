@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol IBaseViewModel {
-    var title: String? { get }
-    var presentHandler: ((UIViewController, Bool) -> Void)? { get set }
-}
 class BaseViewController<ViewModel: IBaseViewModel>: UIViewController {
     enum NavBarPosition {
         case left, right
@@ -50,10 +46,7 @@ class BaseViewController<ViewModel: IBaseViewModel>: UIViewController {
     func configureViews() {
         navigationItem.title = viewModel.title
         view.backgroundColor = App.Color.secondarySystemBackground
-        viewModel.presentHandler = { [weak self] viewController, animated in
-            guard let self = self else { return }
-            self.present(viewController, animated: animated, completion: nil)
-        }
+        viewModel.navigationDelegate = self
     }
 }
 
@@ -83,5 +76,20 @@ extension BaseViewController {
                 navigationItem.rightBarButtonItems?.append(barButton)
             } else { navigationItem.rightBarButtonItem = barButton }
         }
+    }
+}
+
+// MARK: - ViewModelNavigationDelegate
+extension BaseViewController: ViewModelNavigationDelegate {
+    func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        guard let navigationController = navigationController else { return }
+        navigationController.pushViewController(viewController, animated: animated)
+    }
+    func dismiss(animated: Bool) {
+        guard let navigationController = navigationController else { return }
+        navigationController.dismiss(animated: animated, completion: nil)
+    }
+    func presentViewController(_ viewController: UIViewController, animated: Bool) {
+        present(viewController, animated: animated)
     }
 }

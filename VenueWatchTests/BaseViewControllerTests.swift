@@ -24,6 +24,11 @@ final class BaseViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
+    // Тестирование установки заголовка
+    func testSetTitle() {
+        XCTAssertNotEqual(viewController.title, "Test Title")
+    }
+    
     func testNavigationTitle() {
         let expectedTitle = "Test Title"
         viewController.viewModel.title = expectedTitle
@@ -47,9 +52,47 @@ final class BaseViewControllerTests: XCTestCase {
         XCTAssertEqual(navButton.titleLabel?.text, expectedTitle)
     }
     @objc func dummySelector() { }
+    
+    // Тестирование навигации с помощью делегата
+    func testNavigationDelegate() {
+        let mockNavigationDelegate = MockNavigationDelegate()
+        viewController.viewModel.navigationDelegate = mockNavigationDelegate
+
+        viewController.viewModel.navigationDelegate?.presentViewController(UIViewController(), animated: true)
+        XCTAssertTrue(mockNavigationDelegate.presentViewControllerCalled)
+
+        viewController.viewModel.navigationDelegate?.pushViewController(UIViewController(), animated: true)
+        XCTAssertTrue(mockNavigationDelegate.pushViewControllerCalled)
+
+        viewController.viewModel.navigationDelegate?.dismiss(animated: true)
+        XCTAssertTrue(mockNavigationDelegate.dismissCalled)
+    }
 }
 
 class TestViewModel: IBaseViewModel {
     var title: String?
-    var presentHandler: ((UIViewController, Bool) -> Void)?
+    var navigationDelegate: ViewModelNavigationDelegate?
+    
+    init(title: String? = nil) {
+        self.title = title
+    }
+}
+
+// Пример заглушки для ViewModelNavigationDelegate
+class MockNavigationDelegate: ViewModelNavigationDelegate {
+    var presentViewControllerCalled = false
+    var pushViewControllerCalled = false
+    var dismissCalled = false
+
+    func presentViewController(_ viewController: UIViewController, animated: Bool) {
+        presentViewControllerCalled = true
+    }
+
+    func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        pushViewControllerCalled = true
+    }
+
+    func dismiss(animated: Bool) {
+        dismissCalled = true
+    }
 }

@@ -46,7 +46,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0A87E18E2BB1F5A80030CC3D"
+               BlueprintIdentifier = "0A5480262BB41CC200AE426F"
                BuildableName = "VenueWatchUITests.xctest"
                BlueprintName = "VenueWatchUITests"
                ReferencedContainer = "container:VenueWatch.xcodeproj">

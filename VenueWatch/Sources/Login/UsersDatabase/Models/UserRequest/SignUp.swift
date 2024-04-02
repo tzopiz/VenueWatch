@@ -12,7 +12,6 @@ protocol ISignUpRequest: IUserRequest {
     var password: String? { get }
     var username: String? { get }
 }
-
 extension UserRequest {
     struct SignUp: Codable, ISignUpRequest, IValidatable {
         let username: String?

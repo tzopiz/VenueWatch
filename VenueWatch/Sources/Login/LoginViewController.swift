@@ -23,8 +23,6 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
     private let footerButtonsView: FooterButtonsView
     private let appleButtonsView = AppleButtonsView()
     private let mainStackView = BaseStackView(axis: .vertical, spacing: 16)
-    private lazy var appleLoginService = AppleLoginService()
-    private lazy var authService = AuthService()
     
     override init(viewModel: LoginViewModel) {
         credentialInputView = CredentialInputView(type: viewModel.currentLoginType)
@@ -68,7 +66,21 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         )
         footerButtonsView.buttonTapHandler = { [weak self] viewController, animated in
             guard let self = self else { return }
-            self.viewModel.presentHandler?(viewController, animated)
+            viewModel.navigationDelegate?.presentViewController(viewController, animated: animated)
+        }
+        viewModel.loginTypeChanged = { [weak self] loginType in
+            guard let self = self,
+                  let navigationController = self.navigationController
+            else { return }
+            let loginViewModel = LoginViewModel(currentLoginType: loginType)
+            let loginViewController = LoginViewController(viewModel: loginViewModel)
+            UIView.transition(
+                with: navigationController.view, duration: 0.5,
+                options: loginType == .signIn ? .transitionFlipFromRight : .transitionFlipFromLeft,
+                animations: {
+                    navigationController.viewControllers.removeLast()
+                    navigationController.viewControllers.append(loginViewController)
+                }, completion: nil)
         }
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapGesture.cancelsTouchesInView = false
@@ -78,16 +90,13 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
 
 // MARK: - Actions
 extension LoginViewController {
-    @IBAction func signInAppleButtonTapped() {
-        appleLoginService.login { result in
-            switch result {
-            case .success(let result): print(result.fullName)
-            case .failure(let error): print(error.localizedDescription)
-            }
-        }
+    @IBAction private func signInAppleButtonTapped() {
+        Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction private func signUpAppleButtonTapped() { }
-    @IBAction func authButtonTapped() {
+    @IBAction private func signUpAppleButtonTapped() {
+        Utilities.Alert.functionIsBeingDeveloped(on: self)
+    }
+    @IBAction private func authButtonTapped() {
         let credential = credentialInputView.credential.body
         var userRequest: URLRequest?
         if let credential = credential as? UserRequest.SignUp,
@@ -120,7 +129,7 @@ extension LoginViewController {
         guard let userRequest = userRequest else { return }
         Task {
             do {
-                let result = try await authService.fetch(request: userRequest)
+                let result = try await viewModel.authService.fetch(request: userRequest)
                 print(result)
             } catch {
                 print(#function, error.localizedDescription)
@@ -131,19 +140,17 @@ extension LoginViewController {
     @IBAction private func secondaryButtonButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction func toggleButtonTapped() {
-        guard let navigationController = self.navigationController else { return }
+    @IBAction private func toggleButtonTapped() {
         viewModel.toggleCurrentLoginType()
-        navigationController.presentLoginViewController(for: viewModel.currentLoginType)
     }
-    @IBAction func hideKeyboard() {
-        viewModel.textFieldShouldReturn(credentialInputView)
+    @IBAction private func hideKeyboard() {
+        credentialInputView.endEditing(true)
     }
 }
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        viewModel.textFieldShouldReturn(textField)
+        textField.endEditing(true)
         return true
     }
 }

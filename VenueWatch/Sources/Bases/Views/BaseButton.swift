@@ -8,11 +8,12 @@
 import UIKit
 
 class BaseButton: UIButton {
-    convenience init(_ title: String? = nil) {
+    convenience init() {
         self.init(type: .system)
-        setTitle(title, for: .normal)
         titleLabel?.lineBreakMode = .byWordWrapping
         titleLabel?.numberOfLines = 0
         titleLabel?.textAlignment = .center
+        titleLabel?.font = App.Font.rubik(style: .regular, size: 15)
+        titleLabel?.textColor = App.Color.label
     }
 }

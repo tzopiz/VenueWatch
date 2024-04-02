@@ -10,8 +10,8 @@ import WebKit
 
 protocol IWebViewModel: IBaseViewModel { }
 class WebViewModel: IWebViewModel {
-    var presentHandler: ((UIViewController, Bool) -> Void)?
     var title: String?
+    var navigationDelegate: ViewModelNavigationDelegate?
 }
 
 class WebViewerController: BaseViewController<WebViewModel> {
