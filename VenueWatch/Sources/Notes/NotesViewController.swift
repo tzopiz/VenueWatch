@@ -32,7 +32,6 @@ final class NotesViewController: BaseCollectionViewController<NotesViewModel, No
     }
     override func configureViews() {
         super.configureViews()
-        // FIXME: - Scrolling lags
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }

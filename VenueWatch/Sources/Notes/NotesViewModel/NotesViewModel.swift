@@ -32,6 +32,7 @@ final class NotesViewModel: INotesViewModel {
         self.title = title
         self.items = items
         if items.isEmpty {
+            let text = "Some text of person. And more more text from other users with a lot of charactrs"
             for i in 1...25 {
                 let personi = Person(
                     name: "name_\(i)",
@@ -43,8 +44,8 @@ final class NotesViewModel: INotesViewModel {
                 let item = Note(
                     person: personi,
                     likeCount: 1,
-                    content: Data(),
-                    text: "some text from person\(i). And more more text from other users with a lot of charactrs"
+                    content: App.Image.testImages.randomElement()!?.pngData() ?? Data(),
+                    text: Array<String>(repeating: text, count: Int.random(in: 2..<50)).joined()
                 )
                 self.items.append(item)
             }

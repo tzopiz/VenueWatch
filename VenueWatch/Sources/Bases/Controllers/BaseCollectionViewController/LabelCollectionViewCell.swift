@@ -15,12 +15,9 @@ class LabelCollectionViewCell: BaseCollectionViewCell {
         fontType: .regular,
         textAlignment: .left
     )
-    override func configure(_ parametrs: Any...) {
-        for parametr in parametrs {
-            if let title = parametr as? String {
-                label.text = title
-            }
-        }
+    override func configure(_ parametr: Any) {
+        guard let title = parametr as? String else { return }
+        label.text = title
     }
     
     required init?(coder: NSCoder) {

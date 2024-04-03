@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IConfigurable {
-    func configure(_ parametrs: Any...)
+    func configure(_ parametr: Any)
 }
 class BaseCollectionViewCell: UICollectionViewCell, IConfigurable {
     
@@ -24,7 +24,7 @@ class BaseCollectionViewCell: UICollectionViewCell, IConfigurable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ parametrs: Any...) { }
+    func configure(_ parametr: Any) { }
 }
 
 // MARK: - Configure

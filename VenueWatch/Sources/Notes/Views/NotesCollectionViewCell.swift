@@ -17,24 +17,21 @@ final class NotesCollectionViewCell: BaseCollectionViewCell {
     private let profileView = ProfileView()
     private let footerView = FooterNoteView()
     
-    override func configure(_ parametrs: Any...) {
-        parametrs.forEach { parametr in
-            guard let parametr = parametr as? Note else { return }
-            let text = parametr.text
-            self.textNote.text = Array<String>(repeating: text, count: Int.random(in: 2..<50)).joined()
-            let image = App.Image.testImages.randomElement()!
-            if let originalImage = image {
-                let screenWidth = UIScreen.main.bounds.width - 16
-                let scaledImage = originalImage.scaledToWidth(screenWidth)
-                self.imageViewNote.image = scaledImage
-            }
-            self.footerView.configure(likesCount: parametr.likeCount)
-            self.profileView.configure(
-                fullName: parametr.person.fullName,
-                username: parametr.person.username,
-                imageData: parametr.person.image
-            )
+    override func configure(_ parametr: Any) {
+        guard let parametr = parametr as? Note else { return }
+        self.textNote.text = parametr.text
+        let image = UIImage(data: parametr.content)
+        if let originalImage = image {
+            let screenWidth = UIScreen.main.bounds.width - 16
+            let scaledImage = originalImage.scaledToWidth(screenWidth)
+            self.imageViewNote.image = scaledImage
         }
+        self.footerView.configure(likesCount: parametr.likeCount)
+        self.profileView.configure(
+            fullName: parametr.person.fullName,
+            username: parametr.person.username,
+            imageData: parametr.person.image
+        )
     }
     override func prepareForReuse() {
         super.prepareForReuse()
