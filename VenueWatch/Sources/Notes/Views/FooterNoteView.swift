@@ -14,10 +14,25 @@ final class FooterNoteView: BaseView {
     private let shareButton = BaseButton()
     private let buttonsStackView = BaseStackView(axis: .horizontal)
     func configure(likesCount: Int) {
-        let random = Int.random(in: 0..<100000)
-        self.likesButton.setTitle("\(random)К", for: .normal)
-        self.dislikeButton.setTitle("\(random)3544", for: .normal)
+        self.likesButton.setTitle(formatNumber(), for: .normal)
+        self.dislikeButton.setTitle(formatNumber(), for: .normal)
     }
+    func formatNumber(_ number: Int = Int.random(in: 0..<3_000_000)) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 1
+        
+        if number >= 1_000_000 {
+            let abbreviatedNumber = Double(number) / 1_000_000.0
+            return "\(formatter.string(from: NSNumber(value: abbreviatedNumber)) ?? "")M"
+        } else if number >= 1_000 {
+            let abbreviatedNumber = Double(number) / 1_000.0
+            return "\(formatter.string(from: NSNumber(value: abbreviatedNumber)) ?? "")k"
+        } else {
+            return formatter.string(from: NSNumber(value: number)) ?? ""
+        }
+    }
+
 }
 
 // MARK: - Configure

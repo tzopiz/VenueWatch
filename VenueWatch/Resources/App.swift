@@ -66,26 +66,33 @@ enum App {
     
     // MARK: - Images
     enum Image {
-        static let notes =  UIImage(systemName: "house")
-        static let map = UIImage(systemName: "map")
+        static let notes   =  UIImage(systemName: "house")
+        static let map     = UIImage(systemName: "map")
         static let friends = UIImage(systemName: "person.2.wave.2")
         static let profile = UIImage(systemName: "person.crop.rectangle.stack")
-        static let notesFill = UIImage(systemName: "house.fill")
-        static let mapFill = UIImage(systemName: "map.fill")
+        
+        static let notesFill   = UIImage(systemName: "house.fill")
+        static let mapFill     = UIImage(systemName: "map.fill")
         static let friendsFill = UIImage(systemName: "person.2.wave.2.fill")
         static let profileFill = UIImage(systemName: "person.crop.rectangle.stack.fill")
+        
+        static let likes   = UIImage(systemName: "hand.thumbsup")
+        static let dislike = UIImage(systemName: "hand.thumbsdown")
+        static let comment = UIImage(systemName: "text.bubble")
+        static let share   = UIImage(systemName: "arrowshape.turn.up.forward")
+        
+        static let likesFill   = UIImage(systemName: "hand.thumbsup.fill")
+        static let dislikeFill = UIImage(systemName: "hand.thumbsdown.fill")
+        static let commentFill = UIImage(systemName: "text.bubble.fill")
+        static let shareFill   = UIImage(systemName: "arrowshape.turn.up.forward.fill")
+        
         static let logo = UIImage(systemName: "mappin.and.ellipse")
         static let emptyProfile = UIImage(systemName: "person.crop.circle")
         
-        static let likes = UIImage(systemName: "hand.thumbsup")
-        static let dislike = UIImage(systemName: "hand.thumbsdown")
-        static let comment = UIImage(systemName: "text.bubble")
-        static let share = UIImage(systemName: "arrowshape.turn.up.forward")
-        
-        static let likesFill = UIImage(systemName: "hand.thumbsup.fill")
-        static let dislikeFill = UIImage(systemName: "hand.thumbsdown.fill")
-        static let commentFill = UIImage(systemName: "text.bubble.fill")
-        static let shareFill = UIImage(systemName: "arrowshape.turn.up.forward.fill")
+        static let location = UIImage(systemName: "location")
+        static let locationFill = UIImage(systemName: "location.fill")
+        static let locationNorth = UIImage(systemName: "location.north")
+        static let locationNorthFill = UIImage(systemName: "location.north.fill")
         
         static let testImages: Array<UIImage?> = [
             R.image.image1(),  R.image.image2(),  R.image.image3(),  R.image.image4(),
