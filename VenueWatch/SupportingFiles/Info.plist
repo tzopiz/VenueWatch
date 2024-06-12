@@ -2,8 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSMotionUsageDescription</key>
+    <string>Доступ к гироскопу необходим для определения направления устройства.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Разрешите доступ к вашему местоположению для навигации и других сервисов в любое время.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Для отображения вашего текущего местоположения на карте</string>
+    <string>Разрешите доступ к вашему местоположению для навигации и других сервисов только во время использования приложения.</string>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
 	<key>UIAppFonts</key>
@@ -37,6 +41,8 @@
 		</dict>
 	</dict>
 	<key>UIBackgroundModes</key>
-	<array/>
+	<array>
+		<string>location</string>
+	</array>
 </dict>
 </plist>

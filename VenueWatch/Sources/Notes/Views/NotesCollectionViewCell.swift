@@ -23,7 +23,7 @@ final class NotesCollectionViewCell: BaseCollectionViewCell {
         let image = UIImage(data: parametr.content)
         if let originalImage = image {
             let screenWidth = UIScreen.main.bounds.width - 16
-            let scaledImage = originalImage.scaledToWidth(screenWidth)
+            let scaledImage = originalImage.scaled(to: screenWidth)
             self.imageViewNote.image = scaledImage
         }
         self.footerView.configure(likesCount: parametr.likeCount)

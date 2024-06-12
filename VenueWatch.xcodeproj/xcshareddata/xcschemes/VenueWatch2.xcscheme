@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1530"
+   LastUpgradeVersion = "1540"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -29,30 +29,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0A3C40122BAB94C000CDCFDF"
-               BuildableName = "VenueWatchTests.xctest"
-               BlueprintName = "VenueWatchTests"
-               ReferencedContainer = "container:VenueWatch.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0A5480262BB41CC200AE426F"
-               BuildableName = "VenueWatchUITests.xctest"
-               BlueprintName = "VenueWatchUITests"
-               ReferencedContainer = "container:VenueWatch.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -63,7 +39,7 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "NO">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
@@ -74,17 +50,6 @@
             ReferencedContainer = "container:VenueWatch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "IDEPreferLogStreaming"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
-      <LocationScenarioReference
-         identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
-         referenceType = "1">
-      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

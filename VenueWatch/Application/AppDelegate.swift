@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,8 +27,27 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             sessionRole: connectingSceneSession.role
         )
     }
-    func application(
-        _ application: UIApplication,
-        didDiscardSceneSessions sceneSessions: Set<UISceneSession>
-    ) { }
+    
+    // MARK: - Core Data stack
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Location")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    // MARK: - Core Data Saving support
+    func saveContext () {
+        let viewContext = persistentContainer.viewContext
+        if viewContext.hasChanges {
+            do { try viewContext.save() }
+            catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
 }

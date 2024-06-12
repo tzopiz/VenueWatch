@@ -1,5 +1,5 @@
 //
-//  UIApplication + ext.swift
+//  UIApplication.swift
 //  VenueWatch
 //
 //  Created by Дмитрий Корчагин on 3/12/24.
@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIApplication {
+    /// Определяет текущее главное окно приложения.
     var keyWindow: UIWindow? {
         return self.connectedScenes
             .filter { $0.activationState == .foregroundActive }
@@ -15,6 +16,7 @@ extension UIApplication {
             .flatMap({ $0 as? UIWindowScene })?.windows
             .first(where: \.isKeyWindow)
     }
+    /// Определяет верхний контроллер отображения в текущем приложении.
     var topViewController: UIViewController? {
         var top = keyWindow?.rootViewController
         while true {

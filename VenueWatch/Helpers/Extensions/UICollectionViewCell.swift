@@ -1,5 +1,5 @@
 //
-//  UICollectionViewCell + ext.swift
+//  UICollectionViewCell.swift
 //  VenueWatch
 //
 //  Created by Дмитрий Корчагин on 3/25/24.
