@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIComponents
 
 final class ProfileView: BaseView {
     private let name = BaseLabel()

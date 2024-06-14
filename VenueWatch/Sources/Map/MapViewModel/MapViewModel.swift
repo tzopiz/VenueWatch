@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIComponents
 
 final class MapViewModel: IMapViewModel {
     var title: String?

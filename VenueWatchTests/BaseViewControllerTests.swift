@@ -4,7 +4,7 @@
 //
 //  Created by Дмитрий Корчагин on 3/25/24.
 //
-
+import UIComponents
 import XCTest
 @testable import VenueWatch
 

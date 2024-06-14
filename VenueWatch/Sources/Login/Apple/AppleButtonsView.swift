@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIComponents
 import AuthenticationServices
 
 final class AppleButtonsView: BaseView {

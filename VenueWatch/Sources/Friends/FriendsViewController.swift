@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIComponents
 
 final class FriendsViewController: BaseViewController<FriendsViewModel> {
     override func configureViews() {

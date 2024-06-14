@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIComponents
 
 enum LoginType {
     case signIn, signUp
@@ -140,7 +141,7 @@ extension LoginViewController {
     @IBAction private func secondaryButtonButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction private func toggleButtonTapped() {
+    @IBAction public func toggleButtonTapped() {
         viewModel.toggleCurrentLoginType()
     }
     @IBAction private func hideKeyboard() {

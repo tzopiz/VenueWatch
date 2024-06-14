@@ -5,6 +5,7 @@
 //  Created by Дмитрий Корчагин on 3/27/24.
 //
 
+import UIComponents
 import XCTest
 @testable import VenueWatch
 
@@ -46,7 +47,7 @@ class BaseCollectionViewControllerTests: XCTestCase {
     // Дополнительный тест: проверка размера ячейки
     func testCellSize() {
         let indexPath = IndexPath(item: 0, section: 0)
-        let expectedSize = CGSize(width: viewController.collectionView.frame.width, height: 50)
+        let expectedSize = CGSize(width: viewController.collectionView.frame.width, height: 400)
         let actualSize = viewController.collectionView(viewController.collectionView, layout: viewController.collectionView.collectionViewLayout, sizeForItemAt: indexPath)
         XCTAssertEqual(actualSize, expectedSize)
     }

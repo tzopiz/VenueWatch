@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIComponents
 
 protocol ILoginViewModel: IBaseViewModel {
     var currentLoginType: LoginType { get }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIComponents
 
 final class FooterButtonsView: BaseView {
     enum ButtonTextView {

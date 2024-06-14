@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIComponents
 
 final class NotesCollectionViewCell: BaseCollectionViewCell {
     override class var reuseIdentifier: String { String(describing: NotesCollectionViewCell.self) }

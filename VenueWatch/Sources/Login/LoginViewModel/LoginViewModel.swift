@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIComponents
 
 class LoginViewModel: ILoginViewModel {
     var navigationDelegate: ViewModelNavigationDelegate?

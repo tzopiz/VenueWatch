@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import CoreMotion
+import UIComponents
 
 final class MapViewController: BaseViewController<MapViewModel> {
     private let mapView = MKMapView()

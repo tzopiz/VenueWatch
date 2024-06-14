@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIComponents
 
 final class NotesViewModel: INotesViewModel {
     typealias Person = Note.Person

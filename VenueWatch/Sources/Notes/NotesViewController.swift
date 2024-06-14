@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIComponents
 
 final class NotesViewController: BaseCollectionViewController<NotesViewModel, NotesCollectionViewCell> {
     

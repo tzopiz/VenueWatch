@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIComponents
 
 final class FooterNoteView: BaseView {
     private let likesButton = BaseButton()

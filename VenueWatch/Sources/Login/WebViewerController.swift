@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import UIComponents
 
 protocol IWebViewModel: IBaseViewModel { }
 class WebViewModel: IWebViewModel {

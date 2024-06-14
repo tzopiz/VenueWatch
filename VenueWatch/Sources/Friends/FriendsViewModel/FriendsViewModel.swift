@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIComponents
+
 
 final class FriendsViewModel: IFriendsViewModel {
     struct Friend {
