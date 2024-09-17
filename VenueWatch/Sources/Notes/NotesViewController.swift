@@ -1,10 +1,3 @@
-//
-//  NotesViewController.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/12/24.
-//
-
 import UIKit
 import UIComponents
 
@@ -17,8 +10,9 @@ final class NotesViewController: BaseCollectionViewController<NotesViewModel, No
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: NotesCollectionViewCell.self),
             for: indexPath
-        ) as? NotesCollectionViewCell
-        else { return UICollectionViewCell() }
+        ) as? NotesCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         let item = viewModel.item(for: indexPath)
         cell.configure(item)
         return cell
@@ -28,9 +22,11 @@ final class NotesViewController: BaseCollectionViewController<NotesViewModel, No
     override func setupViews() {
         super.setupViews()
     }
+
     override func layoutViews() {
         super.layoutViews()
     }
+
     override func configureViews() {
         super.configureViews()
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {

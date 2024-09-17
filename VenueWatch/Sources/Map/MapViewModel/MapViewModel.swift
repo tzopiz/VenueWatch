@@ -1,10 +1,3 @@
-//
-//  MapViewModel.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/25/24.
-//
-
 import Foundation
 import UIComponents
 

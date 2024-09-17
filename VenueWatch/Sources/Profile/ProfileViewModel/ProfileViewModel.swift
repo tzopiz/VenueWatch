@@ -1,10 +1,3 @@
-//
-//  ProfileViewModel.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/25/24.
-//
-
 import UIKit
 import UIComponents
 

@@ -1,10 +1,3 @@
-//
-//  Validator.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/23/24.
-//
-
 import Foundation
 
 // MARK: - For future feathers:
@@ -24,7 +17,6 @@ extension Validator {
 }
 
 struct RegexValidator: Validator, Hashable {
-    
     var errorMessage: String
     private var regex: String
     

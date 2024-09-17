@@ -1,10 +1,3 @@
-//
-//  App.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/12/24.
-//
-
 import Foundation
 import UIKit
 

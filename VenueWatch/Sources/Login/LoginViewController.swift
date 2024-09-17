@@ -1,10 +1,3 @@
-//
-//  LoginViewController.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/20/24.
-//
-
 import UIKit
 import UIComponents
 
@@ -71,8 +64,9 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         }
         viewModel.loginTypeChanged = { [weak self] loginType in
             guard let self = self,
-                  let navigationController = self.navigationController
-            else { return }
+                  let navigationController = self.navigationController else {
+                return
+            }
             let loginViewModel = LoginViewModel(currentLoginType: loginType)
             let loginViewController = LoginViewController(viewModel: loginViewModel)
             UIView.transition(
@@ -91,13 +85,18 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
 
 // MARK: - Actions
 extension LoginViewController {
-    @IBAction private func signInAppleButtonTapped() {
+    @IBAction
+    private func signInAppleButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction private func signUpAppleButtonTapped() {
+
+    @IBAction
+    private func signUpAppleButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction private func authButtonTapped() {
+
+    @IBAction
+    private func authButtonTapped() {
         let credential = credentialInputView.credential.body
         var userRequest: URLRequest?
         if let credential = credential as? UserRequest.SignUp,
@@ -126,6 +125,7 @@ extension LoginViewController {
         }
         performRequest(userRequest)
     }
+
     private func performRequest(_ userRequest: URLRequest?) {
         guard let userRequest = userRequest else { return }
         Task {
@@ -138,13 +138,19 @@ extension LoginViewController {
             }
         }
     }
-    @IBAction private func secondaryButtonButtonTapped() {
+
+    @IBAction
+    private func secondaryButtonButtonTapped() {
         Utilities.Alert.functionIsBeingDeveloped(on: self)
     }
-    @IBAction public func toggleButtonTapped() {
+
+    @IBAction
+    public func toggleButtonTapped() {
         viewModel.toggleCurrentLoginType()
     }
-    @IBAction private func hideKeyboard() {
+
+    @IBAction
+    private func hideKeyboard() {
         credentialInputView.endEditing(true)
     }
 }

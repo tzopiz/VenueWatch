@@ -1,10 +1,3 @@
-//
-//  MKMapView.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 4/30/24.
-//
-
 import MapKit
 
 extension MKMapView {

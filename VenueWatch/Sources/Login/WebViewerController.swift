@@ -17,8 +17,8 @@ class WebViewModel: IWebViewModel {
 
 class WebViewerController: BaseViewController<WebViewModel> {
     private let webView = WKWebView()
-    var url: URL
-    
+    private let url: URL
+
     init(url: URL) {
         self.url = url
         super.init(viewModel: WebViewModel())

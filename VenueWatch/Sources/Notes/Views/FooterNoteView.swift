@@ -1,10 +1,3 @@
-//
-//  FooterNoteView.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/28/24.
-//
-
 import UIKit
 import UIComponents
 
@@ -14,10 +7,12 @@ final class FooterNoteView: BaseView {
     private let commentButton = BaseButton()
     private let shareButton = BaseButton()
     private let buttonsStackView = BaseStackView(axis: .horizontal)
+
     func configure(likesCount: Int) {
         self.likesButton.setTitle(formatNumber(), for: .normal)
         self.dislikeButton.setTitle(formatNumber(), for: .normal)
     }
+
     func formatNumber(_ number: Int = Int.random(in: 0..<3_000_000)) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -43,6 +38,7 @@ extension FooterNoteView {
         addSubviews(buttonsStackView, shareButton)
         buttonsStackView.addArrangedSubviews(likesButton, dislikeButton, commentButton)
     }
+
     override func layoutViews() {
         super.layoutViews()
         buttonsStackView.snp.makeConstraints { $0.leading.top.bottom.equalToSuperview() }
@@ -51,6 +47,7 @@ extension FooterNoteView {
             make.width.equalTo(50)
         }
     }
+
     override func configureViews() {
         super.configureViews()
         
@@ -68,13 +65,15 @@ extension FooterNoteView {
 
 // MARK: - Actions
 extension FooterNoteView {
-    @IBAction func likesButtonTapped() {
+    @IBAction
+    func likesButtonTapped() {
         likesButton.setImage(App.Image.likesFill, for: .normal)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.likesButton.setImage(App.Image.likes, for: .normal)
         }
     }
-    @IBAction func dislikeButtonTapped() {
+    @IBAction
+    func dislikeButtonTapped() {
         dislikeButton.setImage(App.Image.dislikeFill, for: .normal)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.dislikeButton.setImage(App.Image.dislike, for: .normal)

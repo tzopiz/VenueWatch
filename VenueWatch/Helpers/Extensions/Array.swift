@@ -1,16 +1,4 @@
-//
-//  Array.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 4/30/24.
-//
-
 import MapKit
-
-protocol ILocation {
-    var longitude: Double { get }
-    var latitude: Double { get }
-}
 
 extension Array where Element == Location {
     /// Применяет алгоритм Дугласа-Пекера для сглаживания линии.

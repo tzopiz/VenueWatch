@@ -1,10 +1,3 @@
-//
-//  ProfileView.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/28/24.
-//
-
 import UIKit
 import UIComponents
 
@@ -29,6 +22,7 @@ extension ProfileView {
         addSubviews(imageView, nameStackView)
         nameStackView.addArrangedSubviews(name, username)
     }
+
     override func layoutViews() {
         super.layoutViews()
         imageView.snp.makeConstraints { make in
@@ -39,8 +33,5 @@ extension ProfileView {
             make.top.bottom.trailing.equalToSuperview()
             make.leading.equalTo(imageView.snp.trailing).offset(8)
         }
-    }
-    override func configureViews() {
-        super.configureViews()
     }
 }

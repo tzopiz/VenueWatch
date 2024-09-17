@@ -34,6 +34,7 @@
 		0A3C3FC12BAB1AE500CDCFDF /* WebViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C3FC02BAB1AE500CDCFDF /* WebViewerController.swift */; };
 		0A3C401F2BAB957600CDCFDF /* ValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */; };
 		0A3DF1242BBC7051003CAB0D /* IProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DF1232BBC7051003CAB0D /* IProfileViewModel.swift */; };
+		0A47AC8E2C99619D005D004E /* Location.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A47AC8C2C99619D005D004E /* Location.xcdatamodeld */; };
 		0A51E7272BB56E9A0064B547 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51E7262BB56E9A0064B547 /* ProfileView.swift */; };
 		0A51E72A2BB5700B0064B547 /* FooterNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51E7292BB5700B0064B547 /* FooterNoteView.swift */; };
 		0A54803C2BB47CA900AE426F /* BaseCollectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A54803B2BB47CA900AE426F /* BaseCollectionViewControllerTests.swift */; };
@@ -54,7 +55,6 @@
 		0ABAAF512BB0A8F200F91A8D /* APIRequest + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABAAF502BB0A8F200F91A8D /* APIRequest + ext.swift */; };
 		0AC4CBA62BA987D700438E41 /* AppleButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4CBA52BA987D700438E41 /* AppleButtonsView.swift */; };
 		0AE71A952BE1380600FE31AD /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE71A942BE1380600FE31AD /* MKMapView.swift */; };
-		0AE71A992BE13BD900FE31AD /* Location.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AE71A972BE13BD900FE31AD /* Location.xcdatamodeld */; };
 		0AE71A9C2BE13E2E00FE31AD /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE71A9B2BE13E2E00FE31AD /* CoreDataManager.swift */; };
 		0AE71A9F2BE15DF900FE31AD /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE71A9E2BE15DF900FE31AD /* Array.swift */; };
 		0AF2940E2BA9C47C0075C11A /* CredentialInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2940D2BA9C47C0075C11A /* CredentialInputView.swift */; };
@@ -135,6 +135,7 @@
 		0A3C40132BAB94C000CDCFDF /* VenueWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenueWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3C401E2BAB957600CDCFDF /* ValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTests.swift; sourceTree = "<group>"; };
 		0A3DF1232BBC7051003CAB0D /* IProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IProfileViewModel.swift; sourceTree = "<group>"; };
+		0A47AC8D2C99619D005D004E /* Location.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Location.xcdatamodel; sourceTree = "<group>"; };
 		0A51E7262BB56E9A0064B547 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0A51E7292BB5700B0064B547 /* FooterNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterNoteView.swift; sourceTree = "<group>"; };
 		0A5480272BB41CC200AE426F /* VenueWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenueWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +248,7 @@
 		0A3663052BA0BECF004FAE1D /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				0A47AC8C2C99619D005D004E /* Location.xcdatamodeld */,
 				0A3663062BA0BED9004FAE1D /* UserDefaults.swift */,
 				0AE71A972BE13BD900FE31AD /* Location.xcdatamodeld */,
 				0AE71A9B2BE13E2E00FE31AD /* CoreDataManager.swift */,
@@ -781,7 +783,6 @@
 				0AF8CAE22BA04FE50069DF7E /* MapViewController.swift in Sources */,
 				0AFCF62F2BB4189400229F0D /* IMapViewModel.swift in Sources */,
 				0A3C3FC12BAB1AE500CDCFDF /* WebViewerController.swift in Sources */,
-				0AE71A992BE13BD900FE31AD /* Location.xcdatamodeld in Sources */,
 				0A87E17E2BB1DD9E0030CC3D /* NotesViewModel.swift in Sources */,
 				0A3938B42BA8FA6800150F7F /* AuthHeaderView.swift in Sources */,
 				0A87E1682BB1C1FA0030CC3D /* ProfileViewModel.swift in Sources */,
@@ -803,6 +804,7 @@
 				0A159DB62BAC5386007862C5 /* Validators.swift in Sources */,
 				0A36630D2BA0CA11004FAE1D /* UIApplication.swift in Sources */,
 				0A3C3FAA2BAAD88400CDCFDF /* LoginViewController.swift in Sources */,
+				0A47AC8E2C99619D005D004E /* Location.xcdatamodeld in Sources */,
 				0ABAAF512BB0A8F200F91A8D /* APIRequest + ext.swift in Sources */,
 				0AC4CBA62BA987D700438E41 /* AppleButtonsView.swift in Sources */,
 				0A87E1812BB1DDB30030CC3D /* MapViewModel.swift in Sources */,
@@ -1243,6 +1245,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		0A47AC8C2C99619D005D004E /* Location.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0A47AC8D2C99619D005D004E /* Location.xcdatamodel */,
+			);
+			currentVersion = 0A47AC8D2C99619D005D004E /* Location.xcdatamodel */;
+			path = Location.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		0AE71A972BE13BD900FE31AD /* Location.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

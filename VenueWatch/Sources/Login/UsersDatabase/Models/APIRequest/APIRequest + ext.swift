@@ -1,10 +1,3 @@
-//
-//  APIRequest + ext.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/24/24.
-//
-
 import Foundation
 
 extension APIRequest {

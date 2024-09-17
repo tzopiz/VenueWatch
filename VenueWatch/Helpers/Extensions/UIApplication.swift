@@ -1,10 +1,3 @@
-//
-//  UIApplication.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/12/24.
-//
-
 import UIKit
 
 extension UIApplication {
@@ -16,6 +9,7 @@ extension UIApplication {
             .flatMap({ $0 as? UIWindowScene })?.windows
             .first(where: \.isKeyWindow)
     }
+    
     /// Определяет верхний контроллер отображения в текущем приложении.
     var topViewController: UIViewController? {
         var top = keyWindow?.rootViewController

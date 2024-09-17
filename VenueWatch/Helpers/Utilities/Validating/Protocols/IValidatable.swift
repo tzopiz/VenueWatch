@@ -1,10 +1,3 @@
-//
-//  Validatable.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/21/24.
-//
-
 import Foundation
 
 protocol IValidatable {

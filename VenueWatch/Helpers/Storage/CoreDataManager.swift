@@ -1,14 +1,6 @@
-//
-//  CoreDataManager.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 4/30/24.
-//
-
 import UIKit
 import CoreData
 import MapKit
-import BackgroundTasks
 
 final class CoreDataManager: NSObject {
     

@@ -1,10 +1,3 @@
-//
-//  APIRequest.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/18/24.
-//
-
 import Foundation
 
 enum APIRequest {
@@ -34,6 +27,7 @@ enum APIRequest {
         components.path = self.path
         return components.url
     }
+    
     private var path: String {
         switch self {
         case .createAccount(let path, _),
@@ -43,12 +37,14 @@ enum APIRequest {
             return path
         }
     }
+    
     private var httpMethod: String {
         switch self {
         case .getData: return HTTPMethod.GET.rawValue
         default: return HTTPMethod.POST.rawValue
         }
     }
+    
     private var httpBody: Data? {
         switch self {
         case .createAccount(_, let userRequest):

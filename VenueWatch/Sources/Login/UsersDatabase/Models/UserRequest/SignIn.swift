@@ -1,10 +1,3 @@
-//
-//  UserRequset.SignIn.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/24/24.
-//
-
 import Foundation
 
 protocol ISignInRequest: IUserRequest {
@@ -22,8 +15,9 @@ extension UserRequest {
                 (password, .password())
             ]
             for (value, type) in validators {
-                guard case let .invalid(error) = Validators.isValid(value, type: type)
-                else { continue }
+                guard case let .invalid(error) = Validators.isValid(value, type: type) else {
+                    continue
+                }
                 errors.message.append(error)
             }
             guard errors.message.isEmpty else { return .invalid(errors) }

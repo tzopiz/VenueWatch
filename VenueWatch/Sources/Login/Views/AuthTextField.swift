@@ -1,10 +1,3 @@
-//
-//  AuthTextField.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/19/24.
-//
-
 import UIKit
 import UIComponents
 

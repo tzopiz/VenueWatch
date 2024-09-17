@@ -1,10 +1,3 @@
-//
-//  AuthService.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/18/24.
-//
-
 import Foundation
 
 class AuthService: IService {
@@ -14,8 +7,9 @@ class AuthService: IService {
     func fetch(request: URLRequest) async throws -> String {
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse,
-              (200...299).contains(httpResponse.statusCode)
-        else { throw ServiceError.server("Server error: \(response)") }
+              (200...299).contains(httpResponse.statusCode) else {
+            throw ServiceError.server("Server error: \(response)")
+        }
         let decoder = JSONDecoder()
         do {
             let successMessage = try decoder.decode(Response.Success.self, from: data)

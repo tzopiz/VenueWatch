@@ -1,10 +1,3 @@
-//
-//  NotesCollectionViewCell.swift
-//  VenueWatch
-//
-//  Created by Дмитрий Корчагин on 3/25/24.
-//
-
 import UIKit
 import UIComponents
 
@@ -48,6 +41,7 @@ extension NotesCollectionViewCell {
         addSubviews(stackView)
         stackView.addArrangedSubviews(profileView, imageViewNote, textNote, footerView)
     }
+
     override func layoutViews() {
         super.layoutViews()
         stackView.snp.makeConstraints { make in
@@ -55,6 +49,7 @@ extension NotesCollectionViewCell {
         }
         footerView.snp.makeConstraints { $0.height.equalTo(32) }
     }
+    
     override func configureViews() {
         super.configureViews()
         backgroundColor = App.Color.systemBackground
